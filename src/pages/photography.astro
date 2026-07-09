@@ -1,0 +1,70 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CTASection from '../components/CTASection.astro';
+
+const entry = await getEntry('services', 'photography');
+const d = entry!.data as any;
+const services = d.services ?? [];
+const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+---
+
+<BaseLayout
+  title="Photography Services | Shaney Hansen Photography"
+  description="Warm, story-led photography services in South Africa — weddings, couples, families, maternity, newborns, cake smash, schools, sport, corporate, studio, styled and destination sessions."
+  ogImage="/images/weddings/cover.svg"
+>
+  <Hero
+    headline={d.title}
+    support={d.intro}
+    image="/images/weddings/cover.svg"
+    imageAlt="Wedding photography by Shaney Hansen"
+    primaryCta="Enquire Now"
+    primaryLink="/contact"
+    secondaryCta="View Portfolio"
+    secondaryLink="/portfolio"
+    compact
+  />
+
+  <!-- Quick jump nav -->
+  <nav class="max-w-content mx-auto px-5 md:px-8 mt-4 mb-14 reveal" aria-label="Photography services">
+    <ul class="flex flex-wrap gap-2">
+      {
+        services.map((s: any) => (
+          <li>
+            <a
+              href={`#${slugify(s.name)}`}
+              class="inline-block rounded-full border border-sand bg-white px-4 py-1.5 text-xs tracking-wide text-taupe hover:border-gold hover:text-gold transition-colors"
+            >
+              {s.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <div class="max-w-content mx-auto px-5 md:px-8 space-y-20 md:space-y-28">
+    {
+      services.map((s: any, i: number) => (
+        <ServiceCard
+          id={slugify(s.name)}
+          name={s.name}
+          whoFor={s.whoFor}
+          expect={s.expect}
+          packageDetails={s.packageDetails}
+          image={s.image}
+          imageAlt={s.imageAlt}
+          reverse={i % 2 === 1}
+        />
+      ))
+    }
+  </div>
+
+  <CTASection
+    heading="Ready to plan your session?"
+    text="Share what you have in mind and Shaney will help shape it into a session that feels like you."
+  />
+</BaseLayout>

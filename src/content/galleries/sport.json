@@ -1,0 +1,24 @@
+{
+  "title": "Sport",
+  "description": "Action-led sport photography for school sport days, teams and events.",
+  "coverImage": "/images/sport/cover.svg",
+  "coverAlt": "Sport photography by Shaney Hansen Photography",
+  "seoTitle": "Sport Photographer South Africa | Shaney Hansen Photography",
+  "seoDescription": "School sport, team and action photography in South Africa by Shaney Hansen Photography.",
+  "featuredOnHomepage": false,
+  "order": 9,
+  "images": [
+    {
+      "src": "/images/sport/placeholder-1.svg",
+      "alt": "Sport photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/sport/placeholder-2.svg",
+      "alt": "Sport photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/sport/placeholder-3.svg",
+      "alt": "Sport photography session by Shaney Hansen Photography"
+    }
+  ]
+}

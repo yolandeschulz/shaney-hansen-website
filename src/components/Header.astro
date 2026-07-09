@@ -1,0 +1,104 @@
+---
+import { getEntry } from 'astro:content';
+const settingsEntry = await getEntry('site', 'settings');
+const settings = settingsEntry?.data ?? {};
+
+const nav = [
+  { label: 'Home', href: '/' },
+  { label: 'Photography', href: '/photography' },
+  { label: 'Social Media', href: '/social-media' },
+  { label: 'Creative Direction', href: '/creative-direction' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Destination', href: '/destination' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => (href === '/' ? current === '/' : current.startsWith(href));
+---
+
+<header class="sticky top-0 z-40 bg-cream/90 backdrop-blur border-b border-sand">
+  <div class="max-w-content mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-20">
+    <a href="/" class="flex flex-col leading-tight" aria-label="Shaney Hansen — home">
+      <span class="font-display text-xl md:text-2xl tracking-wide">Shaney Hansen</span>
+      <span class="text-[0.62rem] md:text-xs uppercase tracking-[0.22em] text-taupe"
+        >Photography &amp; Social Media Management</span
+      >
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden lg:flex items-center gap-6" aria-label="Main navigation">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'text-sm tracking-wide transition-colors duration-300 hover:text-gold',
+              isActive(item.href) ? 'text-gold' : 'text-charcoal',
+            ]}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Mobile menu button -->
+    <button
+      id="menu-toggle"
+      class="lg:hidden p-2 -mr-2"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Open menu"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <nav
+    id="mobile-menu"
+    class="lg:hidden hidden border-t border-sand bg-cream px-5 pb-6 pt-3"
+    aria-label="Mobile navigation"
+  >
+    <ul class="flex flex-col gap-1">
+      {
+        nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'block py-2.5 text-base border-b border-sand/70 transition-colors',
+                isActive(item.href) ? 'text-gold' : 'text-charcoal',
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <a
+      href={`https://wa.me/${settings.whatsapp}`}
+      class="mt-4 inline-block rounded-full bg-charcoal text-cream px-6 py-2.5 text-sm tracking-wide"
+      >WhatsApp Shaney</a
+    >
+  </nav>
+</header>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', function () {
+    var btn = document.getElementById('menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+  });
+</script>

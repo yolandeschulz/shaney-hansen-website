@@ -1,0 +1,65 @@
+{
+  "title": "Social Media Services",
+  "intro": "Social media works best when it feels personal, consistent and visually clear. Shaney helps brands, teams and businesses show up online with creative direction, thoughtful content planning and storytelling that feels human rather than generic.",
+  "whoFor": [
+    "Small businesses",
+    "Personal brands",
+    "Sports teams",
+    "Coaches and consultants",
+    "Lifestyle brands",
+    "Schools or pre-schools",
+    "Photographers or creatives",
+    "Service-based businesses",
+    "International businesses wanting creative support",
+    "Brands that need consistent content but do not want a large agency"
+  ],
+  "helpWith": [
+    "Content planning",
+    "Monthly content calendar",
+    "Caption writing",
+    "Visual storytelling",
+    "Brand tone and content direction",
+    "Social media post ideas",
+    "Reels and short-form content ideas",
+    "Scheduling support",
+    "Basic engagement/community management",
+    "Photography for social media",
+    "Event or lifestyle content",
+    "Brand content banks",
+    "Social media refresh"
+  ],
+  "services": [
+    {
+      "name": "Social Media Management",
+      "whoFor": "For small businesses, personal brands, sports teams, lifestyle brands, creatives and service-based businesses that need consistent, beautiful and story-led social media content.",
+      "expect": "Because Shaney understands photography, styling and visual storytelling, her social media support is not only about posting consistently. It is about creating content that looks considered, feels on-brand and gives people a reason to stop scrolling.",
+      "packageDetails": "[Package details to be confirmed] · [Monthly deliverables to be confirmed] · [Platforms to be confirmed]"
+    },
+    {
+      "name": "Social Media Content Creation",
+      "whoFor": "For clients who need beautiful content but may manage their own posting.",
+      "expect": "Brand photos, lifestyle content, behind-the-scenes moments, short-form video planning, Reels content, social media image banks, event content and influencer-style documentation.",
+      "packageDetails": "[Package details to be confirmed]"
+    }
+  ],
+  "packages": [
+    {
+      "name": "Social Starter",
+      "details": "[Monthly posts to be confirmed] · [Stories/Reels to be confirmed] · [Content calendar to be confirmed] · [Captions to be confirmed] · [Platforms to be confirmed] · [Monthly fee to be confirmed]"
+    },
+    {
+      "name": "Consistent Presence",
+      "details": "[Monthly posts to be confirmed] · [Stories/Reels to be confirmed] · [Content calendar to be confirmed] · [Captions to be confirmed] · [Platforms to be confirmed] · [Monthly fee to be confirmed]"
+    },
+    {
+      "name": "Story-Led Growth",
+      "details": "[Monthly posts to be confirmed] · [Stories/Reels to be confirmed] · [Content calendar to be confirmed] · [Captions to be confirmed] · [Platforms to be confirmed] · [Monthly fee to be confirmed]"
+    },
+    {
+      "name": "Content Creation Add-On",
+      "details": "[Shoot scope to be confirmed] · [Deliverables to be confirmed] · [Fee to be confirmed]"
+    }
+  ],
+  "internationalHeading": "International-Standard Support, South African Value",
+  "internationalCopy": "Shaney works from South Africa, but her creative approach is not limited by location. For international clients paying in dollars, euros or pounds, working with a South African creative can offer a strong value advantage while still receiving professional, personal and visually considered social media support. This is ideal for businesses and teams that want consistent storytelling, warm creative direction and reliable content support without the scale or cost of a large agency."
+}

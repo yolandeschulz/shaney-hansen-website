@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-charcoal font-sans antialiased;
+}
+
+::selection {
+  background-color: #d9bfb2;
+  color: #2e2a26;
+}
+
+/* ---------- Motion & depth system ----------
+   All movement is slow, soft and CSS-driven.
+   Elements with .reveal fade/rise in when scrolled into view
+   (a tiny IntersectionObserver in BaseLayout adds .is-visible).
+   Reduced motion: everything is shown immediately, no movement. */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Soft image zoom on hover (gallery/portfolio cards) */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.img-zoom:hover img {
+  transform: scale(1.04);
+}
+
+/* Gentle card lift */
+.card-lift {
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px -16px rgba(46, 42, 38, 0.25);
+}
+
+/* Reduced motion: no animation, content always visible */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .img-zoom img,
+  .card-lift {
+    transition: none;
+  }
+  .img-zoom:hover img {
+    transform: none;
+  }
+  .card-lift:hover {
+    transform: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "title": "Studio",
+  "description": "Controlled, creative studio sessions \u2014 portraits, concepts and beautifully lit scenes.",
+  "coverImage": "/images/studio/cover.svg",
+  "coverAlt": "Studio photography by Shaney Hansen Photography",
+  "seoTitle": "Studio Photography Sessions | Shaney Hansen Photography",
+  "seoDescription": "Studio portrait and creative studio photography sessions by Shaney Hansen Photography.",
+  "featuredOnHomepage": false,
+  "order": 11,
+  "images": [
+    {
+      "src": "/images/studio/placeholder-1.svg",
+      "alt": "Studio photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/studio/placeholder-2.svg",
+      "alt": "Studio photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/studio/placeholder-3.svg",
+      "alt": "Studio photography session by Shaney Hansen Photography"
+    }
+  ]
+}

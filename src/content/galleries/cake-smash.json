@@ -1,0 +1,24 @@
+{
+  "title": "Cake Smash",
+  "description": "Joyful, styled cake smash sessions that celebrate first birthdays and milestones beautifully.",
+  "coverImage": "/images/cake-smash/cover.svg",
+  "coverAlt": "Cake Smash photography by Shaney Hansen Photography",
+  "seoTitle": "Cake Smash Photographer Lichtenburg | Shaney Hansen Photography",
+  "seoDescription": "Styled cake smash and milestone birthday photography with custom-built sets, by Shaney Hansen Photography.",
+  "featuredOnHomepage": true,
+  "order": 6,
+  "images": [
+    {
+      "src": "/images/cake-smash/placeholder-1.svg",
+      "alt": "Cake Smash photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/cake-smash/placeholder-2.svg",
+      "alt": "Cake Smash photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/cake-smash/placeholder-3.svg",
+      "alt": "Cake Smash photography session by Shaney Hansen Photography"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import GalleryCategoryCard from '../../components/GalleryCategoryCard.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const galleries = (await getCollection('galleries')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Portfolio | Shaney Hansen Photography"
+  description="Explore the full photography portfolio — weddings, couples, family, maternity, newborn, cake smash, school, pre-school, sport, corporate, studio and styled sessions."
+>
+  <section class="max-w-content mx-auto px-5 md:px-8 pt-14 md:pt-20">
+    <SectionHeading
+      eyebrow="Portfolio"
+      title="Every story, beautifully documented"
+      text="From weddings and family seasons to styled concepts and corporate branding — explore each gallery to see Shaney's warm, natural, story-led style."
+      align="center"
+    />
+  </section>
+
+  <section class="max-w-content mx-auto px-5 md:px-8 mt-12 md:mt-16">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        galleries.map((g, i) => (
+          <GalleryCategoryCard
+            title={g.data.title}
+            description={g.data.description}
+            coverImage={g.data.coverImage}
+            coverAlt={g.data.coverAlt}
+            slug={g.id.replace('.json', '')}
+            delay={(i % 3) * 100}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <CTASection
+    heading="See a style you love?"
+    text="Enquire about availability for your own session — locally or as a destination project."
+    buttonLabel="Book Your Session"
+  />
+</BaseLayout>

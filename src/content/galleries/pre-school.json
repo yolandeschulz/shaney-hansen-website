@@ -1,0 +1,24 @@
+{
+  "title": "Pre-school",
+  "description": "Gentle, patient photography for little ones \u2014 pre-school portraits and early childhood sessions.",
+  "coverImage": "/images/pre-school/cover.svg",
+  "coverAlt": "Pre-school photography by Shaney Hansen Photography",
+  "seoTitle": "Pre-school Photographer South Africa | Shaney Hansen Photography",
+  "seoDescription": "Pre-school and early childhood photography sessions in South Africa by Shaney Hansen Photography.",
+  "featuredOnHomepage": false,
+  "order": 8,
+  "images": [
+    {
+      "src": "/images/pre-school/placeholder-1.svg",
+      "alt": "Pre-school photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/pre-school/placeholder-2.svg",
+      "alt": "Pre-school photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/pre-school/placeholder-3.svg",
+      "alt": "Pre-school photography session by Shaney Hansen Photography"
+    }
+  ]
+}

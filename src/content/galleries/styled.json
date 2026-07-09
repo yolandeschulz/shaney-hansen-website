@@ -1,0 +1,24 @@
+{
+  "title": "Styled",
+  "description": "Themed, seasonal and concept shoots with sets and styling created by Shaney herself.",
+  "coverImage": "/images/styled/cover.svg",
+  "coverAlt": "Styled photography by Shaney Hansen Photography",
+  "seoTitle": "Styled Photography Sessions | Shaney Hansen Photography",
+  "seoDescription": "Styled, themed and seasonal photography sessions with creative set design by Shaney Hansen Photography.",
+  "featuredOnHomepage": false,
+  "order": 12,
+  "images": [
+    {
+      "src": "/images/styled/placeholder-1.svg",
+      "alt": "Styled photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/styled/placeholder-2.svg",
+      "alt": "Styled photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/styled/placeholder-3.svg",
+      "alt": "Styled photography session by Shaney Hansen Photography"
+    }
+  ]
+}

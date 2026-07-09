@@ -1,0 +1,45 @@
+---
+import Button from './Button.astro';
+import { getEntry } from 'astro:content';
+
+interface Props {
+  heading: string;
+  text?: string;
+  buttonLabel?: string;
+  buttonLink?: string;
+  showWhatsApp?: boolean;
+}
+const {
+  heading,
+  text,
+  buttonLabel = 'Send an Enquiry',
+  buttonLink = '/contact',
+  showWhatsApp = true,
+} = Astro.props;
+
+const settingsEntry = await getEntry('site', 'settings');
+const settings = settingsEntry?.data ?? {};
+---
+
+<section class="max-w-content mx-auto px-5 md:px-8 my-20 md:my-28">
+  <div
+    class="reveal relative overflow-hidden rounded-3xl bg-gradient-to-br from-sand via-blush-soft to-blush px-7 py-14 md:px-16 md:py-20 text-center shadow-soft"
+  >
+    <div class="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-cream/40" aria-hidden="true"></div>
+    <div class="absolute -bottom-20 -left-10 w-64 h-64 rounded-full bg-cream/30" aria-hidden="true"></div>
+    <div class="relative">
+      <h2 class="font-display text-3xl md:text-4xl">{heading}</h2>
+      {text && <p class="mt-4 max-w-xl mx-auto text-taupe leading-relaxed">{text}</p>}
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <Button href={buttonLink}>{buttonLabel}</Button>
+        {
+          showWhatsApp && (
+            <Button href={`https://wa.me/${settings.whatsapp}`} variant="outline">
+              WhatsApp Shaney
+            </Button>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

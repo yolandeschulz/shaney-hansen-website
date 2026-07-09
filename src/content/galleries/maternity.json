@@ -1,0 +1,24 @@
+{
+  "title": "Maternity",
+  "description": "Soft, feminine maternity photography that honours this season with warmth and care.",
+  "coverImage": "/images/maternity/cover.svg",
+  "coverAlt": "Maternity photography by Shaney Hansen Photography",
+  "seoTitle": "Maternity Photographer Lichtenburg | Shaney Hansen Photography",
+  "seoDescription": "Gentle, light-filled maternity photography sessions in South Africa by Shaney Hansen Photography.",
+  "featuredOnHomepage": true,
+  "order": 4,
+  "images": [
+    {
+      "src": "/images/maternity/placeholder-1.svg",
+      "alt": "Maternity photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/maternity/placeholder-2.svg",
+      "alt": "Maternity photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/maternity/placeholder-3.svg",
+      "alt": "Maternity photography session by Shaney Hansen Photography"
+    }
+  ]
+}

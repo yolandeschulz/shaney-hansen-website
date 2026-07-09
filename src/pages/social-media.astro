@@ -1,0 +1,136 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import CTASection from '../components/CTASection.astro';
+
+const page = await getEntry('pages', 'social-media');
+const p = page!.data as any;
+const svc = await getEntry('services', 'social-media');
+const d = svc!.data as any;
+const caseStudy = await getEntry('case-studies', 'team-up-athletics');
+const cs = caseStudy?.data as any;
+---
+
+<BaseLayout title={p.seoTitle} description={p.seoDescription} ogImage={p.heroImage}>
+  <Hero
+    headline={p.heroHeadline}
+    support={p.heroSupport}
+    image={p.heroImage}
+    imageAlt={p.heroImageAlt}
+    primaryCta={p.cta}
+    primaryLink="/contact"
+    compact
+  />
+
+  <!-- 1. Who this is for -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+    <SectionHeading eyebrow="Who this is for" title="Made for brands that value story over noise" />
+    <ul class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        (d.whoFor ?? []).map((item: string, i: number) => (
+          <li
+            class="reveal flex items-start gap-3 bg-white rounded-xl shadow-soft px-5 py-4 text-sm"
+            style={`transition-delay: ${(i % 3) * 80}ms`}
+          >
+            <span class="text-gold mt-0.5">&#10022;</span>
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- 2. What Shaney can help with -->
+  <section class="bg-sand/60 py-16 md:py-20 my-16 md:my-24">
+    <div class="max-w-content mx-auto px-5 md:px-8">
+      <SectionHeading eyebrow="Support" title="What Shaney can help with" />
+      <ul class="mt-8 flex flex-wrap gap-2.5">
+        {
+          (d.helpWith ?? []).map((item: string) => (
+            <li class="reveal rounded-full bg-white shadow-soft px-4 py-2 text-sm text-taupe">{item}</li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3 & 4. The two services -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24 grid gap-8 md:grid-cols-2">
+    {
+      (d.services ?? []).map((s: any, i: number) => (
+        <article
+          class="reveal card-lift bg-white rounded-3xl shadow-soft p-8 md:p-10"
+          style={`transition-delay: ${i * 140}ms`}
+        >
+          <h2 class="font-display text-2xl md:text-3xl">{s.name}</h2>
+          <p class="mt-4 text-taupe leading-relaxed">{s.whoFor}</p>
+          <p class="mt-3 leading-relaxed">{s.expect}</p>
+          <p class="mt-5 text-sm text-taupe bg-sand/60 rounded-lg px-4 py-3">{s.packageDetails}</p>
+        </article>
+      ))
+    }
+  </section>
+
+  <!-- 5. International value -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+    <div class="reveal relative overflow-hidden rounded-3xl bg-charcoal text-cream px-7 py-14 md:px-16 md:py-18">
+      <div class="absolute -top-14 -right-14 w-52 h-52 rounded-full bg-taupe/30" aria-hidden="true"></div>
+      <div class="relative max-w-3xl">
+        <p class="text-xs uppercase tracking-[0.28em] text-blush">Global reach</p>
+        <h2 class="mt-3 font-display text-3xl md:text-4xl">{d.internationalHeading}</h2>
+        <p class="mt-5 leading-relaxed text-cream/85">{d.internationalCopy}</p>
+        <div class="mt-8">
+          <Button href="/contact">{p.internationalCta}</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Team Up Athletics case study -->
+  {
+    cs?.published && (
+      <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+        <SectionHeading eyebrow="Social media work" title="Client story" />
+        <div class="mt-8">
+          <CaseStudyCard {...cs} />
+        </div>
+      </section>
+    )
+  }
+
+  <!-- 7. Package placeholders -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+    <SectionHeading
+      eyebrow="Packages"
+      title="Support shaped around your brand"
+      text="Final package details are being confirmed. Enquire for a tailored quote in the meantime."
+    />
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        (d.packages ?? []).map((pkg: any, i: number) => (
+          <div
+            class="reveal card-lift bg-white rounded-2xl shadow-soft p-7 flex flex-col"
+            style={`transition-delay: ${i * 100}ms`}
+          >
+            <h3 class="font-display text-xl">{pkg.name}</h3>
+            <p class="mt-3 text-xs text-taupe leading-relaxed flex-1">{pkg.details}</p>
+            <a href="/contact" class="mt-5 text-xs uppercase tracking-[0.22em] text-gold">
+              Enquire &rarr;
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- 8. CTA -->
+  <CTASection
+    heading="Ready to show up beautifully online?"
+    text="Tell Shaney about your brand, your platforms and what consistency would mean for you."
+    buttonLabel={p.cta}
+  />
+</BaseLayout>

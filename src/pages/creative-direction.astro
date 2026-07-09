@@ -1,0 +1,89 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import GalleryCategoryCard from '../components/GalleryCategoryCard.astro';
+import CTASection from '../components/CTASection.astro';
+
+const page = await getEntry('pages', 'creative-direction');
+const p = page!.data as any;
+const svc = await getEntry('services', 'creative-direction');
+const d = svc!.data as any;
+
+const galleries = await getCollection('galleries');
+const proof = galleries.filter((g) => ['styled', 'studio', 'cake-smash'].includes(g.id.replace('.json', '')));
+---
+
+<BaseLayout title={p.seoTitle} description={p.seoDescription} ogImage={p.heroImage}>
+  <Hero
+    headline={p.heroHeadline}
+    support={p.heroSupport}
+    image={p.heroImage}
+    imageAlt={p.heroImageAlt}
+    primaryCta={p.cta}
+    primaryLink="/contact"
+    compact
+  />
+
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24 grid gap-10 md:grid-cols-2 md:items-start">
+    <div class="reveal">
+      <SectionHeading eyebrow="More than a camera" title={d.intro} text={d.body} />
+    </div>
+    <ul class="grid gap-3 sm:grid-cols-2">
+      {
+        (d.capabilities ?? []).map((item: string, i: number) => (
+          <li
+            class="reveal flex items-start gap-3 bg-white rounded-xl shadow-soft px-5 py-4 text-sm"
+            style={`transition-delay: ${(i % 2) * 90}ms`}
+          >
+            <span class="text-gold mt-0.5">&#10022;</span>
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- Collage-style proof galleries -->
+  <section class="bg-sand/60 py-16 md:py-24 my-16 md:my-24">
+    <div class="max-w-content mx-auto px-5 md:px-8">
+      <SectionHeading eyebrow="Proof in the portfolio" title="Sets, scenes and concepts built by Shaney" text={p.proofText} />
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          proof.map((g, i) => (
+            <GalleryCategoryCard
+              title={g.data.title}
+              description={g.data.description}
+              coverImage={g.data.coverImage}
+              coverAlt={g.data.coverAlt}
+              slug={g.id.replace('.json', '')}
+              delay={i * 120}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+    <div class="reveal max-w-3xl">
+      <h2 class="font-display text-3xl md:text-4xl">Why it matters for social media</h2>
+      <p class="mt-5 text-taupe leading-relaxed">
+        Because Shaney understands photography, styling and visual storytelling, her social media
+        support is not only about posting consistently. It is about creating content that looks
+        considered, feels on-brand and gives people a reason to stop scrolling.
+      </p>
+      <div class="mt-7">
+        <Button href="/social-media" variant="outline">Explore Social Media Management</Button>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Have a concept in mind?"
+    text="From a single styled session to a full brand content shoot — share the idea and Shaney will help build the scene."
+    buttonLabel={d.cta}
+  />
+</BaseLayout>

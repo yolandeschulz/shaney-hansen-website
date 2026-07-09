@@ -1,0 +1,16 @@
+{
+  "heading": "Kind Words",
+  "note": "Testimonials are hidden until real client words are added. Set 'published' to true on an item to show it.",
+  "items": [
+    {
+      "quote": "[Client testimonial to be added]",
+      "name": "[Client name]",
+      "published": false
+    },
+    {
+      "quote": "[Client testimonial to be added]",
+      "name": "[Client name]",
+      "published": false
+    }
+  ]
+}

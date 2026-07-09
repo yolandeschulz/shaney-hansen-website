@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GalleryGrid from '../../components/GalleryGrid.astro';
+import CTASection from '../../components/CTASection.astro';
+import Button from '../../components/Button.astro';
+
+export async function getStaticPaths() {
+  const galleries = await getCollection('galleries');
+  return galleries.map((g) => ({
+    params: { slug: g.id.replace('.json', '') },
+    props: { gallery: g },
+  }));
+}
+
+const { gallery } = Astro.props;
+const d = gallery.data;
+const all = (await getCollection('galleries')).sort((a, b) => a.data.order - b.data.order);
+const others = all.filter((g) => g.id !== gallery.id).slice(0, 4);
+---
+
+<BaseLayout title={d.seoTitle ?? `${d.title} | Shaney Hansen Photography`} description={d.seoDescription ?? d.description} ogImage={d.coverImage}>
+  <!-- Breadcrumbs -->
+  <nav class="max-w-content mx-auto px-5 md:px-8 pt-8 text-xs text-taupe" aria-label="Breadcrumb">
+    <ol class="flex gap-2">
+      <li><a href="/" class="hover:text-gold transition-colors">Home</a> /</li>
+      <li><a href="/portfolio" class="hover:text-gold transition-colors">Portfolio</a> /</li>
+      <li aria-current="page" class="text-charcoal">{d.title}</li>
+    </ol>
+  </nav>
+
+  <section class="max-w-content mx-auto px-5 md:px-8 pt-8 md:pt-12">
+    <div class="reveal max-w-2xl">
+      <h1 class="font-display text-4xl md:text-5xl">{d.title}</h1>
+      <p class="mt-4 text-taupe leading-relaxed">{d.description}</p>
+    </div>
+  </section>
+
+  <section class="max-w-content mx-auto px-5 md:px-8 mt-10 md:mt-14">
+    <GalleryGrid images={d.images} />
+  </section>
+
+  <CTASection
+    heading={`Love this style?`}
+    text="Enquire about your own session — Shaney will help plan something that feels like you."
+    buttonLabel="Enquire About Availability"
+  />
+
+  <!-- More galleries -->
+  <section class="max-w-content mx-auto px-5 md:px-8 mb-8">
+    <h2 class="reveal font-display text-2xl">More galleries</h2>
+    <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-4">
+      {
+        others.map((g, i) => (
+          <a
+            href={`/portfolio/${g.id.replace('.json', '')}`}
+            class="reveal img-zoom card-lift rounded-xl overflow-hidden shadow-soft block"
+            style={`transition-delay: ${i * 80}ms`}
+          >
+            <img src={g.data.coverImage} alt={g.data.coverAlt} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+            <p class="px-4 py-3 text-sm font-display">{g.data.title}</p>
+          </a>
+        ))
+      }
+    </div>
+    <div class="mt-8 reveal">
+      <Button href="/portfolio" variant="ghost">Back to the full portfolio</Button>
+    </div>
+  </section>
+</BaseLayout>

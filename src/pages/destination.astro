@@ -1,0 +1,78 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import CTASection from '../components/CTASection.astro';
+
+const page = await getEntry('pages', 'destination');
+const p = page!.data as any;
+const svc = await getEntry('services', 'destination');
+const d = svc!.data as any;
+---
+
+<BaseLayout title={p.seoTitle} description={p.seoDescription} ogImage={p.heroImage}>
+  <Hero
+    headline={p.heroHeadline}
+    support={p.heroSupport}
+    image={p.heroImage}
+    imageAlt={p.heroImageAlt}
+    primaryCta={p.cta}
+    primaryLink="/contact"
+    compact
+  />
+
+  <!-- International Quality, South African Value -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+    <SectionHeading eyebrow="Why Shaney" title={d.sectionTitle} />
+    <p class="mt-6 reveal max-w-3xl leading-relaxed text-charcoal/90">{d.valueCopy}</p>
+  </section>
+
+  <!-- The service -->
+  <section class="bg-sand/60 py-16 md:py-20 my-16 md:my-24">
+    <div class="max-w-content mx-auto px-5 md:px-8 grid gap-10 md:grid-cols-2 md:items-start">
+      <div class="reveal">
+        <SectionHeading eyebrow="The service" title={d.title} text={`${d.intro} ${d.body}`} />
+        <p class="mt-5 text-taupe leading-relaxed">{d.styledMomentsCopy}</p>
+        <div class="mt-7">
+          <Button href="/contact">{d.cta}</Button>
+        </div>
+      </div>
+      <div>
+        <h3 class="reveal font-display text-xl mb-4">Ideal for</h3>
+        <ul class="grid gap-2.5 sm:grid-cols-2">
+          {
+            (d.idealFor ?? []).map((item: string, i: number) => (
+              <li
+                class="reveal flex items-start gap-2.5 bg-white rounded-lg shadow-soft px-4 py-3 text-sm"
+                style={`transition-delay: ${(i % 2) * 80}ms`}
+              >
+                <span class="text-gold">&#10022;</span>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practical details placeholders -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+    <SectionHeading
+      eyebrow="Planning"
+      title="Every destination project is quoted individually"
+      text="These details are confirmed per project so your quote fits your trip, your story and your deliverables."
+    />
+    <ul class="mt-8 grid gap-3 sm:grid-cols-2 max-w-3xl">
+      {
+        (d.placeholders ?? []).map((item: string) => (
+          <li class="reveal text-sm text-taupe bg-sand/60 rounded-lg px-4 py-3">{item}</li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <CTASection heading="Planning something far from home?" text="Tell Shaney about the trip, the occasion and the story you want documented." buttonLabel={d.cta} />
+</BaseLayout>

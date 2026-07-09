@@ -1,0 +1,24 @@
+{
+  "title": "Corporate",
+  "description": "Professional headshots, team photos and brand imagery for websites, LinkedIn and social media.",
+  "coverImage": "/images/corporate/cover.svg",
+  "coverAlt": "Corporate photography by Shaney Hansen Photography",
+  "seoTitle": "Corporate Photographer South Africa | Shaney Hansen Photography",
+  "seoDescription": "Corporate headshots, branding and business photography in South Africa by Shaney Hansen Photography.",
+  "featuredOnHomepage": true,
+  "order": 10,
+  "images": [
+    {
+      "src": "/images/corporate/placeholder-1.svg",
+      "alt": "Corporate photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/corporate/placeholder-2.svg",
+      "alt": "Corporate photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/corporate/placeholder-3.svg",
+      "alt": "Corporate photography session by Shaney Hansen Photography"
+    }
+  ]
+}

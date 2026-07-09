@@ -1,0 +1,302 @@
+# Pages CMS configuration for Shaney Hansen Photography & Social Media Management
+# Docs: https://pagescms.org/docs/
+#
+# Log in at https://app.pagescms.org with GitHub, select this repository,
+# and everything below becomes editable through a friendly interface.
+
+media:
+  input: public/images
+  output: /images
+  categories: [image]
+
+content:
+  # ---------- Site settings ----------
+  - name: settings
+    label: Site Settings (contact details, footer, SEO defaults)
+    type: file
+    path: src/content/site/settings.json
+    fields:
+      - { name: siteName, label: Site name, type: string }
+      - { name: shortName, label: Short name, type: string }
+      - { name: tagline, label: Tagline, type: text }
+      - { name: positioning, label: Positioning statement, type: text }
+      - { name: phone, label: Phone / WhatsApp (display), type: string }
+      - { name: whatsapp, label: "WhatsApp number (digits only, e.g. 27769978365)", type: string }
+      - { name: email, label: Email address, type: string }
+      - { name: location, label: Location, type: string }
+      - { name: facebook, label: Facebook link, type: string }
+      - { name: instagram, label: Instagram link, type: string }
+      - { name: formEndpoint, label: "Contact form endpoint (leave empty for email fallback)", type: string, required: false }
+      - { name: footerLine, label: Footer wording, type: text }
+      - { name: availabilityLine, label: Availability line, type: string }
+      - { name: travelNote, label: Travel note, type: string }
+      - { name: defaultSeoTitle, label: Default SEO title, type: string }
+      - { name: defaultSeoDescription, label: Default SEO description, type: text }
+      - { name: defaultOgImage, label: Default social share image, type: image }
+
+  # ---------- Pages ----------
+  - name: home
+    label: "Page: Home"
+    type: file
+    path: src/content/pages/home.md
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: seoTitle, label: SEO title, type: string }
+      - { name: seoDescription, label: SEO / meta description, type: text }
+      - { name: heroHeadline, label: Hero headline, type: text }
+      - { name: heroSupport, label: Hero supporting line, type: text }
+      - { name: heroPrimaryCta, label: Hero primary button text, type: string }
+      - { name: heroPrimaryLink, label: Hero primary button link, type: string }
+      - { name: heroSecondaryCta, label: Hero secondary button text, type: string }
+      - { name: heroSecondaryLink, label: Hero secondary button link, type: string }
+      - { name: heroImage, label: Hero image, type: image }
+      - { name: heroImageAlt, label: Hero image alt text, type: string }
+      - { name: introHeading, label: Intro heading, type: string }
+      - { name: introText, label: Intro text, type: text }
+      - { name: pillarsHeading, label: Service pillars heading, type: string }
+      - { name: featuredHeading, label: Featured categories heading, type: string }
+      - { name: featuredText, label: Featured categories text, type: text }
+      - { name: creativeHeading, label: Creative direction teaser heading, type: string }
+      - { name: creativeText, label: Creative direction teaser text, type: text }
+      - { name: socialHeading, label: Social media teaser heading, type: string }
+      - { name: socialText, label: Social media teaser text, type: text }
+      - { name: destinationHeading, label: Destination teaser heading, type: string }
+      - { name: destinationText, label: Destination teaser text, type: text }
+      - { name: howHeading, label: How it works heading, type: string }
+      - { name: howText, label: How it works text, type: text }
+      - name: howSteps
+        label: How it works steps
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Step title, type: string }
+          - { name: text, label: Step text, type: text }
+      - { name: trustHeading, label: Testimonials heading, type: string }
+      - { name: finalCtaHeading, label: Final CTA heading, type: string }
+      - { name: finalCtaText, label: Final CTA text, type: text }
+      - { name: finalCtaButton, label: Final CTA button text, type: string }
+
+  - name: about
+    label: "Page: About"
+    type: file
+    path: src/content/pages/about.md
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: seoTitle, label: SEO title, type: string }
+      - { name: seoDescription, label: SEO / meta description, type: text }
+      - { name: heroHeadline, label: Headline, type: string }
+      - { name: heroImage, label: Main image, type: image }
+      - { name: heroImageAlt, label: Main image alt text, type: string }
+      - { name: introText, label: Intro text, type: text }
+      - { name: bioPlaceholder, label: Personal bio, type: text }
+      - { name: styleHeading, label: Style heading, type: string }
+      - { name: styleText, label: Style text, type: text }
+      - { name: creativeText, label: Creative direction text, type: text }
+      - { name: expectHeading, label: What to expect heading, type: string }
+      - { name: expectItems, label: What to expect items, type: string, list: true }
+      - { name: whyHeading, label: Why choose heading, type: string }
+      - { name: whyText, label: Why choose text, type: text }
+      - { name: ctaText, label: CTA button text, type: string }
+
+  - name: destination-page
+    label: "Page: Destination"
+    type: file
+    path: src/content/pages/destination.md
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: seoTitle, label: SEO title, type: string }
+      - { name: seoDescription, label: SEO / meta description, type: text }
+      - { name: heroHeadline, label: Hero headline, type: string }
+      - { name: heroSupport, label: Hero supporting line, type: text }
+      - { name: heroImage, label: Hero image, type: image }
+      - { name: heroImageAlt, label: Hero image alt text, type: string }
+      - { name: cta, label: CTA button text, type: string }
+
+  - name: social-media-page
+    label: "Page: Social Media"
+    type: file
+    path: src/content/pages/social-media.md
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: seoTitle, label: SEO title, type: string }
+      - { name: seoDescription, label: SEO / meta description, type: text }
+      - { name: heroHeadline, label: Hero headline, type: text }
+      - { name: heroSupport, label: Hero supporting line, type: text }
+      - { name: heroImage, label: Hero image, type: image }
+      - { name: heroImageAlt, label: Hero image alt text, type: string }
+      - { name: cta, label: CTA button text, type: string }
+      - { name: internationalCta, label: International CTA button text, type: string }
+
+  - name: creative-direction-page
+    label: "Page: Creative Direction"
+    type: file
+    path: src/content/pages/creative-direction.md
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: seoTitle, label: SEO title, type: string }
+      - { name: seoDescription, label: SEO / meta description, type: text }
+      - { name: heroHeadline, label: Hero headline, type: string }
+      - { name: heroSupport, label: Hero supporting line, type: text }
+      - { name: heroImage, label: Hero image, type: image }
+      - { name: heroImageAlt, label: Hero image alt text, type: string }
+      - { name: proofText, label: Portfolio proof text, type: text }
+      - { name: cta, label: CTA button text, type: string }
+
+  - name: contact-page
+    label: "Page: Contact"
+    type: file
+    path: src/content/pages/contact.md
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: seoTitle, label: SEO title, type: string }
+      - { name: seoDescription, label: SEO / meta description, type: text }
+      - { name: heroHeadline, label: Headline, type: string }
+      - { name: heroSupport, label: Supporting line, type: text }
+      - { name: consentText, label: Consent checkbox text, type: text }
+
+  - name: privacy-page
+    label: "Page: Privacy Policy"
+    type: file
+    path: src/content/pages/privacy.md
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: seoTitle, label: SEO title, type: string }
+      - { name: seoDescription, label: SEO / meta description, type: text }
+      - { name: body, label: Policy text, type: rich-text }
+
+  # ---------- Services ----------
+  - name: photography-services
+    label: "Services: Photography"
+    type: file
+    path: src/content/services/photography.json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: intro, label: Intro text, type: text }
+      - name: services
+        label: Photography services
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Service name, type: string }
+          - { name: whoFor, label: Who it is for, type: text }
+          - { name: expect, label: What to expect, type: text }
+          - { name: packageDetails, label: Package details, type: text }
+          - { name: image, label: Image, type: image }
+          - { name: imageAlt, label: Image alt text, type: string }
+
+  - name: social-media-services
+    label: "Services: Social Media"
+    type: file
+    path: src/content/services/social-media.json
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: intro, label: Intro text, type: text }
+      - { name: whoFor, label: Who this is for (list), type: string, list: true }
+      - { name: helpWith, label: What Shaney can help with (list), type: string, list: true }
+      - name: services
+        label: Services
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Service name, type: string }
+          - { name: whoFor, label: Who it is for, type: text }
+          - { name: expect, label: What to expect, type: text }
+          - { name: packageDetails, label: Package details, type: text }
+      - name: packages
+        label: Package placeholders
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Package name, type: string }
+          - { name: details, label: Details, type: text }
+      - { name: internationalHeading, label: International section heading, type: string }
+      - { name: internationalCopy, label: International section copy, type: text }
+
+  - name: creative-direction-services
+    label: "Services: Creative Direction"
+    type: file
+    path: src/content/services/creative-direction.json
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: intro, label: Intro line, type: text }
+      - { name: body, label: Main copy, type: text }
+      - { name: capabilities, label: Capabilities (list), type: string, list: true }
+      - { name: cta, label: CTA button text, type: string }
+
+  - name: destination-services
+    label: "Services: Destination"
+    type: file
+    path: src/content/services/destination.json
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: sectionTitle, label: Section title, type: string }
+      - { name: intro, label: Intro line, type: text }
+      - { name: body, label: Main copy, type: text }
+      - { name: valueCopy, label: International value copy, type: text }
+      - { name: styledMomentsCopy, label: Styled moments copy, type: text }
+      - { name: idealFor, label: Ideal for (list), type: string, list: true }
+      - { name: placeholders, label: Planning placeholders (list), type: string, list: true }
+      - { name: cta, label: CTA button text, type: string }
+
+  # ---------- Portfolio galleries ----------
+  - name: galleries
+    label: Portfolio Galleries
+    type: collection
+    path: src/content/galleries
+    format: json
+    view:
+      fields: [title, order, featuredOnHomepage]
+      sort: [order]
+    fields:
+      - { name: title, label: Gallery title, type: string }
+      - { name: description, label: Short description, type: text }
+      - { name: coverImage, label: Cover image, type: image }
+      - { name: coverAlt, label: Cover image alt text, type: string }
+      - { name: seoTitle, label: SEO title, type: string }
+      - { name: seoDescription, label: SEO / meta description, type: text }
+      - { name: featuredOnHomepage, label: Show on homepage?, type: boolean }
+      - { name: order, label: Display order (1 = first), type: number }
+      - name: images
+        label: Gallery images
+        type: object
+        list: true
+        fields:
+          - { name: src, label: Image, type: image }
+          - { name: alt, label: Alt text (describe the photo), type: string }
+
+  # ---------- Case studies ----------
+  - name: case-studies
+    label: Social Media Case Studies
+    type: collection
+    path: src/content/case-studies
+    fields:
+      - { name: title, label: Client / brand name, type: string }
+      - { name: location, label: Location, type: string }
+      - { name: service, label: Service provided, type: string }
+      - { name: overview, label: Overview, type: text }
+      - { name: platforms, label: Platforms managed, type: string }
+      - { name: postingFrequency, label: Posting frequency, type: string }
+      - { name: contentType, label: Content type, type: string }
+      - { name: results, label: Results, type: string }
+      - { name: testimonial, label: Client testimonial, type: text }
+      - { name: image, label: Image, type: image }
+      - { name: imageAlt, label: Image alt text, type: string }
+      - { name: published, label: Show on website?, type: boolean }
+      - { name: body, label: Notes (not shown on site), type: rich-text }
+
+  # ---------- Testimonials ----------
+  - name: testimonials
+    label: Testimonials
+    type: file
+    path: src/content/testimonials/testimonials.json
+    fields:
+      - { name: heading, label: Section heading, type: string }
+      - { name: note, label: Internal note, type: text }
+      - name: items
+        label: Testimonials
+        type: object
+        list: true
+        fields:
+          - { name: quote, label: Quote, type: text }
+          - { name: name, label: Client name, type: string }
+          - { name: published, label: Show on website?, type: boolean }

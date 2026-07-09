@@ -1,0 +1,65 @@
+name: Deploy to Xneelo (manual)
+
+# ============================================================
+# SAFE DEPLOYMENT PLACEHOLDER — DISABLED BY DEFAULT
+# ============================================================
+# This workflow deploys the built site to Xneelo hosting via SFTP/FTPS.
+# It only runs when triggered MANUALLY from the GitHub Actions tab
+# (workflow_dispatch), never automatically — so nothing can be
+# overwritten by accident.
+#
+# BEFORE THIS CAN WORK, add these repository secrets
+# (GitHub repo → Settings → Secrets and variables → Actions):
+#
+#   XNEELO_HOST         e.g. ftp.yourdomain.co.za or the server hostname
+#   XNEELO_USERNAME     your Xneelo FTP/SFTP username
+#   XNEELO_PASSWORD     your Xneelo FTP/SFTP password
+#                       (or set up XNEELO_SSH_KEY and switch the action config)
+#   XNEELO_PORT         21 for FTPS, 22 for SFTP (confirm with Xneelo)
+#   XNEELO_REMOTE_PATH  the web root, usually /public_html/
+#
+# NOTE: SSH/SFTP access may need to be enabled in the Xneelo control
+# panel (konsoleH) or via Xneelo support. See XNEELO_DEPLOYMENT_GUIDE.md.
+# ============================================================
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type DEPLOY to confirm you want to deploy to Xneelo'
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.confirm == 'DEPLOY' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+        env:
+          # Set SITE_URL as a repo variable or replace here once the domain is confirmed
+          SITE_URL: ${{ vars.SITE_URL }}
+
+      - name: Deploy dist/ to Xneelo via FTPS/SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.XNEELO_HOST }}
+          username: ${{ secrets.XNEELO_USERNAME }}
+          password: ${{ secrets.XNEELO_PASSWORD }}
+          port: ${{ secrets.XNEELO_PORT }}
+          protocol: ftps # change to "sftp" if Xneelo SFTP access is enabled
+          local-dir: dist/
+          server-dir: ${{ secrets.XNEELO_REMOTE_PATH }}
+          # Safety: only syncs changed files; does not delete anything
+          # outside the synced state file. Review before first run.
+          dangerous-clean-slate: false

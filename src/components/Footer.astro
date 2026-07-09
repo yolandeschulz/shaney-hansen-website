@@ -1,0 +1,49 @@
+---
+import { getEntry } from 'astro:content';
+const settingsEntry = await getEntry('site', 'settings');
+const settings = settingsEntry?.data ?? {};
+const year = new Date().getFullYear();
+const hasFacebook = settings.facebook && !String(settings.facebook).startsWith('[');
+const hasInstagram = settings.instagram && !String(settings.instagram).startsWith('[');
+---
+
+<footer class="bg-sand/70 border-t border-sand mt-24">
+  <div class="max-w-content mx-auto px-5 md:px-8 py-14 grid gap-10 md:grid-cols-3">
+    <div>
+      <p class="font-display text-2xl">Shaney Hansen</p>
+      <p class="text-xs uppercase tracking-[0.22em] text-taupe mt-1">
+        Photography &amp; Social Media Management
+      </p>
+      <p class="mt-4 text-sm text-taupe leading-relaxed max-w-xs">{settings.footerLine}</p>
+    </div>
+    <div class="text-sm leading-relaxed">
+      <p class="font-medium mb-3 uppercase tracking-widest text-xs text-taupe">Contact</p>
+      <p>{settings.location}</p>
+      <p class="mt-1">
+        <a href={`https://wa.me/${settings.whatsapp}`} class="hover:text-gold transition-colors"
+          >Phone / WhatsApp: {settings.phone}</a
+        >
+      </p>
+      <p class="mt-1">
+        <a href={`mailto:${settings.email}`} class="hover:text-gold transition-colors">{settings.email}</a>
+      </p>
+      <p class="mt-3 text-taupe">{settings.availabilityLine}</p>
+    </div>
+    <div class="text-sm">
+      <p class="font-medium mb-3 uppercase tracking-widest text-xs text-taupe">Follow</p>
+      <ul class="space-y-1">
+        <li>{hasFacebook ? <a href={settings.facebook} class="hover:text-gold transition-colors">Facebook</a> : <span class="text-taupe">Facebook — [link to be added]</span>}</li>
+        <li>{hasInstagram ? <a href={settings.instagram} class="hover:text-gold transition-colors">Instagram</a> : <span class="text-taupe">Instagram — [link to be added]</span>}</li>
+      </ul>
+      <ul class="mt-6 space-y-1 text-taupe">
+        <li><a href="/privacy" class="hover:text-gold transition-colors">Privacy Policy</a></li>
+        <li><a href="/contact" class="hover:text-gold transition-colors">Enquire</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-sand">
+    <p class="max-w-content mx-auto px-5 md:px-8 py-5 text-xs text-taupe">
+      © {year} {settings.siteName}. All rights reserved.
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,61 @@
+---
+interface Props {
+  title: string;
+  location?: string;
+  service?: string;
+  overview?: string;
+  platforms?: string;
+  postingFrequency?: string;
+  contentType?: string;
+  results?: string;
+  testimonial?: string;
+  image?: string;
+  imageAlt?: string;
+}
+const props = Astro.props;
+const facts = [
+  { label: 'Location', value: props.location },
+  { label: 'Service', value: props.service },
+  { label: 'Platforms managed', value: props.platforms },
+  { label: 'Posting frequency', value: props.postingFrequency },
+  { label: 'Content type', value: props.contentType },
+  { label: 'Results', value: props.results },
+].filter((f) => f.value);
+---
+
+<article class="reveal bg-white rounded-3xl shadow-soft overflow-hidden md:grid md:grid-cols-5">
+  {
+    props.image && (
+      <div class="img-zoom md:col-span-2">
+        <img
+          src={props.image}
+          alt={props.imageAlt ?? props.title}
+          class="w-full h-56 md:h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    )
+  }
+  <div class="p-7 md:p-10 md:col-span-3">
+    <p class="text-xs uppercase tracking-[0.28em] text-gold">Case study</p>
+    <h3 class="mt-2 font-display text-2xl md:text-3xl">{props.title}</h3>
+    {props.overview && <p class="mt-4 leading-relaxed">{props.overview}</p>}
+    {
+      facts.length > 0 && (
+        <dl class="mt-6 grid gap-x-8 gap-y-2 sm:grid-cols-2 text-sm">
+          {facts.map((f) => (
+            <div>
+              <dt class="text-taupe uppercase tracking-widest text-xs">{f.label}</dt>
+              <dd class="mt-0.5">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+      )
+    }
+    {
+      props.testimonial && (
+        <p class="mt-6 text-sm text-taupe italic border-l-2 border-blush pl-4">{props.testimonial}</p>
+      )
+    }
+  </div>
+</article>

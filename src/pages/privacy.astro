@@ -1,0 +1,17 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const page = await getEntry('pages', 'privacy');
+const d = page!.data as any;
+const { Content } = await page!.render();
+---
+
+<BaseLayout title={d.seoTitle} description={d.seoDescription}>
+  <section class="max-w-content mx-auto px-5 md:px-8 pt-14 md:pt-20 pb-10">
+    <h1 class="reveal font-display text-4xl md:text-5xl">{d.title}</h1>
+    <div class="reveal prose-custom mt-8 max-w-2xl leading-relaxed space-y-4 [&_ul]:list-disc [&_ul]:pl-6 [&_li]:mt-1 text-charcoal/90">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>

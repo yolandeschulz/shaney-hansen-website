@@ -1,0 +1,191 @@
+---
+import { getEntry } from 'astro:content';
+
+interface Props {
+  consentText?: string;
+}
+const { consentText = 'I consent to my details being used to respond to this enquiry.' } = Astro.props;
+
+const settingsEntry = await getEntry('site', 'settings');
+const settings = settingsEntry?.data ?? {};
+
+// FORM ENDPOINT:
+// Set "formEndpoint" in src/content/site/settings.json (editable in Pages CMS)
+// to a Formspree / Web3Forms / PHP mailer / custom URL.
+// While empty, the form opens a pre-filled email draft (mailto) instead.
+const endpoint: string = settings.formEndpoint || '';
+const hasEndpoint = endpoint.length > 0 && !endpoint.startsWith('[');
+
+const photographyTypes = [
+  'Wedding', 'Couples', 'Family', 'Maternity', 'Newborn', 'Cake Smash', 'School',
+  'Pre-school', 'Sport', 'Corporate', 'Studio', 'Styled', 'Destination Lifestyle & Content',
+];
+const creativeTypes = [
+  'Creative Direction & Styled Setups', 'Cake Smash Setup', 'Studio Concept',
+  'Seasonal Setup', 'Brand Content Concept',
+];
+const socialTypes = [
+  'Social Media Management', 'Social Media Content Creation', 'Social Media Refresh',
+  'Monthly Content Planning', 'International Social Media Support',
+];
+const locations = [
+  'Lichtenburg / North West', 'Gauteng', 'Elsewhere in South Africa',
+  'International destination', 'Still deciding',
+];
+
+const inputClass =
+  'w-full rounded-lg border border-sand bg-white px-4 py-2.5 text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/40 transition-colors';
+const labelClass = 'block text-xs uppercase tracking-widest text-taupe mb-1.5';
+---
+
+<form
+  id="contact-form"
+  method="POST"
+  action={hasEndpoint ? endpoint : undefined}
+  class="reveal grid gap-5 bg-white rounded-3xl shadow-soft p-7 md:p-10"
+  data-email={settings.email}
+  data-has-endpoint={String(hasEndpoint)}
+>
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label class={labelClass} for="name">Name *</label>
+      <input class={inputClass} type="text" id="name" name="name" required autocomplete="name" />
+    </div>
+    <div>
+      <label class={labelClass} for="phone">Phone</label>
+      <input class={inputClass} type="tel" id="phone" name="phone" autocomplete="tel" />
+    </div>
+    <div>
+      <label class={labelClass} for="email">Email *</label>
+      <input class={inputClass} type="email" id="email" name="email" required autocomplete="email" />
+    </div>
+    <div>
+      <label class={labelClass} for="business">Business / brand name</label>
+      <input class={inputClass} type="text" id="business" name="business" />
+    </div>
+    <div class="sm:col-span-2">
+      <label class={labelClass} for="handle">Website or social media handle</label>
+      <input class={inputClass} type="text" id="handle" name="handle" placeholder="@yourbrand or www.yoursite.co.za" />
+    </div>
+    <div>
+      <label class={labelClass} for="enquiryType">Enquiry type *</label>
+      <select class={inputClass} id="enquiryType" name="enquiryType" required>
+        <option value="">Please choose…</option>
+        <optgroup label="Photography">
+          {photographyTypes.map((t) => <option value={`Photography — ${t}`}>{t}</option>)}
+        </optgroup>
+        <optgroup label="Creative">
+          {creativeTypes.map((t) => <option value={`Creative — ${t}`}>{t}</option>)}
+        </optgroup>
+        <optgroup label="Social Media">
+          {socialTypes.map((t) => <option value={`Social Media — ${t}`}>{t}</option>)}
+        </optgroup>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div>
+      <label class={labelClass} for="date">Preferred date</label>
+      <input class={inputClass} type="date" id="date" name="preferredDate" />
+    </div>
+    <div>
+      <label class={labelClass} for="location">Shoot location</label>
+      <select class={inputClass} id="location" name="shootLocation">
+        <option value="">Please choose…</option>
+        {locations.map((l) => <option value={l}>{l}</option>)}
+      </select>
+    </div>
+    <div>
+      <label class={labelClass} for="platforms">Platforms needing support (if social media)</label>
+      <input class={inputClass} type="text" id="platforms" name="platforms" placeholder="e.g. Instagram, Facebook" />
+    </div>
+    <div>
+      <label class={labelClass} for="needsContent">Do you need photography/content creation too?</label>
+      <select class={inputClass} id="needsContent" name="needsContent">
+        <option value="">Please choose…</option>
+        <option>Yes</option>
+        <option>No</option>
+        <option>Not sure yet</option>
+      </select>
+    </div>
+    <div>
+      <label class={labelClass} for="clientType">Local or international client?</label>
+      <select class={inputClass} id="clientType" name="clientType">
+        <option value="">Please choose…</option>
+        <option>Local (South Africa)</option>
+        <option>International</option>
+      </select>
+    </div>
+    <div>
+      <label class={labelClass} for="engagement">Monthly support or once-off project?</label>
+      <select class={inputClass} id="engagement" name="engagement">
+        <option value="">Please choose…</option>
+        <option>Monthly support</option>
+        <option>Once-off project</option>
+        <option>Not sure yet</option>
+      </select>
+    </div>
+  </div>
+
+  <div>
+    <label class={labelClass} for="message">Message *</label>
+    <textarea class={inputClass} id="message" name="message" rows="5" required></textarea>
+  </div>
+
+  <label class="flex items-start gap-3 text-sm text-taupe">
+    <input type="checkbox" name="consent" required class="mt-1 accent-charcoal" />
+    <span>{consentText}</span>
+  </label>
+
+  <p class="text-xs text-taupe">{settings.travelNote}</p>
+
+  <div class="flex flex-wrap gap-4 items-center">
+    <button
+      type="submit"
+      class="rounded-full bg-charcoal text-cream px-8 py-3 text-sm tracking-widest uppercase transition-all duration-500 hover:bg-taupe hover:-translate-y-0.5"
+    >
+      Send Enquiry
+    </button>
+    <a
+      href={`https://wa.me/${settings.whatsapp}`}
+      class="rounded-full border border-charcoal/40 px-8 py-3 text-sm tracking-widest uppercase transition-all duration-500 hover:border-gold hover:text-gold"
+    >
+      WhatsApp instead
+    </a>
+  </div>
+
+  {
+    !hasEndpoint && (
+      <p class="text-xs text-taupe bg-sand/60 rounded-lg px-4 py-3">
+        Note: the online form endpoint has not been connected yet, so “Send Enquiry” will open a
+        pre-filled email draft. WhatsApp is a reliable alternative. (Setup instructions: README.md
+        → Contact form.)
+      </p>
+    )
+  }
+</form>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', function () {
+    var form = document.getElementById('contact-form');
+    if (!form || form.getAttribute('data-has-endpoint') === 'true') return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      var data = new FormData(form);
+      var lines = [];
+      data.forEach(function (value, key) {
+        if (key === 'consent') return;
+        if (value) lines.push(key + ': ' + value);
+      });
+      var subject = 'Website enquiry — ' + (data.get('enquiryType') || 'General');
+      var href =
+        'mailto:' +
+        form.getAttribute('data-email') +
+        '?subject=' +
+        encodeURIComponent(subject) +
+        '&body=' +
+        encodeURIComponent(lines.join('\n'));
+      window.location.href = href;
+    });
+  });
+</script>

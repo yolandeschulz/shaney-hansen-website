@@ -1,0 +1,216 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import ServicePillarCard from '../components/ServicePillarCard.astro';
+import GalleryCategoryCard from '../components/GalleryCategoryCard.astro';
+import TestimonialSection from '../components/TestimonialSection.astro';
+import CTASection from '../components/CTASection.astro';
+
+const page = await getEntry('pages', 'home');
+const d = page!.data as any;
+
+const galleries = await getCollection('galleries');
+const featured = galleries
+  .filter((g) => g.data.featuredOnHomepage)
+  .sort((a, b) => a.data.order - b.data.order);
+const previewImages = galleries
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 6)
+  .map((g) => ({ src: g.data.coverImage, alt: g.data.coverAlt, slug: g.id.replace('.json', '') }));
+
+const pillars = [
+  {
+    title: 'Photography',
+    text: 'Warm, natural, story-led photography for weddings, families, maternity, newborns, schools, sport, corporates, studio and styled sessions.',
+    href: '/photography',
+    image: '/images/front-page/placeholder-1.svg',
+    imageAlt: 'Photography by Shaney Hansen — warm and natural',
+  },
+  {
+    title: 'Creative Direction & Styled Setups',
+    text: 'Shaney can help create the full look and feel of a shoot — concepts, styling, prop work and sets built by her own hands.',
+    href: '/creative-direction',
+    image: '/images/creative-direction/cover.svg',
+    imageAlt: 'Styled photography set built by Shaney Hansen',
+  },
+  {
+    title: 'Social Media Management',
+    text: 'Creative, story-led social media management and content creation for brands, teams and businesses that need to show up beautifully online.',
+    href: '/social-media',
+    image: '/images/social-media/cover.svg',
+    imageAlt: 'Social media content creation by Shaney Hansen',
+  },
+];
+---
+
+<BaseLayout title={d.seoTitle} description={d.seoDescription} ogImage={d.heroImage}>
+  <!-- 1. Hero -->
+  <Hero
+    headline={d.heroHeadline}
+    support={d.heroSupport}
+    image={d.heroImage}
+    imageAlt={d.heroImageAlt}
+    primaryCta={d.heroPrimaryCta}
+    primaryLink={d.heroPrimaryLink}
+    secondaryCta={d.heroSecondaryCta}
+    secondaryLink={d.heroSecondaryLink}
+  />
+
+  <!-- 2. Positioning intro -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+    <SectionHeading eyebrow="Shaney Hansen" title={d.introHeading} text={d.introText} align="center" />
+  </section>
+
+  <!-- 3. Three service pillars -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+    <SectionHeading eyebrow="Services" title={d.pillarsHeading} />
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      {pillars.map((p, i) => <ServicePillarCard {...p} delay={i * 120} />)}
+    </div>
+  </section>
+
+  <!-- 4. Featured photography categories -->
+  <section class="bg-sand/60 py-16 md:py-24 my-16 md:my-24">
+    <div class="max-w-content mx-auto px-5 md:px-8">
+      <SectionHeading eyebrow="Portfolio" title={d.featuredHeading} text={d.featuredText} />
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          featured.map((g, i) => (
+            <GalleryCategoryCard
+              title={g.data.title}
+              description={g.data.description}
+              coverImage={g.data.coverImage}
+              coverAlt={g.data.coverAlt}
+              slug={g.id.replace('.json', '')}
+              delay={(i % 3) * 120}
+            />
+          ))
+        }
+      </div>
+      <div class="mt-10 reveal">
+        <Button href="/portfolio" variant="outline">View the Full Portfolio</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Creative set-building teaser (layered editorial composition) -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24 grid gap-10 md:grid-cols-2 md:items-center">
+    <div class="reveal relative">
+      <div class="img-zoom rounded-2xl overflow-hidden shadow-soft aspect-[4/3]">
+        <img
+          src="/images/styled/cover.svg"
+          alt="Styled photography session with creative set design"
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div
+        class="img-zoom hidden md:block absolute -bottom-10 -right-6 w-48 rounded-2xl overflow-hidden shadow-lift border-4 border-cream"
+      >
+        <img
+          src="/images/cake-smash/cover.svg"
+          alt="Cake smash setup built by Shaney Hansen"
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay: 150ms">
+      <SectionHeading eyebrow="Creative Direction" title={d.creativeHeading} text={d.creativeText} />
+      <div class="mt-6">
+        <Button href="/creative-direction" variant="outline">Explore Styled Shoots</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Social media teaser -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24 grid gap-10 md:grid-cols-2 md:items-center">
+    <div class="md:order-2 reveal relative">
+      <div class="img-zoom rounded-2xl overflow-hidden shadow-soft aspect-[4/3]">
+        <img
+          src="/images/social-media/cover.svg"
+          alt="Social media content creation by Shaney Hansen"
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div class="absolute -top-6 -left-4 w-28 h-28 rounded-full bg-blush-soft -z-10" aria-hidden="true"></div>
+    </div>
+    <div class="md:order-1 reveal" style="transition-delay: 150ms">
+      <SectionHeading eyebrow="Social Media" title={d.socialHeading} text={d.socialText} />
+      <div class="mt-6">
+        <Button href="/social-media" variant="outline">Explore Social Media Management</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Destination teaser (layered background + warm overlay) -->
+  <section class="relative my-16 md:my-24">
+    <div class="absolute inset-0">
+      <img
+        src="/images/front-page/placeholder-3.svg"
+        alt=""
+        aria-hidden="true"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-charcoal/55"></div>
+    </div>
+    <div class="relative max-w-content mx-auto px-5 md:px-8 py-20 md:py-28 text-cream">
+      <div class="reveal max-w-2xl">
+        <p class="text-xs uppercase tracking-[0.28em] text-blush">Destination</p>
+        <h2 class="mt-3 font-display text-3xl md:text-4xl leading-snug">{d.destinationHeading}</h2>
+        <p class="mt-4 leading-relaxed text-cream/85">{d.destinationText}</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <Button href="/destination">Explore Destination Photography</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Portfolio preview strip -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+    <SectionHeading eyebrow="A glimpse" title="From the portfolio" align="center" />
+    <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+      {
+        previewImages.map((img, i) => (
+          <a
+            href={`/portfolio/${img.slug}`}
+            class="reveal img-zoom rounded-xl overflow-hidden shadow-soft aspect-square block"
+            style={`transition-delay: ${i * 80}ms`}
+          >
+            <img src={img.src} alt={img.alt} class="w-full h-full object-cover" loading="lazy" />
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- 9. How it works -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+    <SectionHeading eyebrow="The experience" title={d.howHeading} text={d.howText} align="center" />
+    <ol class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        (d.howSteps ?? []).map((step: any, i: number) => (
+          <li
+            class="reveal bg-white rounded-2xl shadow-soft p-7 text-center"
+            style={`transition-delay: ${i * 120}ms`}
+          >
+            <span class="font-display text-4xl text-blush">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="mt-3 font-display text-xl">{step.title}</h3>
+            <p class="mt-2 text-sm text-taupe leading-relaxed">{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <!-- 10. Trust / testimonials (hidden until real testimonials are published) -->
+  <TestimonialSection heading={d.trustHeading} />
+
+  <!-- 11. Final CTA -->
+  <CTASection heading={d.finalCtaHeading} text={d.finalCtaText} buttonLabel={d.finalCtaButton} />
+</BaseLayout>

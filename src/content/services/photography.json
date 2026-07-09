@@ -1,0 +1,102 @@
+{
+  "title": "Photography Services",
+  "intro": "Warm, natural, story-led photography for meaningful people, places and moments. Every session is planned with care and documented with intention — from the big occasion to the real moments in between.",
+  "services": [
+    {
+      "name": "Wedding Photography",
+      "whoFor": "For couples planning their wedding day, locally or as a destination celebration.",
+      "expect": "A calm, professional presence and warm, emotional documentation of your full day — the moments you felt and the details you never want to forget.",
+      "packageDetails": "[Package details to be confirmed]",
+      "image": "/images/weddings/cover.svg",
+      "imageAlt": "Bride and groom wedding portrait by Shaney Hansen Photography"
+    },
+    {
+      "name": "Couples Photography",
+      "whoFor": "For engagements, anniversaries, romantic shoots and relationship sessions.",
+      "expect": "Relaxed direction and natural, connected portraits that feel like the two of you.",
+      "packageDetails": "[Package details to be confirmed]",
+      "image": "/images/couples/cover.svg",
+      "imageAlt": "Couple photography session in soft natural light"
+    },
+    {
+      "name": "Family Photography",
+      "whoFor": "For families who want natural, unforced photographs of real connection.",
+      "expect": "A gentle, unhurried session focused on laughter, togetherness and the in-between moments.",
+      "packageDetails": "[Package details to be confirmed]",
+      "image": "/images/family/cover.svg",
+      "imageAlt": "Family photography session in soft natural light"
+    },
+    {
+      "name": "Maternity Photography",
+      "whoFor": "For pregnancy and motherhood sessions.",
+      "expect": "Soft, feminine, light-filled photography that honours this season with warmth and care.",
+      "packageDetails": "[Package details to be confirmed]",
+      "image": "/images/maternity/cover.svg",
+      "imageAlt": "Maternity photography session in South Africa"
+    },
+    {
+      "name": "Newborn Photography",
+      "whoFor": "For gentle newborn sessions in those first precious weeks.",
+      "expect": "A calm, patient, baby-led session — no rushing, no pressure, just softness and care.",
+      "packageDetails": "[Package details to be confirmed]",
+      "image": "/images/newborn/cover.svg",
+      "imageAlt": "Newborn photography session by Shaney Hansen Photography"
+    },
+    {
+      "name": "Cake Smash Photography",
+      "whoFor": "For first birthdays and milestone celebrations.",
+      "expect": "A joyful, styled session with a custom-built setup created around your little one.",
+      "packageDetails": "[Package details to be confirmed]",
+      "image": "/images/cake-smash/cover.svg",
+      "imageAlt": "Cake smash birthday photography session"
+    },
+    {
+      "name": "School & Pre-school Photography",
+      "whoFor": "For schools and pre-schools needing portraits, class photos and event coverage.",
+      "expect": "A calm, organised, child-friendly approach that keeps the day running smoothly.",
+      "packageDetails": "[Package details to be confirmed]",
+      "image": "/images/school/cover.svg",
+      "imageAlt": "School photography session in South Africa"
+    },
+    {
+      "name": "Sport Photography",
+      "whoFor": "For sports days, teams, action photos and school sport events.",
+      "expect": "Energetic, action-led coverage that captures effort, teamwork and the big moments.",
+      "packageDetails": "[Package details to be confirmed]",
+      "image": "/images/sport/cover.svg",
+      "imageAlt": "School sport photography session in South Africa"
+    },
+    {
+      "name": "Corporate Photography",
+      "whoFor": "For business portraits, team photos, branding and professional content.",
+      "expect": "Professional images for websites, LinkedIn, social media and brand content — polished but human.",
+      "packageDetails": "[Package details to be confirmed]",
+      "image": "/images/corporate/cover.svg",
+      "imageAlt": "Corporate headshot photography by Shaney Hansen Photography"
+    },
+    {
+      "name": "Studio Sessions",
+      "whoFor": "For controlled indoor shoots — portraits, creative concepts and beautifully lit scenes.",
+      "expect": "A considered studio experience with thoughtful lighting and creative direction.",
+      "packageDetails": "[Package details to be confirmed]",
+      "image": "/images/studio/cover.svg",
+      "imageAlt": "Studio photography session by Shaney Hansen Photography"
+    },
+    {
+      "name": "Styled Sessions",
+      "whoFor": "For themed, creative, seasonal or concept shoots — personal, family or brand.",
+      "expect": "Creative shoots for campaigns, seasonal content, personal brands or social media storytelling, with sets and styling built by Shaney herself.",
+      "packageDetails": "[Package details to be confirmed]",
+      "image": "/images/styled/cover.svg",
+      "imageAlt": "Styled photography session with creative set design"
+    },
+    {
+      "name": "Destination Lifestyle & Content Photography",
+      "whoFor": "For destination weddings, creators, brands, teams and families who want the full experience documented for both memories and online storytelling.",
+      "expect": "Shaney travels with you and documents the full journey — the quiet in-between moments, the details, the portraits, the lifestyle content and the main occasion.",
+      "packageDetails": "[Travel fees, accommodation, duration, deliverables and quote to be confirmed individually]",
+      "image": "/images/front-page/cover.svg",
+      "imageAlt": "Destination lifestyle photography session"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+---
+
+<BaseLayout
+  title="Page not found | Shaney Hansen Photography & Social Media Management"
+  description="The page you were looking for could not be found."
+>
+  <section class="max-w-content mx-auto px-5 md:px-8 py-24 md:py-36 text-center">
+    <p class="text-xs uppercase tracking-[0.28em] text-gold">404</p>
+    <h1 class="mt-4 font-display text-4xl md:text-5xl">This page seems to have wandered off</h1>
+    <p class="mt-5 text-taupe max-w-md mx-auto leading-relaxed">
+      The page you were looking for could not be found — but the stories are all still here.
+    </p>
+    <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <Button href="/">Back to Home</Button>
+      <Button href="/portfolio" variant="outline">View the Portfolio</Button>
+    </div>
+  </section>
+</BaseLayout>

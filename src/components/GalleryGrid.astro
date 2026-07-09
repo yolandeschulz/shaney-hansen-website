@@ -1,0 +1,79 @@
+---
+interface Image {
+  src: string;
+  alt: string;
+}
+interface Props {
+  images: Image[];
+}
+const { images } = Astro.props;
+---
+
+<!-- Masonry-style gallery grid with a lightweight, dependency-free lightbox. -->
+<div class="columns-1 sm:columns-2 lg:columns-3 gap-4 [&>button]:mb-4" data-gallery>
+  {
+    images.map((img, i) => (
+      <button
+        type="button"
+        class="reveal img-zoom block w-full rounded-xl overflow-hidden shadow-soft cursor-zoom-in"
+        style={`transition-delay: ${(i % 3) * 90}ms`}
+        data-lightbox-src={img.src}
+        data-lightbox-alt={img.alt}
+        aria-label={`View larger: ${img.alt}`}
+      >
+        <img src={img.src} alt={img.alt} class="w-full h-auto" loading="lazy" />
+      </button>
+    ))
+  }
+</div>
+
+<!-- Lightbox -->
+<div
+  id="lightbox"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-charcoal/90 p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image viewer"
+>
+  <button
+    id="lightbox-close"
+    class="absolute top-4 right-4 text-cream text-3xl leading-none p-2"
+    aria-label="Close image viewer">&times;</button
+  >
+  <img id="lightbox-img" src="" alt="" class="max-h-[88vh] max-w-full rounded-lg shadow-lift" />
+</div>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', function () {
+    var box = document.getElementById('lightbox');
+    var img = document.getElementById('lightbox-img');
+    var close = document.getElementById('lightbox-close');
+    if (!box || !img) return;
+
+    function open(src, alt) {
+      img.src = src;
+      img.alt = alt || '';
+      box.classList.remove('hidden');
+      box.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+    function shut() {
+      box.classList.add('hidden');
+      box.classList.remove('flex');
+      img.src = '';
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('[data-lightbox-src]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        open(btn.getAttribute('data-lightbox-src'), btn.getAttribute('data-lightbox-alt'));
+      });
+    });
+    if (close) close.addEventListener('click', shut);
+    box.addEventListener('click', function (e) {
+      if (e.target === box) shut();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') shut();
+    });
+  });
+</script>

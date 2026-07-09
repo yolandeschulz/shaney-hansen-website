@@ -1,0 +1,31 @@
+---
+import { getEntry } from 'astro:content';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props {
+  heading?: string;
+}
+const { heading = 'Kind Words' } = Astro.props;
+
+const entry = await getEntry('testimonials', 'testimonials');
+const items = (entry?.data.items ?? []).filter((t) => t.published);
+---
+
+{
+  items.length > 0 && (
+    <section class="max-w-content mx-auto px-5 md:px-8 my-20 md:my-28">
+      <SectionHeading title={heading} align="center" />
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        {items.map((t, i) => (
+          <figure
+            class="reveal bg-white rounded-2xl shadow-soft p-7 md:p-9"
+            style={`transition-delay: ${i * 100}ms`}
+          >
+            <blockquote class="font-display text-xl leading-relaxed italic">“{t.quote}”</blockquote>
+            <figcaption class="mt-4 text-sm text-taupe">— {t.name}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )
+}

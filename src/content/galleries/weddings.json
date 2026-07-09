@@ -1,0 +1,24 @@
+{
+  "title": "Weddings",
+  "description": "Warm, emotional wedding photography for the moments you felt and the details you never want to forget.",
+  "coverImage": "/images/weddings/cover.svg",
+  "coverAlt": "Weddings photography by Shaney Hansen Photography",
+  "seoTitle": "Wedding Photographer South Africa | Shaney Hansen Photography",
+  "seoDescription": "Warm, story-led wedding photography in South Africa and for destination weddings, by Shaney Hansen Photography.",
+  "featuredOnHomepage": true,
+  "order": 1,
+  "images": [
+    {
+      "src": "/images/weddings/placeholder-1.svg",
+      "alt": "Weddings photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/weddings/placeholder-2.svg",
+      "alt": "Weddings photography session by Shaney Hansen Photography"
+    },
+    {
+      "src": "/images/weddings/placeholder-3.svg",
+      "alt": "Weddings photography session by Shaney Hansen Photography"
+    }
+  ]
+}
