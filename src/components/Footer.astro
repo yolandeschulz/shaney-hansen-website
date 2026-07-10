@@ -1,5 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
+import GoogleReviewsCTA from './GoogleReviewsCTA.astro';
 const settingsEntry = await getEntry('site', 'settings');
 const settings = settingsEntry?.data ?? {};
 const year = new Date().getFullYear();
@@ -20,12 +21,22 @@ const hasInstagram = settings.instagram && !String(settings.instagram).startsWit
       <p class="font-medium mb-3 uppercase tracking-widest text-xs text-taupe">Contact</p>
       <p>{settings.location}</p>
       <p class="mt-1">
-        <a href={`https://wa.me/${settings.whatsapp}`} class="hover:text-gold transition-colors"
+        <a
+          href={`https://wa.me/${settings.whatsapp}`}
+          class="hover:text-gold transition-colors"
+          data-track="whatsapp_click"
+          data-track-label="footer"
           >Phone / WhatsApp: {settings.phone}</a
         >
       </p>
       <p class="mt-1">
-        <a href={`mailto:${settings.email}`} class="hover:text-gold transition-colors">{settings.email}</a>
+        <a
+          href={`mailto:${settings.email}`}
+          class="hover:text-gold transition-colors"
+          data-track="email_click"
+          data-track-label="footer"
+          >{settings.email}</a
+        >
       </p>
       <p class="mt-3 text-taupe">{settings.availabilityLine}</p>
     </div>
@@ -35,6 +46,7 @@ const hasInstagram = settings.instagram && !String(settings.instagram).startsWit
         <li>{hasFacebook ? <a href={settings.facebook} class="hover:text-gold transition-colors">Facebook</a> : <span class="text-taupe">Facebook — [link to be added]</span>}</li>
         <li>{hasInstagram ? <a href={settings.instagram} class="hover:text-gold transition-colors">Instagram</a> : <span class="text-taupe">Instagram — [link to be added]</span>}</li>
       </ul>
+      <GoogleReviewsCTA variant="links" class="mt-4 text-taupe" />
       <ul class="mt-6 space-y-1 text-taupe">
         <li><a href="/privacy" class="hover:text-gold transition-colors">Privacy Policy</a></li>
         <li><a href="/contact" class="hover:text-gold transition-colors">Enquire</a></li>

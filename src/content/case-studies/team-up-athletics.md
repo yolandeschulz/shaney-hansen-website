@@ -10,7 +10,8 @@ results: "[To be confirmed]"
 testimonial: "[Client testimonial to be added]"
 image: "/images/team-up-athletics/cover.svg"
 imageAlt: "Social media content for Team Up Athletics"
+permissionApproved: false
 published: true
 ---
 
-Case study placeholder. Confirm exact spelling, location and client approval before publishing details, screenshots or results.
+Case study placeholder. Confirm exact spelling, location and client approval before publishing details, screenshots or results. Set "permissionApproved" to true only once Team Up Athletics has confirmed the wording, location, results and any images/screenshots may be shown publicly.

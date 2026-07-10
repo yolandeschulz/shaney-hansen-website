@@ -1,15 +1,31 @@
 {
   "heading": "Kind Words",
-  "note": "Testimonials are hidden until real client words are added. Set 'published' to true on an item to show it.",
+  "note": "Testimonials are hidden until real client words are added. To show one: fill in the quote and name, set the source, then set BOTH 'published' AND 'permissionApproved' to true (only after the client has agreed). Never invent quotes, names, star ratings or dates — see REVIEWS_AND_TESTIMONIALS_GUIDE.md.",
   "items": [
     {
       "quote": "[Client testimonial to be added]",
       "name": "[Client name]",
+      "source": "Direct Testimonial",
+      "rating": null,
+      "date": "",
+      "serviceType": "",
+      "featured": false,
+      "image": "",
+      "reviewLink": "",
+      "permissionApproved": false,
       "published": false
     },
     {
       "quote": "[Client testimonial to be added]",
       "name": "[Client name]",
+      "source": "Google Review",
+      "rating": null,
+      "date": "",
+      "serviceType": "",
+      "featured": false,
+      "image": "",
+      "reviewLink": "",
+      "permissionApproved": false,
       "published": false
     }
   ]

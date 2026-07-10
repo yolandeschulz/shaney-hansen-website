@@ -6,6 +6,7 @@ import SectionHeading from '../components/SectionHeading.astro';
 import Button from '../components/Button.astro';
 import CaseStudyCard from '../components/CaseStudyCard.astro';
 import CTASection from '../components/CTASection.astro';
+import TestimonialSection from '../components/TestimonialSection.astro';
 
 const page = await getEntry('pages', 'social-media');
 const p = page!.data as any;
@@ -24,6 +25,7 @@ const cs = caseStudy?.data as any;
     imageAlt={p.heroImageAlt}
     primaryCta={p.cta}
     primaryLink="/contact"
+    primaryTrack="social_media_enquiry_click"
     compact
   />
 
@@ -106,7 +108,9 @@ const cs = caseStudy?.data as any;
         <h2 class="mt-3 font-display text-3xl md:text-4xl">{d.internationalHeading}</h2>
         <p class="mt-5 leading-relaxed text-cream/85">{d.internationalCopy}</p>
         <div class="mt-8">
-          <Button href="/contact">{p.internationalCta}</Button>
+          <Button href="/contact" track="international_quote_click" trackLabel="social_media_page">
+            {p.internationalCta}
+          </Button>
         </div>
       </div>
     </div>
@@ -140,7 +144,12 @@ const cs = caseStudy?.data as any;
           >
             <h3 class="font-display text-xl">{pkg.name}</h3>
             <p class="mt-3 text-xs text-taupe leading-relaxed flex-1">{pkg.details}</p>
-            <a href="/contact" class="mt-5 text-xs uppercase tracking-[0.22em] text-gold">
+            <a
+              href="/contact"
+              class="mt-5 text-xs uppercase tracking-[0.22em] text-gold"
+              data-track="social_media_enquiry_click"
+              data-track-label={pkg.name}
+            >
               Enquire &rarr;
             </a>
           </div>
@@ -149,10 +158,16 @@ const cs = caseStudy?.data as any;
     </div>
   </section>
 
+  <!-- Trust: social media testimonials / case study quotes (hidden until real ones exist) -->
+  <TestimonialSection
+    serviceTypes={['Social Media Management', 'Social Media Content Creation']}
+  />
+
   <!-- 8. CTA -->
   <CTASection
     heading="Ready to show up beautifully online?"
     text="Tell Shaney about your brand, your platforms and what consistency would mean for you."
     buttonLabel={p.cta}
+    buttonTrack="social_media_enquiry_click"
   />
 </BaseLayout>

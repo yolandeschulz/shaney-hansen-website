@@ -24,6 +24,11 @@ content:
       - { name: whatsapp, label: "WhatsApp number (digits only, e.g. 27769978365)", type: string }
       - { name: email, label: Email address, type: string }
       - { name: location, label: Location, type: string }
+      # --- Domain & professional email (not set up yet — placeholders until launch) ---
+      - { name: finalDomain, label: "Final domain (not registered yet)", type: string, required: false }
+      - { name: professionalEmailHello, label: "Professional email: hello@ (after domain registration)", type: string, required: false }
+      - { name: professionalEmailBookings, label: "Professional email: bookings@ (after domain registration)", type: string, required: false }
+      - { name: professionalEmailShaney, label: "Professional email: shaney@ (after domain registration)", type: string, required: false }
       - { name: facebook, label: Facebook link, type: string }
       - { name: instagram, label: Instagram link, type: string }
       - { name: formEndpoint, label: "Contact form endpoint (leave empty for email fallback)", type: string, required: false }
@@ -33,6 +38,20 @@ content:
       - { name: defaultSeoTitle, label: Default SEO title, type: string }
       - { name: defaultSeoDescription, label: Default SEO description, type: text }
       - { name: defaultOgImage, label: Default social share image, type: image }
+      # --- Google Reviews & Business Profile (buttons appear once real links are saved) ---
+      - { name: googleReviewsLink, label: "Google Reviews link (public reviews page)", type: string, required: false }
+      - { name: googleReviewRequestLink, label: "Google Review request link (send to clients)", type: string, required: false }
+      - { name: googleBusinessProfileLink, label: Google Business Profile link, type: string, required: false }
+      - { name: googleBusinessProfileName, label: Google Business Profile name, type: string, required: false }
+      - { name: googleBusinessProfileLocation, label: Google Business Profile location, type: string, required: false }
+      - { name: googleReviewQrImage, label: "Google Review QR code image (optional)", type: image, required: false }
+      # --- Analytics & tracking IDs (tracking stays OFF while these are placeholders) ---
+      - { name: gtmId, label: "Google Tag Manager ID (e.g. GTM-XXXXXXX)", type: string, required: false }
+      - { name: gaMeasurementId, label: "Google Analytics 4 Measurement ID (e.g. G-XXXXXXXXXX)", type: string, required: false }
+      - { name: googleSiteVerification, label: "Google Search Console verification code", type: string, required: false }
+      - { name: googleAdsConversionId, label: "Google Ads Conversion ID (leave until ads are planned)", type: string, required: false }
+      - { name: googleAdsConversionLabel, label: "Google Ads Conversion Label (leave until ads are planned)", type: string, required: false }
+      - { name: metaPixelId, label: "Meta Pixel ID (optional, only if requested)", type: string, required: false }
 
   # ---------- Pages ----------
   - name: home
@@ -293,10 +312,14 @@ content:
       - { name: testimonial, label: Client testimonial, type: text }
       - { name: image, label: Image, type: image }
       - { name: imageAlt, label: Image alt text, type: string }
+      - { name: permissionApproved, label: "Client permission approved? (required before publishing real details)", type: boolean }
       - { name: published, label: Show on website?, type: boolean }
       - { name: body, label: Notes (not shown on site), type: rich-text }
 
   # ---------- Testimonials ----------
+  # Rules (see REVIEWS_AND_TESTIMONIALS_GUIDE.md): never invent quotes, names,
+  # star ratings or dates. A testimonial only appears on the site when BOTH
+  # "Show on website?" AND "Client permission approved?" are ticked.
   - name: testimonials
     label: Testimonials
     type: file
@@ -309,6 +332,43 @@ content:
         type: object
         list: true
         fields:
-          - { name: quote, label: Quote, type: text }
+          - { name: quote, label: Review text (the client's real words), type: text }
           - { name: name, label: Client name, type: string }
+          - name: source
+            label: Source
+            type: select
+            options:
+              values:
+                - Google Review
+                - Facebook Review
+                - Direct Testimonial
+                - WhatsApp Feedback
+                - Email Feedback
+          - { name: rating, label: "Star rating (1–5, ONLY if the client gave one)", type: number, required: false }
+          - { name: date, label: "Date (e.g. March 2026)", type: string, required: false }
+          - name: serviceType
+            label: Service type
+            type: select
+            options:
+              values:
+                - Wedding Photography
+                - Couples Photography
+                - Family Photography
+                - Maternity Photography
+                - Newborn Photography
+                - Cake Smash Photography
+                - School Photography
+                - Pre-school Photography
+                - Sport Photography
+                - Corporate Photography
+                - Studio Session
+                - Styled Session
+                - Creative Direction & Styled Setup
+                - Social Media Management
+                - Social Media Content Creation
+                - Destination Lifestyle & Content Photography
+          - { name: featured, label: "Featured? (show in the small homepage set)", type: boolean }
+          - { name: image, label: "Optional image", type: image, required: false }
+          - { name: reviewLink, label: "Link to the original review (optional)", type: string, required: false }
+          - { name: permissionApproved, label: "Client permission approved?", type: boolean }
           - { name: published, label: Show on website?, type: boolean }

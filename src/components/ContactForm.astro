@@ -148,6 +148,8 @@ const labelClass = 'block text-xs uppercase tracking-widest text-taupe mb-1.5';
     <a
       href={`https://wa.me/${settings.whatsapp}`}
       class="rounded-full border border-charcoal/40 px-8 py-3 text-sm tracking-widest uppercase transition-all duration-500 hover:border-gold hover:text-gold"
+      data-track="whatsapp_click"
+      data-track-label="contact_form"
     >
       WhatsApp instead
     </a>
@@ -167,7 +169,23 @@ const labelClass = 'block text-xs uppercase tracking-widest text-taupe mb-1.5';
 <script is:inline>
   document.addEventListener('astro:page-load', function () {
     var form = document.getElementById('contact-form');
-    if (!form || form.getAttribute('data-has-endpoint') === 'true') return;
+    if (!form) return;
+
+    // Conversion tracking: contact_form_submit fires only on a REAL submission
+    // to the configured endpoint (valid form + endpoint present), never on a
+    // plain button click and never for the mailto fallback. window.shTrack is
+    // provided by Analytics.astro and no-ops safely when tracking is not set up.
+    if (form.getAttribute('data-has-endpoint') === 'true') {
+      form.addEventListener('submit', function () {
+        if (!form.checkValidity()) return;
+        if (typeof window.shTrack === 'function') {
+          window.shTrack('contact_form_submit');
+        }
+      });
+      return;
+    }
+
+    // No endpoint yet: fall back to a pre-filled email draft.
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
@@ -178,6 +196,11 @@ const labelClass = 'block text-xs uppercase tracking-widest text-taupe mb-1.5';
         if (value) lines.push(key + ': ' + value);
       });
       var subject = 'Website enquiry — ' + (data.get('enquiryType') || 'General');
+      // Tracked as email_click (not contact_form_submit) because this opens a
+      // draft rather than completing a submission.
+      if (typeof window.shTrack === 'function') {
+        window.shTrack('email_click', 'contact_form_mailto_fallback');
+      }
       var href =
         'mailto:' +
         form.getAttribute('data-email') +

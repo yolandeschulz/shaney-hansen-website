@@ -1,5 +1,45 @@
 # Xneelo Deployment Guide
 
+> **Current status: the domain and Xneelo hosting are NOT set up yet.**
+> Nothing in this guide can be completed until a domain is registered and a hosting package is active. Do not assume the domain is live. The GitHub repository remains the source of truth for the website, and Pages CMS stays connected to it — deployment to Xneelo only happens once QA is complete.
+
+## Recommended launch sequence
+
+1. **Choose and register the final domain** in **Shaney's own Xneelo account** (so she owns it directly). Suggested domains to check for availability:
+   - shaneyhansenphotography.co.za
+   - shaneyhansenphotography.com
+   - shaneyhansencreative.co.za
+   - shaneyhansen.co.za
+   - shaneyhansenstudio.co.za
+2. **Set up Xneelo hosting only when ready to launch** — unless Shaney wants professional email addresses sooner, in which case hosting (or at least a mail package) can be activated earlier.
+3. **Create professional email addresses** on the domain. Recommended:
+   - `hello@[domain]` — general enquiries (public-facing)
+   - `bookings@[domain]` — booking enquiries
+   - `shaney@[domain]` — personal/direct
+4. **Keep the GitHub repository as the website source of truth**, with Pages CMS connected to it for content editing.
+5. **Deploy the final static Astro build to Xneelo once QA is complete** (see the deployment options below).
+
+Work through **PRE_LAUNCH_CHECKLIST.md** before the first deployment.
+
+## Launch details — to be filled in
+
+Record these once the domain and hosting exist. All are currently unknown:
+
+| Item | Value |
+|---|---|
+| Final domain | [to be confirmed — see suggested domains above] |
+| Xneelo login owner | [to be confirmed — should be Shaney's own account] |
+| Hosting package | [to be confirmed] |
+| FTP/SFTP/SSH details | [to be confirmed — store as GitHub Secrets, never in code] |
+| Web root path | [to be confirmed — usually /public_html/] |
+| Email addresses | [to be confirmed — hello@ / bookings@ / shaney@] |
+| SSL setup | [to be confirmed — free Let's Encrypt via konsoleH] |
+| Google Search Console verification | [to be added — Site Settings] |
+| GA4 Measurement ID | [to be added — Site Settings] |
+| GTM Container ID | [to be added — Site Settings] |
+
+## How deployment works (once hosting exists)
+
 The site builds to a plain static folder (`dist/`), which is exactly what Xneelo shared hosting serves. Two deployment options below.
 
 ## What you need from Xneelo first
@@ -42,7 +82,7 @@ Never put credentials in the code or workflow file — secrets only.
 
 ## Domain / final URL
 
-Before the first real deployment, set the final domain in **two places**:
+The final domain has **not been chosen or registered yet**. Once it is, set it in **two places** before the first real deployment:
 
 1. `astro.config.mjs` — replace `https://REPLACE-WITH-FINAL-DOMAIN.co.za` (or set the `SITE_URL` env variable at build time)
 2. `public/robots.txt` — the Sitemap line

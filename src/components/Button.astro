@@ -3,8 +3,12 @@ interface Props {
   href: string;
   variant?: 'primary' | 'outline' | 'ghost';
   class?: string;
+  /** Analytics event name, rendered as data-track (see src/lib/analytics.ts EVENTS). */
+  track?: string;
+  /** Optional extra detail for the event, rendered as data-track-label. */
+  trackLabel?: string;
 }
-const { href, variant = 'primary', class: className = '' } = Astro.props;
+const { href, variant = 'primary', class: className = '', track, trackLabel } = Astro.props;
 
 const base =
   'inline-block rounded-full px-7 py-3 text-sm tracking-widest uppercase transition-all duration-500 ease-gentle';
@@ -16,4 +20,9 @@ const variants = {
 };
 ---
 
-<a href={href} class:list={[base, variants[variant], className]}><slot /></a>
+<a
+  href={href}
+  class:list={[base, variants[variant], className]}
+  data-track={track}
+  data-track-label={trackLabel}
+><slot /></a>

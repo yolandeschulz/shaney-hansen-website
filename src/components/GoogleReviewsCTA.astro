@@ -1,0 +1,102 @@
+---
+/**
+ * GoogleReviewsCTA — "Read Google Reviews" / "Leave a Google Review" buttons.
+ *
+ * Links come from Site Settings (googleReviewsLink / googleReviewRequestLink,
+ * editable via Pages CMS). While a link is still a "[placeholder]" its button
+ * is not rendered, so the site can go live before the Google Business Profile
+ * exists and the buttons appear automatically once real links are saved.
+ *
+ * No star ratings, review counts or rankings are shown anywhere — those must
+ * never be invented (see REVIEWS_AND_TESTIMONIALS_GUIDE.md).
+ */
+import { getEntry } from 'astro:content';
+import { isConfigured } from '../lib/analytics';
+
+interface Props {
+  /** 'buttons' = pill buttons (sections); 'links' = plain text links (footer). */
+  variant?: 'buttons' | 'links';
+  align?: 'left' | 'center';
+  class?: string;
+}
+const { variant = 'buttons', align = 'left', class: className = '' } = Astro.props;
+
+const settingsEntry = await getEntry('site', 'settings');
+const settings = settingsEntry?.data ?? {};
+
+const readLink = isConfigured(settings.googleReviewsLink) ? settings.googleReviewsLink : null;
+const leaveLink = isConfigured(settings.googleReviewRequestLink)
+  ? settings.googleReviewRequestLink
+  : null;
+
+const hasAny = Boolean(readLink || leaveLink);
+
+const buttonBase =
+  'inline-block rounded-full px-7 py-3 text-sm tracking-widest uppercase transition-all duration-500';
+const primary = `${buttonBase} bg-charcoal text-cream hover:bg-taupe hover:-translate-y-0.5`;
+const outline = `${buttonBase} border border-charcoal/40 text-charcoal hover:border-gold hover:text-gold hover:-translate-y-0.5`;
+---
+
+{hasAny && variant === 'buttons' && (
+  <div
+    class:list={[
+      'flex flex-wrap gap-4',
+      align === 'center' && 'justify-center',
+      className,
+    ]}
+  >
+    {readLink && (
+      <a
+        href={readLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={outline}
+        data-track="google_reviews_click"
+      >
+        Read Google Reviews
+      </a>
+    )}
+    {leaveLink && (
+      <a
+        href={leaveLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={primary}
+        data-track="leave_review_click"
+      >
+        Leave a Google Review
+      </a>
+    )}
+  </div>
+)}
+
+{hasAny && variant === 'links' && (
+  <ul class:list={['space-y-1', className]}>
+    {readLink && (
+      <li>
+        <a
+          href={readLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-gold transition-colors"
+          data-track="google_reviews_click"
+        >
+          Read Google Reviews
+        </a>
+      </li>
+    )}
+    {leaveLink && (
+      <li>
+        <a
+          href={leaveLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-gold transition-colors"
+          data-track="leave_review_click"
+        >
+          Leave a Google Review
+        </a>
+      </li>
+    )}
+  </ul>
+)}

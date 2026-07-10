@@ -7,6 +7,7 @@ import Button from '../components/Button.astro';
 import ServicePillarCard from '../components/ServicePillarCard.astro';
 import GalleryCategoryCard from '../components/GalleryCategoryCard.astro';
 import TestimonialSection from '../components/TestimonialSection.astro';
+import GoogleReviewsCTA from '../components/GoogleReviewsCTA.astro';
 import CTASection from '../components/CTASection.astro';
 
 const page = await getEntry('pages', 'home');
@@ -169,7 +170,9 @@ const pillars = [
         <h2 class="mt-3 font-display text-3xl md:text-4xl leading-snug">{d.destinationHeading}</h2>
         <p class="mt-4 leading-relaxed text-cream/85">{d.destinationText}</p>
         <div class="mt-8 flex flex-wrap gap-4">
-          <Button href="/destination">Explore Destination Photography</Button>
+          <Button href="/destination" track="destination_enquiry_click" trackLabel="homepage_teaser">
+            Explore Destination Photography
+          </Button>
         </div>
       </div>
     </div>
@@ -212,8 +215,15 @@ const pillars = [
     </ol>
   </section>
 
-  <!-- 10. Trust / testimonials (hidden until real testimonials are published) -->
-  <TestimonialSection heading={d.trustHeading} />
+  <!-- 10. Trust / testimonials: homepage shows only the small curated "featured" set
+       (hidden until real, approved testimonials are published) -->
+  <TestimonialSection heading={d.trustHeading} featuredOnly showReviewButtons={false} />
+
+  <!-- Google Reviews trust buttons: appear automatically once the review links
+       are added in Site Settings (nothing renders while they are placeholders) -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-20">
+    <GoogleReviewsCTA align="center" class="reveal" />
+  </section>
 
   <!-- 11. Final CTA -->
   <CTASection heading={d.finalCtaHeading} text={d.finalCtaText} buttonLabel={d.finalCtaButton} />

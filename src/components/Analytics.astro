@@ -1,0 +1,108 @@
+---
+/**
+ * Analytics.astro — analytics + event tracking, safe by default.
+ *
+ * Placed inside <head> by BaseLayout. Behaviour:
+ *  - No tracking IDs configured (the launch state): renders NOTHING except a
+ *    tiny, safe click-listener that no-ops. The site works exactly as before.
+ *  - GTM ID configured: loads Google Tag Manager (preferred container —
+ *    GA4 and Google Ads conversion tags are then managed inside GTM).
+ *  - Only GA4 ID configured: loads gtag.js directly.
+ *  - Google Search Console verification token configured: renders the meta tag.
+ *
+ * Event tracking: elements carry data-track="event_name" (optionally
+ * data-track-label="detail"). Clicks push { event, track_label } to
+ * window.dataLayer (GTM) and/or gtag (GA4). If neither is present the click
+ * is ignored silently — tracking never breaks the site, and works even when
+ * scripts are blocked. Gallery pages also push a gallery_view event.
+ *
+ * IDs live in src/content/site/settings.json (editable via Pages CMS).
+ * Placeholders like "[to be added]" are ignored by isConfigured().
+ */
+import { getEntry } from 'astro:content';
+import { getAnalyticsConfig } from '../lib/analytics';
+
+const settingsEntry = await getEntry('site', 'settings');
+const settings = settingsEntry?.data ?? {};
+const config = getAnalyticsConfig(settings);
+
+const useGtm = Boolean(config.gtmId);
+const useGtag = !useGtm && Boolean(config.gaMeasurementId);
+---
+
+{config.googleSiteVerification && (
+  <meta name="google-site-verification" content={config.googleSiteVerification} />
+)}
+
+{useGtm && (
+  <script
+    is:inline
+    define:vars={{ gtmId: config.gtmId }}
+  >
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = document.getElementsByTagName('script')[0];
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(gtmId);
+    f.parentNode.insertBefore(j, f);
+  </script>
+)}
+
+{useGtag && (
+  <script
+    is:inline
+    async
+    src={`https://www.googletagmanager.com/gtag/js?id=${config.gaMeasurementId}`}
+  ></script>
+)}
+{useGtag && (
+  <script is:inline define:vars={{ gaId: config.gaMeasurementId }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', gaId, { anonymize_ip: true });
+  </script>
+)}
+
+<!-- Event tracking listener: always present, always safe.
+     Fires only into dataLayer/gtag when they exist. -->
+<script is:inline>
+  (function () {
+    function push(eventName, label) {
+      try {
+        var payload = { event: eventName };
+        if (label) payload.track_label = label;
+        if (window.dataLayer && typeof window.dataLayer.push === 'function') {
+          window.dataLayer.push(payload);
+        }
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', eventName, label ? { track_label: label } : {});
+        }
+      } catch (e) {
+        /* Tracking must never break the site. */
+      }
+    }
+
+    // Expose for the contact form success handler and future scripts.
+    window.shTrack = push;
+
+    function onClick(e) {
+      var el = e.target && e.target.closest ? e.target.closest('[data-track]') : null;
+      if (!el) return;
+      push(el.getAttribute('data-track'), el.getAttribute('data-track-label') || undefined);
+    }
+
+    function onPageLoad() {
+      // Gallery views: /portfolio/<slug> counts as a gallery_view.
+      var m = window.location.pathname.match(/^\/portfolio\/([^\/]+)\/?$/);
+      if (m) push('gallery_view', m[1]);
+    }
+
+    document.addEventListener('click', onClick, true);
+    document.addEventListener('astro:page-load', onPageLoad);
+  })();
+</script>

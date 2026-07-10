@@ -1,14 +1,49 @@
 ---
+/**
+ * TestimonialSection — "Kind Words" trust section.
+ *
+ * Testimonials live in src/content/testimonials/testimonials.json and are
+ * edited through Pages CMS. An item is shown only when BOTH:
+ *   - published = true
+ *   - permissionApproved = true (the client agreed to appear on the website)
+ *
+ * Optional filtering:
+ *   - featuredOnly: show only items marked "featured" (homepage).
+ *   - serviceTypes: show only items matching these service types (service pages).
+ * The whole section disappears while no real testimonials are approved, so no
+ * placeholder or fake content is ever rendered. Google Review buttons appear
+ * below the testimonials once the links are configured in Site Settings.
+ */
 import { getEntry } from 'astro:content';
 import SectionHeading from './SectionHeading.astro';
+import TestimonialCard from './TestimonialCard.astro';
+import GoogleReviewsCTA from './GoogleReviewsCTA.astro';
 
 interface Props {
   heading?: string;
+  /** Homepage: show only the small curated "featured" set. */
+  featuredOnly?: boolean;
+  /** Service pages: show only testimonials for these service types. */
+  serviceTypes?: string[];
+  /** Show the Read/Leave Google Review buttons under the testimonials. */
+  showReviewButtons?: boolean;
 }
-const { heading = 'Kind Words' } = Astro.props;
+const {
+  heading = 'Kind Words',
+  featuredOnly = false,
+  serviceTypes,
+  showReviewButtons = true,
+} = Astro.props;
 
 const entry = await getEntry('testimonials', 'testimonials');
-const items = (entry?.data.items ?? []).filter((t) => t.published);
+const all = entry?.data.items ?? [];
+
+const items = all.filter((t: any) => {
+  if (!t.published || !t.permissionApproved) return false;
+  if (featuredOnly && !t.featured) return false;
+  if (serviceTypes && serviceTypes.length > 0 && !serviceTypes.includes(t.serviceType)) return false;
+  return true;
+});
 ---
 
 {
@@ -16,16 +51,21 @@ const items = (entry?.data.items ?? []).filter((t) => t.published);
     <section class="max-w-content mx-auto px-5 md:px-8 my-20 md:my-28">
       <SectionHeading title={heading} align="center" />
       <div class="mt-10 grid gap-6 md:grid-cols-2">
-        {items.map((t, i) => (
-          <figure
-            class="reveal bg-white rounded-2xl shadow-soft p-7 md:p-9"
-            style={`transition-delay: ${i * 100}ms`}
-          >
-            <blockquote class="font-display text-xl leading-relaxed italic">“{t.quote}”</blockquote>
-            <figcaption class="mt-4 text-sm text-taupe">— {t.name}</figcaption>
-          </figure>
+        {items.map((t: any, i: number) => (
+          <TestimonialCard
+            quote={t.quote}
+            name={t.name}
+            source={t.source}
+            rating={t.rating}
+            date={t.date}
+            serviceType={t.serviceType}
+            image={t.image}
+            reviewLink={t.reviewLink}
+            delay={i * 100}
+          />
         ))}
       </div>
+      {showReviewButtons && <GoogleReviewsCTA align="center" class="mt-10 reveal" />}
     </section>
   )
 }

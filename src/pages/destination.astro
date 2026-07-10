@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Button from '../components/Button.astro';
 import CTASection from '../components/CTASection.astro';
+import TestimonialSection from '../components/TestimonialSection.astro';
 
 const page = await getEntry('pages', 'destination');
 const p = page!.data as any;
@@ -21,6 +22,7 @@ const d = svc!.data as any;
     imageAlt={p.heroImageAlt}
     primaryCta={p.cta}
     primaryLink="/contact"
+    primaryTrack="international_quote_click"
     compact
   />
 
@@ -37,7 +39,9 @@ const d = svc!.data as any;
         <SectionHeading eyebrow="The service" title={d.title} text={`${d.intro} ${d.body}`} />
         <p class="mt-5 text-taupe leading-relaxed">{d.styledMomentsCopy}</p>
         <div class="mt-7">
-          <Button href="/contact">{d.cta}</Button>
+          <Button href="/contact" track="international_quote_click" trackLabel="destination_service">
+            {d.cta}
+          </Button>
         </div>
       </div>
       <div>
@@ -75,5 +79,15 @@ const d = svc!.data as any;
     </ul>
   </section>
 
-  <CTASection heading="Planning something far from home?" text="Tell Shaney about the trip, the occasion and the story you want documented." buttonLabel={d.cta} />
+  <!-- Trust: only wedding / travel / lifestyle / content testimonials belong here -->
+  <TestimonialSection
+    serviceTypes={['Destination Lifestyle & Content Photography', 'Wedding Photography', 'Couples Photography']}
+  />
+
+  <CTASection
+    heading="Planning something far from home?"
+    text="Tell Shaney about the trip, the occasion and the story you want documented."
+    buttonLabel={d.cta}
+    buttonTrack="destination_enquiry_click"
+  />
 </BaseLayout>

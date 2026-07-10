@@ -3,6 +3,8 @@ import { getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ContactForm from '../components/ContactForm.astro';
+import TestimonialSection from '../components/TestimonialSection.astro';
+import GoogleReviewsCTA from '../components/GoogleReviewsCTA.astro';
 
 const page = await getEntry('pages', 'contact');
 const d = page!.data as any;
@@ -25,12 +27,22 @@ const settings = settingsEntry?.data ?? {};
         <h2 class="font-display text-xl">Direct contact</h2>
         <ul class="mt-4 space-y-2 text-sm">
           <li>
-            <a href={`https://wa.me/${settings.whatsapp}`} class="hover:text-gold transition-colors"
+            <a
+              href={`https://wa.me/${settings.whatsapp}`}
+              class="hover:text-gold transition-colors"
+              data-track="whatsapp_click"
+              data-track-label="contact_aside"
               >Phone / WhatsApp: {settings.phone}</a
             >
           </li>
           <li>
-            <a href={`mailto:${settings.email}`} class="hover:text-gold transition-colors">{settings.email}</a>
+            <a
+              href={`mailto:${settings.email}`}
+              class="hover:text-gold transition-colors"
+              data-track="email_click"
+              data-track-label="contact_aside"
+              >{settings.email}</a
+            >
           </li>
           <li class="text-taupe">{settings.location}</li>
         </ul>
@@ -43,9 +55,17 @@ const settings = settingsEntry?.data ?? {};
         href={`https://wa.me/${settings.whatsapp}`}
         class="reveal block text-center rounded-2xl bg-charcoal text-cream px-6 py-5 font-display text-lg transition-all duration-500 hover:bg-taupe"
         style="transition-delay: 200ms"
+        data-track="whatsapp_click"
+        data-track-label="contact_banner"
       >
         Prefer chatting? WhatsApp Shaney directly &rarr;
       </a>
+      <!-- Google Reviews trust buttons: appear once review links are added in Site Settings.
+           Renders nothing while the links are still placeholders. -->
+      <GoogleReviewsCTA class="reveal" />
     </aside>
   </section>
+
+  <!-- Trust section after the enquiry form (hidden until real, approved testimonials exist) -->
+  <TestimonialSection />
 </BaseLayout>

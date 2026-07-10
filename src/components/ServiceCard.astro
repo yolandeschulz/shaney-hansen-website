@@ -40,7 +40,9 @@ const { name, whoFor, expect, packageDetails, image, imageAlt, reverse = false, 
       )
     }
     <div class="mt-6">
-      <Button href="/contact" variant="outline">Enquire About Availability</Button>
+      <Button href="/contact" variant="outline" track="service_cta_click" trackLabel={name}>
+        Enquire About Availability
+      </Button>
     </div>
   </div>
 </article>

@@ -16,6 +16,8 @@ const { title, description, coverImage, coverAlt, slug, delay = 0, coverFocal } 
   href={`/portfolio/${slug}`}
   class="reveal card-lift group block rounded-2xl overflow-hidden bg-white shadow-soft"
   style={`transition-delay: ${delay}ms`}
+  data-track="gallery_category_click"
+  data-track-label={slug}
 >
   <div class="img-zoom aspect-[4/5]">
     <img src={coverImage} alt={coverAlt} class="w-full h-full object-cover" style={coverFocal ? `object-position: ${coverFocal}` : undefined} loading="lazy" />

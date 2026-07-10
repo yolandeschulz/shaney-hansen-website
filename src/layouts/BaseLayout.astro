@@ -3,6 +3,7 @@ import { ViewTransitions } from 'astro:transitions';
 import { getEntry } from 'astro:content';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Analytics from '../components/Analytics.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -71,6 +72,10 @@ const schema = {
     />
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+    <!-- Analytics & tracking: inert until real IDs are added in Site Settings.
+         See ANALYTICS_MONTHLY_REPORTING_GUIDE.md. -->
+    <Analytics />
     <ViewTransitions />
   </head>
   <body class="min-h-screen flex flex-col">

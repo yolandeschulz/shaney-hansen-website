@@ -4,6 +4,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CTASection from '../components/CTASection.astro';
+import TestimonialSection from '../components/TestimonialSection.astro';
+
+// Only photography-related testimonials belong on this page.
+const photographyServiceTypes = [
+  'Wedding Photography', 'Couples Photography', 'Family Photography', 'Maternity Photography',
+  'Newborn Photography', 'Cake Smash Photography', 'School Photography', 'Pre-school Photography',
+  'Sport Photography', 'Corporate Photography', 'Studio Session', 'Styled Session',
+  'Destination Lifestyle & Content Photography',
+];
 
 const entry = await getEntry('services', 'photography');
 const d = entry!.data as any;
@@ -23,6 +32,7 @@ const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').repla
     imageAlt="Wedding photography by Shaney Hansen"
     primaryCta="Enquire Now"
     primaryLink="/contact"
+    primaryTrack="quote_click"
     secondaryCta="View Portfolio"
     secondaryLink="/portfolio"
     compact
@@ -62,6 +72,9 @@ const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').repla
       ))
     }
   </div>
+
+  <!-- Trust: photography testimonials (hidden until real, approved testimonials exist) -->
+  <TestimonialSection serviceTypes={photographyServiceTypes} />
 
   <CTASection
     heading="Ready to plan your session?"

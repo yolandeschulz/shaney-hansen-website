@@ -82,6 +82,8 @@ const caseStudies = defineCollection({
       testimonial: z.string().optional(),
       image: z.string().optional(),
       imageAlt: z.string().optional(),
+      /** Client permission to show details/screenshots publicly. */
+      permissionApproved: z.boolean().default(false),
       published: z.boolean().default(true),
     })
     .passthrough(),
@@ -95,11 +97,25 @@ const testimonials = defineCollection({
       note: z.string().optional(),
       items: z
         .array(
-          z.object({
-            quote: z.string(),
-            name: z.string(),
-            published: z.boolean().default(false),
-          })
+          z
+            .object({
+              quote: z.string(),
+              name: z.string(),
+              /** Google Review / Facebook Review / Direct Testimonial / WhatsApp Feedback / Email Feedback */
+              source: z.string().optional(),
+              /** Only if the client actually gave a star rating — never invented. */
+              rating: z.number().min(1).max(5).nullable().optional(),
+              date: z.string().optional(),
+              serviceType: z.string().optional(),
+              /** Featured testimonials appear in the small homepage set. */
+              featured: z.boolean().default(false),
+              image: z.string().optional(),
+              reviewLink: z.string().optional(),
+              /** The client agreed to appear on the website. Required to display. */
+              permissionApproved: z.boolean().default(false),
+              published: z.boolean().default(false),
+            })
+            .passthrough()
         )
         .default([]),
     })

@@ -13,6 +13,8 @@ Login: https://app.pagescms.org → Sign in with GitHub → choose this reposito
 ### Site Settings
 Contact details (phone, WhatsApp, email, location), social links, footer wording, availability line, travel note, default SEO title/description/share image, and the contact form endpoint.
 
+Also here: **Google Reviews & Business Profile** (public reviews link, review request link, Business Profile link/name/location, optional review QR code image — the Read/Leave review buttons appear on the site automatically once real links replace the placeholders) and **Analytics & tracking IDs** (Google Tag Manager ID, GA4 Measurement ID, Search Console verification code, Google Ads conversion ID/label, optional Meta Pixel ID). Tracking stays completely off while these fields contain [placeholders] — paste only real values from your own Google accounts.
+
 ### Pages
 One entry per page: **Home**, **About**, **Destination**, **Social Media**, **Creative Direction**, **Contact**, **Privacy Policy**. Each exposes its headings, paragraphs, button labels, hero image + alt text, and per-page SEO title and meta description.
 
@@ -26,10 +28,12 @@ One entry per page: **Home**, **About**, **Destination**, **Social Media**, **Cr
 Twelve entries (Weddings → Styled). Each has: title, description, cover image + alt, SEO title + meta description, homepage toggle, display order, and the image list (image + alt per item). Adding an image here is how new photos get on the site.
 
 ### Social Media Case Studies
-Team Up Athletics placeholder. Fields for platforms, frequency, content type, results and testimonial — all `[to be confirmed]` until the client approves. The **Show on website?** toggle controls visibility.
+Team Up Athletics placeholder. Fields for platforms, frequency, content type, results and testimonial — all `[to be confirmed]` until the client approves. The **Show on website?** toggle controls visibility, and **Client permission approved?** records that the client signed off on the published details.
 
 ### Testimonials
-List of quotes with a per-item **Show on website?** toggle. The whole section stays hidden on the site until at least one item is published.
+Each testimonial has: the client's real words (quote), name, **Source** (Google Review / Facebook Review / Direct Testimonial / WhatsApp Feedback / Email Feedback), optional star rating (only if the client actually gave one), date, **Service type** (routes the testimonial to the matching service page), **Featured?** (homepage set), optional image, optional link to the original review, **Client permission approved?** and **Show on website?**.
+
+A testimonial only appears when BOTH permission and show-on-website are switched on. The homepage shows only Featured items; the Photography, Social Media, Creative Direction and Destination pages each show testimonials whose Service type matches. Never invent quotes, names, ratings or dates — see REVIEWS_AND_TESTIMONIALS_GUIDE.md.
 
 ## Media
 

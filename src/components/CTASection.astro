@@ -8,6 +8,8 @@ interface Props {
   buttonLabel?: string;
   buttonLink?: string;
   showWhatsApp?: boolean;
+  /** Analytics event for the main button (see src/lib/analytics.ts EVENTS). */
+  buttonTrack?: string;
 }
 const {
   heading,
@@ -15,6 +17,7 @@ const {
   buttonLabel = 'Send an Enquiry',
   buttonLink = '/contact',
   showWhatsApp = true,
+  buttonTrack = 'quote_click',
 } = Astro.props;
 
 const settingsEntry = await getEntry('site', 'settings');
@@ -31,10 +34,15 @@ const settings = settingsEntry?.data ?? {};
       <h2 class="font-display text-3xl md:text-4xl">{heading}</h2>
       {text && <p class="mt-4 max-w-xl mx-auto text-taupe leading-relaxed">{text}</p>}
       <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <Button href={buttonLink}>{buttonLabel}</Button>
+        <Button href={buttonLink} track={buttonTrack}>{buttonLabel}</Button>
         {
           showWhatsApp && (
-            <Button href={`https://wa.me/${settings.whatsapp}`} variant="outline">
+            <Button
+              href={`https://wa.me/${settings.whatsapp}`}
+              variant="outline"
+              track="whatsapp_click"
+              trackLabel="cta_section"
+            >
               WhatsApp Shaney
             </Button>
           )

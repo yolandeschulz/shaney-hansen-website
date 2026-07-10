@@ -6,6 +6,7 @@ import SectionHeading from '../components/SectionHeading.astro';
 import Button from '../components/Button.astro';
 import GalleryCategoryCard from '../components/GalleryCategoryCard.astro';
 import CTASection from '../components/CTASection.astro';
+import TestimonialSection from '../components/TestimonialSection.astro';
 
 const page = await getEntry('pages', 'creative-direction');
 const p = page!.data as any;
@@ -25,6 +26,7 @@ const proof = galleries.filter((g) => ['styled', 'studio', 'cake-smash'].include
     imageAlt={p.heroImageAlt}
     primaryCta={p.cta}
     primaryLink="/contact"
+    primaryTrack="creative_direction_enquiry_click"
     compact
   />
 
@@ -83,9 +85,15 @@ const proof = galleries.filter((g) => ['styled', 'studio', 'cake-smash'].include
     </div>
   </section>
 
+  <!-- Trust: creative direction / styled work testimonials (hidden until real ones exist) -->
+  <TestimonialSection
+    serviceTypes={['Creative Direction & Styled Setup', 'Styled Session', 'Studio Session', 'Cake Smash Photography']}
+  />
+
   <CTASection
     heading="Have a concept in mind?"
     text="From a single styled session to a full brand content shoot — share the idea and Shaney will help build the scene."
     buttonLabel={d.cta}
+    buttonTrack="creative_direction_enquiry_click"
   />
 </BaseLayout>

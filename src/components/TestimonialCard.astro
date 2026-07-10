@@ -1,0 +1,62 @@
+---
+/**
+ * TestimonialCard — one client testimonial.
+ *
+ * Content rules (see REVIEWS_AND_TESTIMONIALS_GUIDE.md):
+ *  - Never invent quotes, names, star ratings, dates or sources.
+ *  - Star rating is shown ONLY when a real rating was supplied with the review.
+ *  - The source label (e.g. "Google Review") is shown so copied reviews are
+ *    clearly attributed.
+ */
+interface Props {
+  quote: string;
+  name: string;
+  source?: string;
+  rating?: number;
+  date?: string;
+  serviceType?: string;
+  image?: string;
+  reviewLink?: string;
+  delay?: number;
+}
+const { quote, name, source, rating, date, serviceType, image, reviewLink, delay = 0 } =
+  Astro.props;
+
+const stars = rating && rating >= 1 && rating <= 5 ? Math.round(rating) : null;
+const attribution = [name, source].filter(Boolean).join(', ');
+---
+
+<figure
+  class="reveal bg-white rounded-2xl shadow-soft p-7 md:p-9"
+  style={`transition-delay: ${delay}ms`}
+>
+  {stars && (
+    <p class="text-gold text-sm tracking-[0.3em]" aria-label={`${stars} out of 5 stars`}>
+      {'★'.repeat(stars)}<span class="text-sand">{'★'.repeat(5 - stars)}</span>
+    </p>
+  )}
+  <blockquote class:list={['font-display text-xl leading-relaxed italic', stars && 'mt-3']}>
+    “{quote}”
+  </blockquote>
+  <figcaption class="mt-4 flex items-center gap-3 text-sm text-taupe">
+    {image && (
+      <img
+        src={image}
+        alt={`Photo shared with the testimonial from ${name}`}
+        class="w-10 h-10 rounded-full object-cover"
+        loading="lazy"
+      />
+    )}
+    <span>
+      — {reviewLink ? (
+        <a href={reviewLink} target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">
+          {attribution}
+        </a>
+      ) : (
+        attribution
+      )}
+      {serviceType && <span class="block text-xs mt-0.5">{serviceType}</span>}
+      {date && <span class="block text-xs mt-0.5">{date}</span>}
+    </span>
+  </figcaption>
+</figure>

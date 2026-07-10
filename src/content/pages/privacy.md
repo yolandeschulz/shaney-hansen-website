@@ -14,3 +14,7 @@ This page is a placeholder. Before launch, add a privacy policy that covers:
 - Image consent and usage, especially for children, schools, families and private events
 - How visitors can request removal of their information
 - Contact details for privacy queries
+- Cookies and analytics: which analytics tools are used (Google Tag Manager / Google Analytics 4), what they measure, and how visitors can opt out — [Privacy policy wording to be confirmed]
+- Cookie/analytics consent approach (banner or notice) if required — [to be confirmed]
+
+Important: analytics and tracking should only be activated once the privacy wording and consent approach above are confirmed. Until then the tracking IDs in Site Settings must stay as placeholders (tracking stays off automatically).
