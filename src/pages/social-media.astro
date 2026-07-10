@@ -59,6 +59,34 @@ const cs = caseStudy?.data as any;
     </div>
   </section>
 
+  <!-- Content mosaic: the kind of visuals Shaney creates for brands -->
+  <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+    <SectionHeading
+      eyebrow="Content that connects"
+      title="Visuals made to stop the scroll"
+      text="From styled shoots and brand portraits to lifestyle moments and event coverage — content created with a clear visual identity in mind."
+    />
+    <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4">
+      {
+        [
+          { src: '/images/styled/placeholder-3.jpg', alt: 'Styled content shoot by Shaney Hansen' },
+          { src: '/images/corporate/cover.jpg', alt: 'Brand portrait photography for social media' },
+          { src: '/images/cake-smash/placeholder-1.jpg', alt: 'Joyful milestone content photography' },
+          { src: '/images/couples/placeholder-1.jpg', alt: 'Lifestyle storytelling photography' },
+          { src: '/images/sport/placeholder-2.jpg', alt: 'Team and event content photography' },
+          { src: '/images/studio/cover.jpg', alt: 'Studio content creation by Shaney Hansen' },
+        ].map((img, i) => (
+          <div
+            class="reveal img-zoom rounded-2xl overflow-hidden shadow-soft aspect-square"
+            style={`transition-delay: ${(i % 3) * 90}ms`}
+          >
+            <img src={img.src} alt={img.alt} class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
   <!-- 3 & 4. The two services -->
   <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24 grid gap-8 md:grid-cols-2">
     {
