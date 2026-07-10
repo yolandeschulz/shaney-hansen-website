@@ -61,7 +61,7 @@ socialText: Social media works best when it feels personal, consistent and
   human rather than generic. From managing her own creative content to
   supporting international clients such as Team Up Athletics, Shaney brings a
   warm, visual and practical approach to social media management.
-socialImage: /images/social-media/Divine Hair-53.jpg
+socialImage: /images/Divine Hair-49.jpg
 socialImageAlt: Social media content creation by Shaney Hansen
 destinationHeading: International Quality, South African Value
 destinationText: Although Shaney is based in South Africa, her work is created
