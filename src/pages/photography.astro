@@ -3,6 +3,8 @@ import { getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
 import CTASection from '../components/CTASection.astro';
 import TestimonialSection from '../components/TestimonialSection.astro';
 
@@ -73,6 +75,17 @@ const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').repla
       ))
     }
   </div>
+
+  <!-- Pricing: personal quotes -->
+  <section class="bg-sand/60 py-16 md:py-20 my-16 md:my-24">
+    <div class="max-w-content mx-auto px-5 md:px-8">
+      <SectionHeading eyebrow="Pricing" title={d.pricingHeading} text={d.pricingText} />
+      <p class="reveal mt-6 max-w-2xl text-sm text-taupe italic">{d.pricingNote}</p>
+      <div class="mt-8 reveal">
+        <Button href="/contact">{d.pricingCta ?? 'Request Your Quote'}</Button>
+      </div>
+    </div>
+  </section>
 
   <!-- Trust: photography testimonials (hidden until real, approved testimonials exist) -->
   <TestimonialSection serviceTypes={photographyServiceTypes} />

@@ -51,7 +51,7 @@ howSteps:
   - title: "Enjoy the shoot"
     text: "A calm, unhurried experience where you can simply be present."
   - title: "Receive your gallery"
-    text: "Beautifully documented from beginning to end. [Gallery delivery timeline to be confirmed]"
+    text: "Beautifully documented from beginning to end. Galleries are delivered within 5–10 working days — large events like weddings within one calendar month."
 trustHeading: "Kind Words"
 finalCtaHeading: "Let's capture your story"
 finalCtaText: "Whether it is a wedding, a family season, a styled concept, a destination trip or a brand that needs to show up beautifully online — enquiring is simple, safe and personal."

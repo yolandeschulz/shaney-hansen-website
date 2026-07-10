@@ -94,7 +94,7 @@ content:
       - { name: secondaryImage, label: "Small overlapping photo", type: image, description: "The smaller photo layered over the main one (desktop only)." }
       - { name: secondaryImageAlt, label: "Small photo — description (alt text)", type: string }
       - { name: introText, label: "Intro paragraph", type: text }
-      - { name: bioPlaceholder, label: "Personal bio", type: text, description: "Shaney's personal story — currently a placeholder waiting for her words." }
+      - { name: bio, label: "Bio (paragraphs separated by blank lines)", type: text }
       - { name: styleHeading, label: "'Her style' — heading", type: string }
       - { name: styleText, label: "'Her style' — text", type: text }
       - { name: creativeText, label: "Creative direction paragraph", type: text }

@@ -32,7 +32,12 @@ const d = page!.data as any;
       <p class="text-xs uppercase tracking-[0.28em] text-gold">About Shaney</p>
       <h1 class="mt-3 font-display text-4xl md:text-5xl leading-tight">{d.heroHeadline}</h1>
       <p class="mt-5 text-taupe leading-relaxed">{d.introText}</p>
-      <p class="mt-4 text-sm text-taupe italic">{d.bioPlaceholder}</p>
+      {
+        (d.bio ?? '')
+          .split('\n\n')
+          .filter(Boolean)
+          .map((para: string) => <p class="mt-4 leading-relaxed">{para}</p>)
+      }
     </div>
   </section>
 
