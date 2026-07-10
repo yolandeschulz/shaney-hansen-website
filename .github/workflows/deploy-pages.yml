@@ -1,0 +1,62 @@
+name: Deploy preview to GitHub Pages
+
+# Builds the Astro site and publishes it to GitHub Pages.
+# This is a PREVIEW deployment. Production hosting remains xneelo
+# (see deploy-xneelo.yml). Because GitHub Pages serves project sites
+# from a sub-path (/shaney-hansen-website/), a post-build step prefixes
+# all root-absolute URLs so links and images work on the preview.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+      BASE_PATH: /${{ github.event.repository.name }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Prefix root-absolute URLs with base path
+        run: |
+          find dist -name '*.html' -exec sed -i -E \
+            's#(href|src|srcset|action)="/([^/"])#\1="'"$BASE_PATH"'/\2#g; s#(href|src)="/"#\1="'"$BASE_PATH"'/"#g' {} +
+          find dist -name '*.css' -exec sed -i -E \
+            's#url\(/([^/)])#url('"$BASE_PATH"'/\1#g' {} +
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
