@@ -130,6 +130,9 @@ content:
           - { name: packageDetails, label: "Package / pricing details", type: text, description: "Replace '[Package details to be confirmed]' once pricing is final." }
           - { name: image, label: "Photo", type: image, description: "±1600px, under 500 KB." }
           - { name: imageAlt, label: "Photo description (alt text)", type: string }
+      - { name: pricingHeading, label: "Pricing heading", type: string, required: false }
+      - { name: pricingText, label: "Pricing main paragraph", type: text, required: false }
+      - { name: pricingNote, label: "Pricing note - mini sessions and offers", type: text, required: false }
       - { name: ctaSectionHeading, label: "Bottom enquiry block — heading", type: string, required: false }
       - { name: ctaSectionText, label: "Bottom enquiry block — text", type: text, required: false }
 
