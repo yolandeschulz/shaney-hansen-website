@@ -1,7 +1,7 @@
 # Xneelo Deployment Guide
 
-> **Current status: the domain and Xneelo hosting are NOT set up yet.**
-> Nothing in this guide can be completed until a domain is registered and a hosting package is active. Do not assume the domain is live. The GitHub repository remains the source of truth for the website, and Pages CMS stays connected to it — deployment to Xneelo only happens once QA is complete.
+> **Current status (July 2026): domain registered, hosting active, email created — website NOT deployed yet.**
+> `shaneyhansen.com` is registered in Shaney's own Xneelo account with a Basic hosting package (South Africa) and the mailbox `hello@shaneyhansen.com`. The GitHub repository remains the source of truth for the website, and Pages CMS stays connected to it — deployment to Xneelo only happens once QA is complete.
 
 ## Recommended launch sequence
 
@@ -21,19 +21,18 @@
 
 Work through **PRE_LAUNCH_CHECKLIST.md** before the first deployment.
 
-## Launch details — to be filled in
-
-Record these once the domain and hosting exist. All are currently unknown:
+## Launch details
 
 | Item | Value |
 |---|---|
-| Final domain | [to be confirmed — see suggested domains above] |
-| Xneelo login owner | [to be confirmed — should be Shaney's own account] |
-| Hosting package | [to be confirmed] |
-| FTP/SFTP/SSH details | [to be confirmed — store as GitHub Secrets, never in code] |
+| Final domain | shaneyhansen.com ✅ (registered July 2026, auto-renew on) |
+| Xneelo account owner | Shaney Hansen (her own account) ✅ |
+| Hosting package | Basic, hosted in South Africa ✅ |
+| FTP/SFTP/SSH details | [to be confirmed — in konsoleH; store as GitHub Secrets, never in code] |
 | Web root path | [to be confirmed — usually /public_html/] |
-| Email addresses | [to be confirmed — hello@ / bookings@ / shaney@] |
-| SSL setup | [to be confirmed — free Let's Encrypt via konsoleH] |
+| Email addresses | hello@shaneyhansen.com ✅ (bookings@/shaney@ optional later) |
+| Mail settings | IMAP mail.shaneyhansen.com :993 · SMTP smtp.shaneyhansen.com :465 (SSL) · Webmail: mail.shaneyhansen.com |
+| SSL setup | [to be enabled — free Let's Encrypt via konsoleH] |
 | Google Search Console verification | [to be added — Site Settings] |
 | GA4 Measurement ID | [to be added — Site Settings] |
 | GTM Container ID | [to be added — Site Settings] |
@@ -82,9 +81,9 @@ Never put credentials in the code or workflow file — secrets only.
 
 ## Domain / final URL
 
-The final domain has **not been chosen or registered yet**. Once it is, set it in **two places** before the first real deployment:
+The final domain is **shaneyhansen.com** and is already set in both places:
 
-1. `astro.config.mjs` — replace `https://REPLACE-WITH-FINAL-DOMAIN.co.za` (or set the `SITE_URL` env variable at build time)
+1. `astro.config.mjs` — `https://shaneyhansen.com` (can be overridden with the `SITE_URL` env variable at build time)
 2. `public/robots.txt` — the Sitemap line
 
 This makes canonical URLs, Open Graph URLs and the sitemap correct.

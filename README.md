@@ -4,7 +4,7 @@ A warm, premium, mobile-first static website for **Shaney Hansen Photography & S
 
 Built with **Astro + Tailwind CSS**, fully static output, editable through **Pages CMS**, to be hosted on **Xneelo**.
 
-> **Current status: pre-launch.** The domain and Xneelo hosting are **not set up yet** — do not assume the domain is live. The GitHub repository is the source of truth and Pages CMS stays connected to it. Deployment to Xneelo happens only once QA is complete. See **PRE_LAUNCH_CHECKLIST.md** for the full launch sequence.
+> **Current status: pre-launch.** The domain **shaneyhansen.com** is registered (Shaney's own Xneelo account), Basic hosting is active (South Africa) and **hello@shaneyhansen.com** exists — but the website is **not deployed yet**. The GitHub repository is the source of truth and Pages CMS stays connected to it. Deployment to Xneelo happens only once QA is complete. See **PRE_LAUNCH_CHECKLIST.md**.
 
 ## Quick start (local development)
 
@@ -75,9 +75,9 @@ The site is **tracking ready but switched off**. All IDs live in `src/content/si
 - Reviews: Google Review buttons (`GoogleReviewsCTA.astro`) appear on the homepage, contact page and footer once real links are saved in Site Settings. Testimonials render only when `published` **and** `permissionApproved` are both true — no fake reviews, star ratings or review counts anywhere, and no Review/AggregateRating schema is emitted.
 - Privacy: activate tracking only after the privacy wording and consent approach are confirmed (see the Privacy Policy placeholder page).
 
-## Deployment (Xneelo — not yet set up)
+## Deployment (Xneelo — hosting ready, site not deployed)
 
-**The domain and Xneelo hosting do not exist yet.** The recommended sequence: register the final domain in Shaney's own Xneelo account (candidates: shaneyhansenphotography.co.za, shaneyhansenphotography.com, shaneyhansencreative.co.za, shaneyhansen.co.za, shaneyhansenstudio.co.za) → set up hosting only when ready to launch (earlier only if professional email — hello@/bookings@/shaney@[domain] — is wanted sooner) → deploy the final static build once QA is complete.
+Domain: **shaneyhansen.com** · Hosting: **Basic, South Africa** · Email: **hello@shaneyhansen.com** — all active in Shaney's own Xneelo account. The final static build is deployed once QA is complete.
 
 Two deployment options — see **XNEELO_DEPLOYMENT_GUIDE.md**:
 
@@ -97,12 +97,12 @@ Work through **PRE_LAUNCH_CHECKLIST.md** (domain, hosting, email, SSL, form endp
 - [ ] Final selected images (curated, optimised)
 - [ ] Final hero images
 - [ ] Social links (Facebook, Instagram)
-- [ ] Final domain (not registered yet — see PRE_LAUNCH_CHECKLIST.md for candidates)
-- [ ] Xneelo account owner (should be Shaney's own account)
-- [ ] Xneelo hosting package (not set up yet)
+- [x] Final domain — shaneyhansen.com (registered, auto-renew on)
+- [x] Xneelo account owner — Shaney's own account
+- [x] Xneelo hosting package — Basic, South Africa
+- [x] Professional email — hello@shaneyhansen.com (bookings@/shaney@ optional later)
 - [ ] Xneelo FTP/SFTP/SSH credentials (as GitHub Secrets)
 - [ ] Web root path (usually /public_html/)
-- [ ] Professional email addresses (hello@ / bookings@ / shaney@[domain])
 - [ ] SSL (Let's Encrypt via konsoleH)
 - [ ] Google Search Console verification
 - [ ] GA4 Measurement ID and GTM Container ID

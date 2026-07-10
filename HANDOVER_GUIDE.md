@@ -4,25 +4,19 @@ Welcome! This guide explains how to update your own website. No coding needed �
 
 > **Looking for a specific thing to change?** Open **WHERE_TO_EDIT_WHAT.md** — it walks through the website page by page and tells you exactly which editor entry and field controls each photo, headline and button.
 
-> **Important: the website is not live on the internet yet.** The domain name and Xneelo hosting still need to be set up. You can already edit all content through Pages CMS — changes are saved safely — but nobody can visit the site until launch. See "Getting the website live" below.
+> **Important: the website is not live on the internet yet**, but the foundations are done: your domain **shaneyhansen.com** is registered in your own Xneelo account, hosting is active, and your professional email **hello@shaneyhansen.com** is created. You can already edit all content through Pages CMS — changes are saved safely — but visitors can only see the site after launch.
+
+## Your domain and email (done ✅)
+
+- **Domain:** shaneyhansen.com — registered in your own Xneelo account, auto-renews yearly. You own it.
+- **Email:** hello@shaneyhansen.com — this is the address shown on the website and where contact-form enquiries arrive.
+  - Read it in a browser at **mail.shaneyhansen.com**, or add it to your phone's mail app (settings: incoming `mail.shaneyhansen.com`, outgoing `smtp.shaneyhansen.com`, username is the full email address).
+  - Want bookings@ or shaney@ later? They're free — konsoleH → Mail → Manage Accounts → New Mailbox.
 
 ## Getting the website live (still to do)
 
-These steps happen in this order — your developer will help:
-
-1. **Choose and register your domain name** in **your own Xneelo account** (so you own it). Names to check for availability:
-   - shaneyhansenphotography.co.za
-   - shaneyhansenphotography.com
-   - shaneyhansencreative.co.za
-   - shaneyhansen.co.za
-   - shaneyhansenstudio.co.za
-2. **Set up Xneelo hosting when you're ready to launch.** The only reason to do it sooner is if you want professional email addresses before the website goes live.
-3. **Professional email addresses** (recommended once the domain exists):
-   - `hello@[your domain]` — for general enquiries
-   - `bookings@[your domain]` — for booking enquiries
-   - `shaney@[your domain]` — your personal address
-4. The website's files live on **GitHub** (the source of truth) and **Pages CMS stays connected to it** — that never changes, even after launch.
-5. Once everything is checked and approved (QA), the finished website is uploaded to Xneelo and goes live.
+1. The website's files live on **GitHub** (the source of truth) and **Pages CMS stays connected to it** — that never changes, even after launch.
+2. Once everything is checked and approved (QA), the finished website is uploaded to Xneelo and goes live at **https://shaneyhansen.com**.
 
 The full technical checklist is in **PRE_LAUNCH_CHECKLIST.md**.
 

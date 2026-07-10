@@ -1,38 +1,29 @@
 # Pre-Launch Checklist
 
-**Current status: the domain and Xneelo hosting are NOT set up yet. Nothing is live.**
+**Current status (July 2026): domain, hosting and email are DONE. The website itself is NOT deployed/live yet.**
 
-The GitHub repository is the website's source of truth and Pages CMS stays connected to it throughout. The final static Astro build is deployed to Xneelo only once QA is complete. Work through the sections below in order.
+The GitHub repository is the website's source of truth and Pages CMS stays connected to it throughout. The final static Astro build is deployed to Xneelo only once QA is complete. Remaining work: sections 4–10 and final deployment.
 
-## 1. Domain registration
+## 1. Domain registration ✅ DONE
 
-- [ ] Check availability of the candidate domains:
-  - [ ] shaneyhansenphotography.co.za
-  - [ ] shaneyhansenphotography.com
-  - [ ] shaneyhansencreative.co.za
-  - [ ] shaneyhansen.co.za
-  - [ ] shaneyhansenstudio.co.za
-- [ ] Choose the final domain: **[to be confirmed]**
-- [ ] Register it in **Shaney's own Xneelo account** (she must be the account owner)
-- [ ] Record the Xneelo account owner: **[to be confirmed]**
+- [x] Final domain chosen and registered: **shaneyhansen.com** (July 2026, auto-renew on)
+- [x] Registered in **Shaney's own Xneelo account** — she is the account owner
+- [x] Domain ownership type: Individual
 
-## 2. Xneelo hosting
+## 2. Xneelo hosting ✅ DONE
 
-Set up hosting **only when ready to launch** — unless Shaney wants professional email sooner.
-
-- [ ] Choose a hosting package (any Linux/Apache package — the site is static): **[to be confirmed]**
-- [ ] Point the domain at the hosting (konsoleH → Domains/DNS)
-- [ ] Get FTP/SFTP/SSH details: **[to be confirmed — store as GitHub Secrets only, never in code]**
+- [x] Hosting package: **Basic** (R99/month, billed yearly), hosted in **South Africa**
+- [x] Domain linked to the hosting package
+- [ ] Get FTP/SFTP/SSH details from konsoleH: **[to be confirmed — store as GitHub Secrets only, never in code]**
 - [ ] Confirm the web root path: **[to be confirmed — usually /public_html/]**
 
-## 3. Professional email
+## 3. Professional email ✅ DONE
 
-- [ ] Create mailboxes on the domain:
-  - [ ] hello@[domain] — general enquiries
-  - [ ] bookings@[domain] — booking enquiries
-  - [ ] shaney@[domain] — personal/direct
-- [ ] Decide which address the website displays and the contact form sends to
-- [ ] Update **Site Settings** (email field) and the professional email placeholders
+- [x] Mailbox created: **hello@shaneyhansen.com** (general enquiries + website contact address)
+- [x] bookings@ and shaney@ deliberately skipped — can be added free in konsoleH → Mail → Manage Accounts anytime
+- [x] Website displays and contact form sends to: hello@shaneyhansen.com (updated in Site Settings)
+- [ ] Send a test email to and from hello@shaneyhansen.com
+- [ ] Set up the mailbox on Shaney's phone/computer (IMAP mail.shaneyhansen.com :993, SMTP smtp.shaneyhansen.com :465 SSL, or webmail at mail.shaneyhansen.com)
 
 ## 4. SSL
 
@@ -78,7 +69,7 @@ Set up hosting **only when ready to launch** — unless Shaney wants professiona
 
 ## Final deployment (after all of the above + QA)
 
-- [ ] Set the final domain in `astro.config.mjs` (or `SITE_URL` env var) and `public/robots.txt`
+- [x] Final domain set in `astro.config.mjs` and `public/robots.txt` (shaneyhansen.com)
 - [ ] Complete the content checklist in README.md (images, pricing, bio, testimonials, privacy policy…)
 - [ ] QA sign-off
 - [ ] Deploy `dist/` to Xneelo (manual FTP or the manual-trigger GitHub Actions workflow — see XNEELO_DEPLOYMENT_GUIDE.md)

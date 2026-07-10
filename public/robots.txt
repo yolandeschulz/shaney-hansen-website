@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Replace with the final domain before launch
-Sitemap: https://REPLACE-WITH-FINAL-DOMAIN.co.za/sitemap-index.xml
+Sitemap: https://shaneyhansen.com/sitemap-index.xml
