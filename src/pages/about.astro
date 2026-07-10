@@ -20,8 +20,8 @@ const d = page!.data as any;
         class="img-zoom hidden md:block absolute -bottom-10 -right-8 w-52 rounded-2xl overflow-hidden shadow-lift border-4 border-cream"
       >
         <img
-          src="/images/front-page/placeholder-2.jpg"
-          alt="Photography by Shaney Hansen"
+          src={d.secondaryImage ?? '/images/front-page/placeholder-2.jpg'}
+          alt={d.secondaryImageAlt ?? 'Photography by Shaney Hansen'}
           class="w-full h-full object-cover"
           loading="lazy"
         />
@@ -70,5 +70,8 @@ const d = page!.data as any;
     </div>
   </section>
 
-  <CTASection heading="Let's capture your story" text="From family seasons to brand stories — enquiring is simple, safe and personal." />
+  <CTASection
+    heading={d.ctaSectionHeading ?? "Let's capture your story"}
+    text={d.ctaSectionText ?? 'From family seasons to brand stories — enquiring is simple, safe and personal.'}
+  />
 </BaseLayout>

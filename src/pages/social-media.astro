@@ -165,8 +165,8 @@ const cs = caseStudy?.data as any;
 
   <!-- 8. CTA -->
   <CTASection
-    heading="Ready to show up beautifully online?"
-    text="Tell Shaney about your brand, your platforms and what consistency would mean for you."
+    heading={p.ctaSectionHeading ?? 'Ready to show up beautifully online?'}
+    text={p.ctaSectionText ?? 'Tell Shaney about your brand, your platforms and what consistency would mean for you.'}
     buttonLabel={p.cta}
     buttonTrack="social_media_enquiry_click"
   />

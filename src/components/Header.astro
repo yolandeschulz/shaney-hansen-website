@@ -22,7 +22,7 @@ const isActive = (href: string) => (href === '/' ? current === '/' : current.sta
   <div class="max-w-content mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-20">
     <a href="/" class="flex items-center gap-3" aria-label="Shaney Hansen — home">
       <img
-        src="/images/general/shaney-hansen-logo.jpg"
+        src={settings.logo ?? '/images/general/shaney-hansen-logo.jpg'}
         alt="Shaney Hansen Photography logo"
         class="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover"
         width="200"

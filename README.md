@@ -134,6 +134,7 @@ Work through **PRE_LAUNCH_CHECKLIST.md** (domain, hosting, email, SSL, form endp
 
 - `PRE_LAUNCH_CHECKLIST.md` — everything that must happen before the site goes live
 - `HANDOVER_GUIDE.md` — non-technical guide for Shaney
+- `WHERE_TO_EDIT_WHAT.md` — page-by-page map: site section → Pages CMS entry/field
 - `PAGES_CMS_EDITOR_GUIDE.md` — how to edit every part of the site
 - `IMAGE_GUIDE.md` — image sizes, naming, alt text
 - `XNEELO_DEPLOYMENT_GUIDE.md` — deployment, SSL, DNS

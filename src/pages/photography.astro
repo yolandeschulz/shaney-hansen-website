@@ -21,19 +21,20 @@ const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').repla
 ---
 
 <BaseLayout
-  title="Photography Services | Shaney Hansen Photography"
-  description="Warm, story-led photography services in South Africa — weddings, couples, families, maternity, newborns, cake smash, schools, sport, corporate, studio, styled and destination sessions."
-  ogImage="/images/weddings/cover.jpg"
+  title={d.seoTitle ?? 'Photography Services | Shaney Hansen Photography'}
+  description={d.seoDescription ??
+    'Warm, story-led photography services in South Africa — weddings, couples, families, maternity, newborns, cake smash, schools, sport, corporate, studio, styled and destination sessions.'}
+  ogImage={d.heroImage ?? '/images/weddings/cover.jpg'}
 >
   <Hero
     headline={d.title}
     support={d.intro}
-    image="/images/weddings/cover.jpg"
-    imageAlt="Wedding photography by Shaney Hansen"
-    primaryCta="Enquire Now"
+    image={d.heroImage ?? '/images/weddings/cover.jpg'}
+    imageAlt={d.heroImageAlt ?? 'Wedding photography by Shaney Hansen'}
+    primaryCta={d.heroPrimaryCta ?? 'Enquire Now'}
     primaryLink="/contact"
     primaryTrack="quote_click"
-    secondaryCta="View Portfolio"
+    secondaryCta={d.heroSecondaryCta ?? 'View Portfolio'}
     secondaryLink="/portfolio"
     compact
   />
@@ -77,7 +78,7 @@ const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').repla
   <TestimonialSection serviceTypes={photographyServiceTypes} />
 
   <CTASection
-    heading="Ready to plan your session?"
-    text="Share what you have in mind and Shaney will help shape it into a session that feels like you."
+    heading={d.ctaSectionHeading ?? 'Ready to plan your session?'}
+    text={d.ctaSectionText ?? 'Share what you have in mind and Shaney will help shape it into a session that feels like you.'}
   />
 </BaseLayout>

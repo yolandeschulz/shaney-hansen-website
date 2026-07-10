@@ -5,6 +5,8 @@ seoDescription: "Meet Shaney Hansen — a South African-based visual storyteller
 heroHeadline: "Photography with warmth, care and intention"
 heroImage: "/images/front-page/placeholder-1.jpg"
 heroImageAlt: "Shaney Hansen Photography — behind the scenes"
+secondaryImage: "/images/front-page/placeholder-2.jpg"
+secondaryImageAlt: "Photography by Shaney Hansen"
 introText: "Shaney Hansen is a South African-based photographer, creative director and social media storyteller working from Lichtenburg with selected local, destination and international clients."
 bioPlaceholder: "[Personal bio details from Shaney to be added]"
 styleHeading: "Her style"
@@ -20,4 +22,6 @@ expectItems:
 whyHeading: "Why people choose Shaney"
 whyText: "Because her work feels warm, emotional and high quality — and because working with her feels simple, personal and unpressured. Her South African base is an advantage, not a limitation: international-quality photography and creative support with South African value."
 ctaText: "Enquire About Availability"
+ctaSectionHeading: "Let's capture your story"
+ctaSectionText: "From family seasons to brand stories — enquiring is simple, safe and personal."
 ---

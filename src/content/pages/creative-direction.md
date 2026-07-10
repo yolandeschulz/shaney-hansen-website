@@ -8,4 +8,6 @@ heroImage: "/images/creative-direction/cover.jpg"
 heroImageAlt: "Styled photography set built by Shaney Hansen"
 proofText: "The Styled, Studio and Cake Smash galleries are strong proof of this capability — sets, scenes and concepts built by Shaney herself."
 cta: "Enquire About a Styled Shoot"
+ctaSectionHeading: "Have a concept in mind?"
+ctaSectionText: "From a single styled session to a full brand content shoot — share the idea and Shaney will help build the scene."
 ---

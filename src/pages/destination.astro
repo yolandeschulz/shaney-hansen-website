@@ -85,8 +85,8 @@ const d = svc!.data as any;
   />
 
   <CTASection
-    heading="Planning something far from home?"
-    text="Tell Shaney about the trip, the occasion and the story you want documented."
+    heading={p.ctaSectionHeading ?? 'Planning something far from home?'}
+    text={p.ctaSectionText ?? 'Tell Shaney about the trip, the occasion and the story you want documented.'}
     buttonLabel={d.cta}
     buttonTrack="destination_enquiry_click"
   />

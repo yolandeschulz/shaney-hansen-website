@@ -1,6 +1,8 @@
 # Pages CMS Editor Guide
 
-How the CMS works and what each section edits. (For a friendlier task-based walkthrough, see HANDOVER_GUIDE.md.)
+How the CMS works and what each section edits. (For a friendlier task-based walkthrough, see HANDOVER_GUIDE.md. For a page-by-page map of which entry controls which part of the website, see WHERE_TO_EDIT_WHAT.md.)
+
+**How to replace any image:** open the entry that uses it (see WHERE_TO_EDIT_WHAT.md) → click the image field → choose or upload the new photo → update the alt text next to it → Save. You never edit image files themselves; placeholder SVGs simply stop being used once no field points to them, and can then be deleted in Media.
 
 ## How Pages CMS works
 
@@ -9,6 +11,8 @@ Pages CMS (https://pagescms.org) is a free, open-source editor that sits directl
 Login: https://app.pagescms.org → Sign in with GitHub → choose this repository.
 
 ## Editor sections
+
+The menu is ordered like the website itself: pages first (🏠 Home page … 🔒 Privacy policy page), then 🖼️ Portfolio galleries, 💬 Testimonials and ⭐ Case studies, with ⚙️ Site settings last. Every field has a plain-language label saying where it appears on the site, plus a helper note underneath where useful (image sizes, what alt text means, what not to change).
 
 ### Site Settings
 Contact details (phone, WhatsApp, email, location), social links, footer wording, availability line, travel note, default SEO title/description/share image, and the contact form endpoint.

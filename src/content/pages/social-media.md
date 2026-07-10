@@ -8,6 +8,8 @@ heroImage: "/images/social-media/cover.jpg"
 heroImageAlt: "Social media content creation by Shaney Hansen"
 cta: "Enquire About Social Media Support"
 internationalCta: "Request an International Social Media Quote"
+ctaSectionHeading: "Ready to show up beautifully online?"
+ctaSectionText: "Tell Shaney about your brand, your platforms and what consistency would mean for you."
 mosaicHeading: "Visuals made to stop the scroll"
 mosaicText: "From styled shoots and brand portraits to lifestyle moments and event coverage — content created with a clear visual identity in mind."
 mosaic:

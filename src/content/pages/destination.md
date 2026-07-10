@@ -7,4 +7,6 @@ heroSupport: "For destination weddings, family trips, influencer content, brand 
 heroImage: "/images/front-page/placeholder-2.jpg"
 heroImageAlt: "Destination lifestyle photography session"
 cta: "Request an International Quote"
+ctaSectionHeading: "Planning something far from home?"
+ctaSectionText: "Tell Shaney about the trip, the occasion and the story you want documented."
 ---

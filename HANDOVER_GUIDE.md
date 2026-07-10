@@ -2,6 +2,8 @@
 
 Welcome! This guide explains how to update your own website. No coding needed — everything happens through a friendly editor called **Pages CMS**.
 
+> **Looking for a specific thing to change?** Open **WHERE_TO_EDIT_WHAT.md** — it walks through the website page by page and tells you exactly which editor entry and field controls each photo, headline and button.
+
 > **Important: the website is not live on the internet yet.** The domain name and Xneelo hosting still need to be set up. You can already edit all content through Pages CMS — changes are saved safely — but nobody can visit the site until launch. See "Getting the website live" below.
 
 ## Getting the website live (still to do)
