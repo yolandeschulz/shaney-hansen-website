@@ -22,13 +22,14 @@ const isActive = (href: string) => (href === '/' ? current === '/' : current.sta
   <div class="max-w-content mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-20">
     <a href="/" class="flex flex-col justify-center" aria-label="Shaney Hansen — home">
       <img
-        src={settings.logo ?? '/images/general/shaney-hansen-logo.png'}
+        src={settings.logo ?? '/images/general/shaney-hansen-logo-transparent.png'}
         alt="Shaney Hansen Photography"
-        class="h-9 md:h-11 w-auto"
-        width="394"
-        height="220"
+        class="h-9 md:h-11 w-auto object-contain"
+        width="752"
+        height="416"
       />
-      <span class="text-[0.5rem] md:text-[0.6rem] uppercase tracking-[0.26em] text-taupe mt-0.5 pl-0.5"
+      <span
+        class="block whitespace-nowrap text-[0.5rem] md:text-[0.6rem] uppercase tracking-[0.26em] text-taupe mt-0.5 pl-0.5"
         >&amp; Social Media Management</span
       >
     </a>

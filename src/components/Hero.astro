@@ -20,6 +20,11 @@ interface Props {
   /** Analytics event names for the CTA buttons (see src/lib/analytics.ts EVENTS). */
   primaryTrack?: string;
   secondaryTrack?: string;
+  /** Home page only: overlay the white brand logo over the upper portion of the hero.
+      Decorative (aria-hidden) — the text brand in the header remains the accessible name. */
+  overlayLogo?: boolean;
+  /** Source for the overlay logo (white/cream transparent version). */
+  overlayLogoImage?: string;
 }
 const {
   headline,
@@ -36,7 +41,10 @@ const {
   videoWebm,
   primaryTrack,
   secondaryTrack,
+  overlayLogo = false,
+  overlayLogoImage = '/images/general/shaney-hansen-logo-white.png',
 } = Astro.props;
+const showOverlayLogo = overlayLogo && !compact;
 const focalStyle = focalPoint ? `object-position: ${focalPoint}` : undefined;
 ---
 
@@ -72,6 +80,28 @@ const focalStyle = focalPoint ? `object-position: ${focalPoint}` : undefined;
       )
     }
     <div class="absolute inset-0 bg-gradient-to-t from-charcoal/35 via-charcoal/5 to-transparent pointer-events-none" aria-hidden="true"></div>
+    {
+      showOverlayLogo && (
+        <div
+          class="hero-logo reveal pointer-events-none absolute left-1/2 top-[18%] md:top-[21%] -translate-x-1/2 z-[5] w-[70%] max-w-[320px] md:max-w-[460px] lg:max-w-[480px]"
+          aria-hidden="true"
+        >
+          <div
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[135%] h-[160%] rounded-full"
+            style="background: radial-gradient(closest-side, rgba(46,42,38,0.15), rgba(46,42,38,0) 70%);"
+          >
+          </div>
+          <img
+            src={overlayLogoImage}
+            alt=""
+            width="752"
+            height="416"
+            class="relative w-full h-auto select-none"
+            style="filter: drop-shadow(0 6px 20px rgba(46,42,38,0.5));"
+          />
+        </div>
+      )
+    }
     {
       video && (
         <button
