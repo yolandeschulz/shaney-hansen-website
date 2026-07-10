@@ -51,6 +51,8 @@ content:
       - { name: heroSecondaryLink, label: Hero secondary button link, type: string }
       - { name: heroImage, label: Hero image, type: image }
       - { name: heroImageAlt, label: Hero image alt text, type: string }
+      - { name: heroFocal, label: "Hero crop focus (optional, e.g. center 20%)", type: string, required: false }
+      - { name: heroVideo, label: "Hero video (optional, path like /videos/clip.mp4)", type: string, required: false }
       - { name: introHeading, label: Intro heading, type: string }
       - { name: introText, label: Intro text, type: text }
       - { name: pillarsHeading, label: Service pillars heading, type: string }
@@ -126,6 +128,15 @@ content:
       - { name: heroImageAlt, label: Hero image alt text, type: string }
       - { name: cta, label: CTA button text, type: string }
       - { name: internationalCta, label: International CTA button text, type: string }
+      - { name: mosaicHeading, label: Photo grid heading, type: string }
+      - { name: mosaicText, label: Photo grid intro text, type: text }
+      - name: mosaic
+        label: Photo grid images
+        type: object
+        list: true
+        fields:
+          - { name: src, label: Image, type: image }
+          - { name: alt, label: Alt text, type: string }
 
   - name: creative-direction-page
     label: "Page: Creative Direction"
@@ -252,6 +263,7 @@ content:
       - { name: description, label: Short description, type: text }
       - { name: coverImage, label: Cover image, type: image }
       - { name: coverAlt, label: Cover image alt text, type: string }
+      - { name: coverFocal, label: "Cover crop focus (optional, e.g. center 20%)", type: string, required: false }
       - { name: seoTitle, label: SEO title, type: string }
       - { name: seoDescription, label: SEO / meta description, type: text }
       - { name: featuredOnHomepage, label: Show on homepage?, type: boolean }
