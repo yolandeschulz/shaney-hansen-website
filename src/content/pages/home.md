@@ -52,7 +52,7 @@ creativeText: Shaney's work goes beyond taking photographs. She can help shape
   clear story and polished finish.
 creativeImage: /images/styled/styled-032.jpg
 creativeImageAlt: Styled photography session with creative set design
-creativeImageSmall: /images/cake-smash/cake-smash-013.jpg
+creativeImageSmall: /images/styled/styled-034.jpg
 creativeImageSmallAlt: Cake smash setup built by Shaney Hansen
 socialHeading: Social Media with Story, Style and Consistency
 socialText: Social media works best when it feels personal, consistent and
