@@ -11,7 +11,7 @@ postingFrequency: 3 x a week
 contentType: Creative images and videos
 results: 10% uplift in reach and sales
 testimonial: "We love working with Shaney! "
-image: /images/sport/sport-001.jpg
+image: /images/Logo.png
 imageAlt: Social media content for Team Up Athletics
 permissionApproved: true
 published: true
