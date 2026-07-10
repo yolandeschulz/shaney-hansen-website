@@ -69,7 +69,7 @@ destinationText: Although Shaney is based in South Africa, her work is created
   professional experience. For international clients paying in dollars, euros or
   pounds, the South African rand can create a meaningful value advantage —
   premium work without unnecessary inflated costs.
-destinationImage: /images/maternity/maternity-009.jpg
+destinationImage: /images/aetwwth8-1.png
 howHeading: How it works
 howText: From the first enquiry to your final gallery, the process is designed
   to feel simple, personal and relaxed.
