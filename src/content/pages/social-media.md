@@ -18,11 +18,16 @@ mosaicText: From styled shoots and brand portraits to lifestyle moments and
 mosaic:
   - src: /images/studio/studio-008.jpg
     alt: Styled content shoot by Shaney Hansen
-  - alt: Brand portrait photography for social media
-  - alt: Joyful milestone content photography
-  - alt: Lifestyle storytelling photography
-  - alt: Team and event content photography
-  - alt: Studio content creation by Shaney Hansen
+  - src: /images/studio/studio-016.jpg
+    alt: Brand portrait photography for social media
+  - src: /images/studio/studio-015.jpg
+    alt: Joyful milestone content photography
+  - src: /images/studio/studio-010.jpg
+    alt: Lifestyle storytelling photography
+  - src: /images/studio/studio-025.jpg
+    alt: Team and event content photography
+  - src: /images/pre-school/pre-school-003.jpg
+    alt: Studio content creation by Shaney Hansen
 ctaSectionHeading: Ready to show up beautifully online?
 ctaSectionText: Tell Shaney about your brand, your platforms and what
   consistency would mean for you.
