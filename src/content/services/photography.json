@@ -84,7 +84,6 @@
       "name": "Studio Sessions",
       "whoFor": "For controlled indoor shoots — portraits, creative concepts and beautifully lit scenes.",
       "expect": "A considered studio experience with thoughtful lighting and creative direction.",
-      "packageDetails": "Quoted personally — no two sessions are the same. Share your plans and you'll receive a personal quote, usually within a day or two.",
       "image": "/images/studio/studio-028.jpg",
       "imageAlt": "Studio photography session by Shaney Hansen Photography"
     },
@@ -92,7 +91,6 @@
       "name": "Styled Sessions",
       "whoFor": "For themed, creative, seasonal or concept shoots — personal, family or brand.",
       "expect": "Creative shoots for campaigns, seasonal content, personal brands or social media storytelling, with sets and styling built by Shaney herself.",
-      "packageDetails": "Quoted personally — no two sessions are the same. Share your plans and you'll receive a personal quote, usually within a day or two.",
       "image": "/images/candtf8x.png",
       "imageAlt": "Styled photography session with creative set design"
     },
@@ -105,6 +103,9 @@
       "imageAlt": "Destination lifestyle photography session"
     }
   ],
+  "pricingHeading": "Every session is quoted personally",
+  "pricingText": "No two stories are the same — a sunrise maternity session, a full wedding day and a styled cake smash each ask for different planning, travel, styling and editing time. Rather than fitting your moment into a standard package, Shaney prepares a quote around exactly what you need, so you only ever pay for what your session truly involves. Share a few details about what you're dreaming of, and you'll receive a personal quote — usually within a day or two.",
+  "pricingNote": "From time to time, Shaney runs seasonal mini sessions and special offers. These are announced on Facebook and Instagram first — follow along so you don't miss them.",
   "ctaSectionHeading": "Ready to plan your session?",
   "ctaSectionText": "Share what you have in mind and Shaney will help shape it into a session that feels like you."
 }
