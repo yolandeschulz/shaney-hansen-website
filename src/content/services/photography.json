@@ -21,7 +21,7 @@
       "whoFor": "For engagements, anniversaries, romantic shoots and relationship sessions.",
       "expect": "Relaxed direction and natural, connected portraits that feel like the two of you.",
       "packageDetails": "Quoted personally — no two sessions are the same. Share your plans and you'll receive a personal quote, usually within a day or two.",
-      "image": "/images/couples/cover.jpg",
+      "image": "/images/couples/couples-020.jpg",
       "imageAlt": "Couple photography session in soft natural light"
     },
     {
@@ -29,7 +29,7 @@
       "whoFor": "For families who want natural, unforced photographs of real connection.",
       "expect": "A gentle, unhurried session focused on laughter, togetherness and the in-between moments.",
       "packageDetails": "Quoted personally — no two sessions are the same. Share your plans and you'll receive a personal quote, usually within a day or two.",
-      "image": "/images/family/family-001.jpg",
+      "image": "/images/family/family-072.jpg",
       "imageAlt": "Family photography session in soft natural light"
     },
     {
@@ -37,7 +37,7 @@
       "whoFor": "For pregnancy and motherhood sessions.",
       "expect": "Soft, feminine, light-filled photography that honours this season with warmth and care.",
       "packageDetails": "Quoted personally — no two sessions are the same. Share your plans and you'll receive a personal quote, usually within a day or two.",
-      "image": "/images/maternity/cover.jpg",
+      "image": "/images/maternity/maternity-055.jpg",
       "imageAlt": "Maternity photography session in South Africa"
     },
     {
@@ -45,7 +45,7 @@
       "whoFor": "For gentle newborn sessions in those first precious weeks.",
       "expect": "A calm, patient, baby-led session — no rushing, no pressure, just softness and care.",
       "packageDetails": "Quoted personally — no two sessions are the same. Share your plans and you'll receive a personal quote, usually within a day or two.",
-      "image": "/images/newborn/newborn-008.jpg",
+      "image": "/images/newborn/newborn-059.jpg",
       "imageAlt": "Newborn photography session by Shaney Hansen Photography"
     },
     {
@@ -53,7 +53,7 @@
       "whoFor": "For first birthdays and milestone celebrations.",
       "expect": "A joyful, styled session with a custom-built setup created around your little one.",
       "packageDetails": "Quoted personally — no two sessions are the same. Share your plans and you'll receive a personal quote, usually within a day or two.",
-      "image": "/images/cake-smash/cover.jpg",
+      "image": "/images/cake-smash/cake-smash-007.jpg",
       "imageAlt": "Cake smash birthday photography session"
     },
     {
@@ -69,7 +69,7 @@
       "whoFor": "For sports days, teams, action photos and school sport events.",
       "expect": "Energetic, action-led coverage that captures effort, teamwork and the big moments.",
       "packageDetails": "Quoted personally — no two sessions are the same. Share your plans and you'll receive a personal quote, usually within a day or two.",
-      "image": "/images/sport/cover.jpg",
+      "image": "/images/sport/sport-002.jpg",
       "imageAlt": "School sport photography session in South Africa"
     },
     {
@@ -77,7 +77,7 @@
       "whoFor": "For business portraits, team photos, branding and professional content.",
       "expect": "Professional images for websites, LinkedIn, social media and brand content — polished but human.",
       "packageDetails": "Quoted personally — no two sessions are the same. Share your plans and you'll receive a personal quote, usually within a day or two.",
-      "image": "/images/corporate/cover.jpg",
+      "image": "/images/social-media/cover.jpg",
       "imageAlt": "Corporate headshot photography by Shaney Hansen Photography"
     },
     {
@@ -85,7 +85,7 @@
       "whoFor": "For controlled indoor shoots — portraits, creative concepts and beautifully lit scenes.",
       "expect": "A considered studio experience with thoughtful lighting and creative direction.",
       "packageDetails": "Quoted personally — no two sessions are the same. Share your plans and you'll receive a personal quote, usually within a day or two.",
-      "image": "/images/studio/cover.jpg",
+      "image": "/images/studio/studio-028.jpg",
       "imageAlt": "Studio photography session by Shaney Hansen Photography"
     },
     {
@@ -93,7 +93,7 @@
       "whoFor": "For themed, creative, seasonal or concept shoots — personal, family or brand.",
       "expect": "Creative shoots for campaigns, seasonal content, personal brands or social media storytelling, with sets and styling built by Shaney herself.",
       "packageDetails": "Quoted personally — no two sessions are the same. Share your plans and you'll receive a personal quote, usually within a day or two.",
-      "image": "/images/styled/cover.jpg",
+      "image": "/images/styled/styled-016.jpg",
       "imageAlt": "Styled photography session with creative set design"
     },
     {
@@ -101,14 +101,10 @@
       "whoFor": "For destination weddings, creators, brands, teams and families who want the full experience documented for both memories and online storytelling.",
       "expect": "Shaney travels with you and documents the full journey — the quiet in-between moments, the details, the portraits, the lifestyle content and the main occasion.",
       "packageDetails": "[Travel fees, accommodation, duration, deliverables and quote to be confirmed individually]",
-      "image": "/images/front-page/cover.jpg",
+      "image": "/images/weddings/weddings-003.jpg",
       "imageAlt": "Destination lifestyle photography session"
     }
   ],
   "ctaSectionHeading": "Ready to plan your session?",
-  "ctaSectionText": "Share what you have in mind and Shaney will help shape it into a session that feels like you.",
-  "pricingHeading": "Every session is quoted personally",
-  "pricingText": "No two stories are the same — a sunrise maternity session, a full wedding day and a styled cake smash each ask for different planning, travel, styling and editing time. Rather than fitting your moment into a standard package, Shaney prepares a quote around exactly what you need, so you only ever pay for what your session truly involves. Share a few details about what you're dreaming of, and you'll receive a personal quote — usually within a day or two.",
-  "pricingNote": "From time to time, Shaney runs seasonal mini sessions and special offers. These are announced on Facebook and Instagram first — follow along so you don't miss them.",
-  "pricingCta": "Request Your Quote"
+  "ctaSectionText": "Share what you have in mind and Shaney will help shape it into a session that feels like you."
 }
