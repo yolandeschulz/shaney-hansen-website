@@ -7,7 +7,7 @@ seoDescription: Meet Shaney Hansen — a South African-based visual storyteller
 heroHeadline: Photography with warmth, care and intention
 heroImage: /images/weddings/weddings-016.jpg
 heroImageAlt: Shaney Hansen Photography — behind the scenes
-secondaryImage: /images/family/family-024.jpg
+secondaryImage: /images/shaney family.jpg
 secondaryImageAlt: Photography by Shaney Hansen
 introText: Shaney Hansen is a South African-based photographer, creative
   director and social media storyteller working from Lichtenburg with selected
