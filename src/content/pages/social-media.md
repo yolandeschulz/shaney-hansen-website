@@ -26,7 +26,7 @@ mosaic:
     alt: Lifestyle storytelling photography
   - src: /images/studio/studio-017.jpg
     alt: Team and event content photography
-  - src: /images/pre-school/pre-school-003.jpg
+  - src: /images/studio/studio-028.jpg
     alt: Studio content creation by Shaney Hansen
 ctaSectionHeading: Ready to show up beautifully online?
 ctaSectionText: Tell Shaney about your brand, your platforms and what
