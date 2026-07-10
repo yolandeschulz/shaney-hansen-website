@@ -7,8 +7,6 @@
   "heroImageAlt": "Wedding photography by Shaney Hansen",
   "heroPrimaryCta": "Enquire Now",
   "heroSecondaryCta": "View Portfolio",
-  "ctaSectionHeading": "Ready to plan your session?",
-  "ctaSectionText": "Share what you have in mind and Shaney will help shape it into a session that feels like you.",
   "services": [
     {
       "name": "Wedding Photography",
@@ -31,7 +29,7 @@
       "whoFor": "For families who want natural, unforced photographs of real connection.",
       "expect": "A gentle, unhurried session focused on laughter, togetherness and the in-between moments.",
       "packageDetails": "[Package details to be confirmed]",
-      "image": "/images/family/cover.jpg",
+      "image": "/images/family/family-001.jpg",
       "imageAlt": "Family photography session in soft natural light"
     },
     {
@@ -106,5 +104,7 @@
       "image": "/images/front-page/cover.jpg",
       "imageAlt": "Destination lifestyle photography session"
     }
-  ]
+  ],
+  "ctaSectionHeading": "Ready to plan your session?",
+  "ctaSectionText": "Share what you have in mind and Shaney will help shape it into a session that feels like you."
 }
