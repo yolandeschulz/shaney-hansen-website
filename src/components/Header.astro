@@ -102,4 +102,12 @@ const isActive = (href: string) => (href === '/' ? current === '/' : current.sta
 <script is:inline>
   document.addEventListener('astro:page-load', function () {
     var btn = document.getElementById('menu-toggle');
-    var menu = document.getElementById('mobile-menu'
+    var menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+  });
+</script>
