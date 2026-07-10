@@ -86,3 +86,26 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Crop bias: favour the upper part of photos so portrait subjects keep their
+   heads. Individual images can override via an inline object-position style
+   (see the focalPoint field in gallery data / hero props). */
+img.object-cover {
+  object-position: center 30%;
+}
+
+/* Slow, subtle hero zoom for movement and depth (Ken Burns effect).
+   Disabled automatically for users who prefer reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-kenburns img {
+    animation: hero-kenburns-zoom 26s ease-in-out infinite alternate;
+  }
+}
+@keyframes hero-kenburns-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}

@@ -43,7 +43,7 @@ jobs:
       - name: Prefix root-absolute URLs with base path
         run: |
           find dist -name '*.html' -exec sed -i -E \
-            's#(href|src|srcset|action)="/([^/"])#\1="'"$BASE_PATH"'/\2#g; s#(href|src)="/"#\1="'"$BASE_PATH"'/"#g' {} +
+            's#(href|src|srcset|action|poster)="/([^/"])#\1="'"$BASE_PATH"'/\2#g; s#(href|src)="/"#\1="'"$BASE_PATH"'/"#g' {} +
           find dist -name '*.css' -exec sed -i -E \
             's#url\(/([^/)])#url('"$BASE_PATH"'/\1#g' {} +
 

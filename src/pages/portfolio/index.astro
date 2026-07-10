@@ -30,6 +30,7 @@ const galleries = (await getCollection('galleries')).sort((a, b) => a.data.order
             description={g.data.description}
             coverImage={g.data.coverImage}
             coverAlt={g.data.coverAlt}
+              coverFocal={g.data.coverFocal}
             slug={g.id.replace('.json', '')}
             delay={(i % 3) * 100}
           />

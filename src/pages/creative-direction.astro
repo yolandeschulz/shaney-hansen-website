@@ -18,6 +18,7 @@ const proof = galleries.filter((g) => ['styled', 'studio', 'cake-smash'].include
 
 <BaseLayout title={p.seoTitle} description={p.seoDescription} ogImage={p.heroImage}>
   <Hero
+    focalPoint={p.heroFocal}
     headline={p.heroHeadline}
     support={p.heroSupport}
     image={p.heroImage}
@@ -58,6 +59,7 @@ const proof = galleries.filter((g) => ['styled', 'studio', 'cake-smash'].include
               description={g.data.description}
               coverImage={g.data.coverImage}
               coverAlt={g.data.coverAlt}
+              coverFocal={g.data.coverFocal}
               slug={g.id.replace('.json', '')}
               delay={i * 120}
             />

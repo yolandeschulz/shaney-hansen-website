@@ -11,6 +11,11 @@ interface Props {
   secondaryCta?: string;
   secondaryLink?: string;
   compact?: boolean;
+  /** CSS object-position value, e.g. "center 20%" — tune which part of the image survives cropping. */
+  focalPoint?: string;
+  /** Optional short, muted, looping video (mp4). The image is used as poster + reduced-motion fallback. */
+  video?: string;
+  videoWebm?: string;
 }
 const {
   headline,
@@ -22,19 +27,45 @@ const {
   secondaryCta,
   secondaryLink = '/portfolio',
   compact = false,
+  focalPoint,
+  video,
+  videoWebm,
 } = Astro.props;
+const focalStyle = focalPoint ? `object-position: ${focalPoint}` : undefined;
 ---
 
 <!-- Layered hero: full-bleed image with an offset, overlapping text panel.
      Text panel rises softly on load; image has a warm gradient overlay. -->
 <section class:list={['relative', compact ? 'pb-10' : 'pb-16 md:pb-24']}>
-  <div class="relative img-zoom">
+  <div class="relative img-zoom hero-kenburns">
     <img
       src={image}
       alt={imageAlt}
-      class:list={['w-full object-cover', compact ? 'h-[46vh] min-h-[320px]' : 'h-[62vh] min-h-[420px] md:h-[74vh]']}
+      class:list={[
+        'w-full object-cover',
+        compact ? 'h-[46vh] min-h-[320px] max-h-[560px]' : 'h-[62vh] min-h-[420px] md:h-[74vh] max-h-[860px]',
+      ]}
+      style={focalStyle}
       fetchpriority="high"
     />
+    {
+      video && (
+        <video
+          class="absolute inset-0 w-full h-full object-cover motion-reduce:hidden"
+          style={focalStyle}
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster={image}
+          aria-hidden="true"
+        >
+          {videoWebm && <source src={videoWebm} type="video/webm" />}
+          <source src={video} type="video/mp4" />
+        </video>
+      )
+    }
     <div class="absolute inset-0 bg-gradient-to-t from-charcoal/35 via-charcoal/5 to-transparent" aria-hidden="true"></div>
   </div>
 

@@ -57,7 +57,7 @@ const others = all.filter((g) => g.id !== gallery.id).slice(0, 4);
             class="reveal img-zoom card-lift rounded-xl overflow-hidden shadow-soft block"
             style={`transition-delay: ${i * 80}ms`}
           >
-            <img src={g.data.coverImage} alt={g.data.coverAlt} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+            <img src={g.data.coverImage} alt={g.data.coverAlt} class="w-full aspect-[4/3] object-cover" style={g.data.coverFocal ? `object-position: ${g.data.coverFocal}` : undefined} loading="lazy" />
             <p class="px-4 py-3 text-sm font-display">{g.data.title}</p>
           </a>
         ))

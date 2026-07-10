@@ -6,8 +6,10 @@ interface Props {
   coverAlt: string;
   slug: string;
   delay?: number;
+  /** CSS object-position override, e.g. "center 20%" */
+  coverFocal?: string;
 }
-const { title, description, coverImage, coverAlt, slug, delay = 0 } = Astro.props;
+const { title, description, coverImage, coverAlt, slug, delay = 0, coverFocal } = Astro.props;
 ---
 
 <a
@@ -16,7 +18,7 @@ const { title, description, coverImage, coverAlt, slug, delay = 0 } = Astro.prop
   style={`transition-delay: ${delay}ms`}
 >
   <div class="img-zoom aspect-[4/5]">
-    <img src={coverImage} alt={coverAlt} class="w-full h-full object-cover" loading="lazy" />
+    <img src={coverImage} alt={coverAlt} class="w-full h-full object-cover" style={coverFocal ? `object-position: ${coverFocal}` : undefined} loading="lazy" />
   </div>
   <div class="p-5 md:p-6">
     <h3 class="font-display text-xl md:text-2xl">{title}</h3>
