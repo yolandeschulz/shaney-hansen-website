@@ -7,8 +7,7 @@
   "phone": "+27 76 997 8365",
   "whatsapp": "27769978365",
   "email": "hello@shaneyhansen.com",
-  "formEndpoint": "https://api.web3forms.com/submit",
-  "location": "Lichtenburg, South Africa",
+  "location": "South Africa",
   "facebook": "https://www.facebook.com/lovephotographybyshaney/",
   "instagram": "https://www.instagram.com/shaneyhansenphotography/",
   "footerLine": "Warm, story-led photography, creative direction and social media storytelling for weddings, families, schools, corporates, teams and destination lifestyle moments.",
@@ -21,6 +20,7 @@
   "professionalEmailHello": "hello@shaneyhansen.com",
   "professionalEmailBookings": "[optional — not created; can be added free in konsoleH later]",
   "professionalEmailShaney": "[optional — not created; can be added free in konsoleH later]",
+  "formEndpoint": "https://api.web3forms.com/submit",
   "googleReviewsLink": "[Google Reviews link to be added]",
   "googleReviewRequestLink": "[Google Review request link to be added]",
   "googleBusinessProfileLink": "[Google Business Profile link to be added]",
@@ -31,6 +31,5 @@
   "googleSiteVerification": "[to be added]",
   "googleAdsConversionId": "[to be added later]",
   "googleAdsConversionLabel": "[to be added later]",
-  "metaPixelId": "[optional later]",
-  "logoBanner": "/images/general/shaney-hansen-banner.jpg"
+  "metaPixelId": "[optional later]"
 }
