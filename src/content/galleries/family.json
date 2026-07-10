@@ -1,7 +1,7 @@
 {
   "title": "Family",
   "description": "Story-led family sessions that capture connection, laughter and the real moments in between.",
-  "coverImage": "/images/family/cover.svg",
+  "coverImage": "/images/family/cover.jpg",
   "coverAlt": "Family photography by Shaney Hansen Photography",
   "seoTitle": "Family Photographer Lichtenburg | Shaney Hansen Photography",
   "seoDescription": "Natural, warm family photography in Lichtenburg and across South Africa by Shaney Hansen Photography.",
@@ -9,15 +9,15 @@
   "order": 3,
   "images": [
     {
-      "src": "/images/family/placeholder-1.svg",
+      "src": "/images/family/placeholder-1.jpg",
       "alt": "Family photography session by Shaney Hansen Photography"
     },
     {
-      "src": "/images/family/placeholder-2.svg",
+      "src": "/images/family/placeholder-2.jpg",
       "alt": "Family photography session by Shaney Hansen Photography"
     },
     {
-      "src": "/images/family/placeholder-3.svg",
+      "src": "/images/family/placeholder-3.jpg",
       "alt": "Family photography session by Shaney Hansen Photography"
     }
   ]

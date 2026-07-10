@@ -1,7 +1,7 @@
 {
   "title": "Couples",
   "description": "Natural, relaxed photography for engagements, anniversaries and the quiet moments between two people.",
-  "coverImage": "/images/couples/cover.svg",
+  "coverImage": "/images/couples/cover.jpg",
   "coverAlt": "Couples photography by Shaney Hansen Photography",
   "seoTitle": "Couples & Engagement Photographer | Shaney Hansen Photography",
   "seoDescription": "Engagement, anniversary and couple photography with warmth and intention, by Shaney Hansen Photography.",
@@ -9,15 +9,15 @@
   "order": 2,
   "images": [
     {
-      "src": "/images/couples/placeholder-1.svg",
+      "src": "/images/couples/placeholder-1.jpg",
       "alt": "Couples photography session by Shaney Hansen Photography"
     },
     {
-      "src": "/images/couples/placeholder-2.svg",
+      "src": "/images/couples/placeholder-2.jpg",
       "alt": "Couples photography session by Shaney Hansen Photography"
     },
     {
-      "src": "/images/couples/placeholder-3.svg",
+      "src": "/images/couples/placeholder-3.jpg",
       "alt": "Couples photography session by Shaney Hansen Photography"
     }
   ]

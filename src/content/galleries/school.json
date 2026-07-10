@@ -1,7 +1,7 @@
 {
   "title": "School",
   "description": "Professional school portraits, class photos and event photography, handled with calm and care.",
-  "coverImage": "/images/school/cover.svg",
+  "coverImage": "/images/school/cover.jpg",
   "coverAlt": "School photography by Shaney Hansen Photography",
   "seoTitle": "School Photographer South Africa | Shaney Hansen Photography",
   "seoDescription": "School portraits, class photos and school event photography in South Africa by Shaney Hansen Photography.",
@@ -9,16 +9,8 @@
   "order": 7,
   "images": [
     {
-      "src": "/images/school/placeholder-1.svg",
-      "alt": "School photography session by Shaney Hansen Photography"
-    },
-    {
-      "src": "/images/school/placeholder-2.svg",
-      "alt": "School photography session by Shaney Hansen Photography"
-    },
-    {
-      "src": "/images/school/placeholder-3.svg",
-      "alt": "School photography session by Shaney Hansen Photography"
+      "src": "/images/school/cover.jpg",
+      "alt": "School photography by Shaney Hansen Photography"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "title": "Newborn",
   "description": "Calm, gentle newborn sessions documented with patience, softness and intention.",
-  "coverImage": "/images/newborn/cover.svg",
+  "coverImage": "/images/newborn/cover.jpg",
   "coverAlt": "Newborn photography by Shaney Hansen Photography",
   "seoTitle": "Newborn Photographer Lichtenburg | Shaney Hansen Photography",
   "seoDescription": "Calm, gentle newborn photography sessions in South Africa by Shaney Hansen Photography.",
@@ -9,15 +9,11 @@
   "order": 5,
   "images": [
     {
-      "src": "/images/newborn/placeholder-1.svg",
+      "src": "/images/newborn/placeholder-1.jpg",
       "alt": "Newborn photography session by Shaney Hansen Photography"
     },
     {
-      "src": "/images/newborn/placeholder-2.svg",
-      "alt": "Newborn photography session by Shaney Hansen Photography"
-    },
-    {
-      "src": "/images/newborn/placeholder-3.svg",
+      "src": "/images/newborn/placeholder-2.jpg",
       "alt": "Newborn photography session by Shaney Hansen Photography"
     }
   ]

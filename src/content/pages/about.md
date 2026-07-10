@@ -3,7 +3,7 @@ title: About
 seoTitle: "About Shaney | Shaney Hansen Photography & Social Media Management"
 seoDescription: "Meet Shaney Hansen — a South African-based visual storyteller offering warm photography, creative direction, styled set design and social media management for local and international clients."
 heroHeadline: "Photography with warmth, care and intention"
-heroImage: "/images/front-page/placeholder-1.svg"
+heroImage: "/images/front-page/placeholder-1.jpg"
 heroImageAlt: "Shaney Hansen Photography — behind the scenes"
 introText: "Shaney Hansen is a South African-based photographer, creative director and social media storyteller working from Lichtenburg with selected local, destination and international clients."
 bioPlaceholder: "[Personal bio details from Shaney to be added]"
