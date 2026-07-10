@@ -44,8 +44,12 @@ const labelClass = 'block text-xs uppercase tracking-widest text-taupe mb-1.5';
   action={hasEndpoint ? endpoint : undefined}
   class="reveal grid gap-5 bg-white rounded-3xl shadow-soft p-7 md:p-10"
   data-email={settings.email}
-  data-has-endpoint={String(hasEndpoint)}
+ data-has-endpoint={String(hasEndpoint)}
 >
+  <input type="hidden" name="access_key" value="999d9f83-18be-4271-96b7-958f145f175a" />
+  <input type="hidden" name="subject" value="New enquiry from shaneyhansen.com" />
+  <input type="hidden" name="from_name" value="Shaney Hansen Website" />
+  <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
   <div class="grid gap-5 sm:grid-cols-2">
     <div>
       <label class={labelClass} for="name">Name *</label>
