@@ -34,7 +34,7 @@ pillar1ImageAlt: Photography by Shaney Hansen — warm and natural
 pillar2Title: Creative Direction & Styled Setups
 pillar2Text: Shaney can help create the full look and feel of a shoot —
   concepts, styling, prop work and sets built by her own hands.
-pillar2Image: /images/creative-direction/cover.jpg
+pillar2Image: /images/styled/styled-020.jpg
 pillar2ImageAlt: Styled photography set built by Shaney Hansen
 pillar3Title: Social Media Management
 pillar3Text: Creative, story-led social media management and content creation
@@ -52,7 +52,7 @@ creativeText: Shaney's work goes beyond taking photographs. She can help shape
   clear story and polished finish.
 creativeImage: /images/styled/cover.jpg
 creativeImageAlt: Styled photography session with creative set design
-creativeImageSmall: /images/cake-smash/cake-smash-012.jpg
+creativeImageSmall: /images/cake-smash/cake-smash-013.jpg
 creativeImageSmallAlt: Cake smash setup built by Shaney Hansen
 socialHeading: Social Media with Story, Style and Consistency
 socialText: Social media works best when it feels personal, consistent and
