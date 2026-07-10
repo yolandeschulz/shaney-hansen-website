@@ -13,9 +13,13 @@ interface Props {
   compact?: boolean;
   /** CSS object-position value, e.g. "center 20%" — tune which part of the image survives cropping. */
   focalPoint?: string;
-  /** Optional short, muted, looping video (mp4). The image is used as poster + reduced-motion fallback. */
+  /** Optional short, looping video (mp4). The image is used as poster + reduced-motion fallback.
+      Autoplays muted (browser policy); a speaker button lets visitors turn sound on. */
   video?: string;
   videoWebm?: string;
+  /** Analytics event names for the CTA buttons (see src/lib/analytics.ts EVENTS). */
+  primaryTrack?: string;
+  secondaryTrack?: string;
 }
 const {
   headline,
@@ -30,6 +34,8 @@ const {
   focalPoint,
   video,
   videoWebm,
+  primaryTrack,
+  secondaryTrack,
 } = Astro.props;
 const focalStyle = focalPoint ? `object-position: ${focalPoint}` : undefined;
 ---
@@ -59,14 +65,34 @@ const focalStyle = focalPoint ? `object-position: ${focalPoint}` : undefined;
           playsinline
           preload="auto"
           poster={image}
-          aria-hidden="true"
         >
           {videoWebm && <source src={videoWebm} type="video/webm" />}
           <source src={video} type="video/mp4" />
         </video>
       )
     }
-    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/35 via-charcoal/5 to-transparent" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/35 via-charcoal/5 to-transparent pointer-events-none" aria-hidden="true"></div>
+    {
+      video && (
+        <button
+          type="button"
+          class="hero-sound absolute bottom-5 right-5 z-10 rounded-full bg-charcoal/55 hover:bg-charcoal/80 text-cream p-3 backdrop-blur transition-colors motion-reduce:hidden"
+          aria-label="Turn sound on"
+          aria-pressed="false"
+        >
+          <svg class="icon-muted" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5 6 9H3v6h3l5 4V5z" />
+            <line x1="16" y1="9" x2="22" y2="15" />
+            <line x1="22" y1="9" x2="16" y2="15" />
+          </svg>
+          <svg class="icon-sound hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5 6 9H3v6h3l5 4V5z" />
+            <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+            <path d="M18.5 5.5a9 9 0 0 1 0 13" />
+          </svg>
+        </button>
+      )
+    }
   </div>
 
   <div class="max-w-content mx-auto px-5 md:px-8">
@@ -78,9 +104,9 @@ const focalStyle = focalPoint ? `object-position: ${focalPoint}` : undefined;
       {
         (primaryCta || secondaryCta) && (
           <div class="mt-8 flex flex-wrap gap-4 items-center">
-            {primaryCta && <Button href={primaryLink}>{primaryCta}</Button>}
+            {primaryCta && <Button href={primaryLink} track={primaryTrack}>{primaryCta}</Button>}
             {secondaryCta && (
-              <Button href={secondaryLink} variant="outline">
+              <Button href={secondaryLink} variant="outline" track={secondaryTrack}>
                 {secondaryCta}
               </Button>
             )}
@@ -90,3 +116,24 @@ const focalStyle = focalPoint ? `object-position: ${focalPoint}` : undefined;
     </div>
   </div>
 </section>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', function () {
+    document.querySelectorAll('.hero-sound').forEach(function (btn) {
+      var wrap = btn.parentElement;
+      var vid = wrap ? wrap.querySelector('video') : null;
+      if (!vid) return;
+      btn.addEventListener('click', function () {
+        vid.muted = !vid.muted;
+        if (!vid.muted) {
+          vid.volume = 1;
+          vid.play().catch(function () {});
+        }
+        btn.setAttribute('aria-pressed', String(!vid.muted));
+        btn.setAttribute('aria-label', vid.muted ? 'Turn sound on' : 'Turn sound off');
+        btn.querySelector('.icon-muted').classList.toggle('hidden', !vid.muted);
+        btn.querySelector('.icon-sound').classList.toggle('hidden', vid.muted);
+      });
+    });
+  });
+</script>
