@@ -20,11 +20,20 @@ const isActive = (href: string) => (href === '/' ? current === '/' : current.sta
 
 <header class="sticky top-0 z-40 bg-cream/90 backdrop-blur border-b border-sand">
   <div class="max-w-content mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-20">
-    <a href="/" class="flex flex-col leading-tight" aria-label="Shaney Hansen — home">
-      <span class="font-display text-xl md:text-2xl tracking-wide">Shaney Hansen</span>
-      <span class="text-[0.62rem] md:text-xs uppercase tracking-[0.22em] text-taupe"
-        >Photography &amp; Social Media Management</span
-      >
+    <a href="/" class="flex items-center gap-3" aria-label="Shaney Hansen — home">
+      <img
+        src="/images/general/shaney-hansen-logo.jpg"
+        alt="Shaney Hansen Photography logo"
+        class="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover"
+        width="200"
+        height="200"
+      />
+      <span class="flex flex-col leading-tight">
+        <span class="font-display text-xl md:text-2xl tracking-wide">Shaney Hansen</span>
+        <span class="text-[0.62rem] md:text-xs uppercase tracking-[0.22em] text-taupe"
+          >Photography &amp; Social Media Management</span
+        >
+      </span>
     </a>
 
     <!-- Desktop nav -->
@@ -93,12 +102,4 @@ const isActive = (href: string) => (href === '/' ? current === '/' : current.sta
 <script is:inline>
   document.addEventListener('astro:page-load', function () {
     var btn = document.getElementById('menu-toggle');
-    var menu = document.getElementById('mobile-menu');
-    if (!btn || !menu) return;
-    btn.addEventListener('click', function () {
-      var open = menu.classList.toggle('hidden') === false;
-      btn.setAttribute('aria-expanded', String(open));
-      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    });
-  });
-</script>
+    var menu = document.getElementById('mobile-menu'
