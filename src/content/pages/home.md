@@ -50,7 +50,7 @@ creativeText: Shaney's work goes beyond taking photographs. She can help shape
   personal and ready to share. From cake smash setups and studio concepts to
   brand content and seasonal shoots, her creative direction gives each session a
   clear story and polished finish.
-creativeImage: /images/styled/cover.jpg
+creativeImage: /images/styled/styled-032.jpg
 creativeImageAlt: Styled photography session with creative set design
 creativeImageSmall: /images/cake-smash/cake-smash-013.jpg
 creativeImageSmallAlt: Cake smash setup built by Shaney Hansen
