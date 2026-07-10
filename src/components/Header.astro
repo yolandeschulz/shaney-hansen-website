@@ -20,20 +20,17 @@ const isActive = (href: string) => (href === '/' ? current === '/' : current.sta
 
 <header class="sticky top-0 z-40 bg-cream/90 backdrop-blur border-b border-sand">
   <div class="max-w-content mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-20">
-    <a href="/" class="flex items-center gap-3" aria-label="Shaney Hansen — home">
+    <a href="/" class="flex flex-col justify-center" aria-label="Shaney Hansen — home">
       <img
-        src={settings.logo ?? '/images/general/shaney-hansen-logo.jpg'}
-        alt="Shaney Hansen Photography logo"
-        class="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover"
-        width="200"
-        height="200"
+        src={settings.logo ?? '/images/general/shaney-hansen-logo.png'}
+        alt="Shaney Hansen Photography"
+        class="h-9 md:h-11 w-auto"
+        width="394"
+        height="220"
       />
-      <span class="flex flex-col leading-tight">
-        <span class="font-display text-xl md:text-2xl tracking-wide">Shaney Hansen</span>
-        <span class="text-[0.62rem] md:text-xs uppercase tracking-[0.22em] text-taupe"
-          >Photography &amp; Social Media Management</span
-        >
-      </span>
+      <span class="text-[0.5rem] md:text-[0.6rem] uppercase tracking-[0.26em] text-taupe mt-0.5 pl-0.5"
+        >&amp; Social Media Management</span
+      >
     </a>
 
     <!-- Desktop nav -->

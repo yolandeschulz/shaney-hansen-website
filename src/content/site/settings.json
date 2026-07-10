@@ -1,7 +1,7 @@
 {
   "siteName": "Shaney Hansen Photography & Social Media Management",
   "shortName": "Shaney Hansen",
-  "logo": "/images/general/shaney-hansen-logo.jpg",
+  "logo": "/images/general/shaney-hansen-logo.png",
   "tagline": "Photography and social media storytelling for people, brands, teams and moments worth sharing.",
   "positioning": "A South African-based visual storytelling brand offering warm photography, creative direction, styled set design and social media management for local and international clients.",
   "phone": "+27 76 997 8365",
@@ -30,5 +30,6 @@
   "googleSiteVerification": "[to be added]",
   "googleAdsConversionId": "[to be added later]",
   "googleAdsConversionLabel": "[to be added later]",
-  "metaPixelId": "[optional later]"
+  "metaPixelId": "[optional later]",
+  "logoBanner": "/images/general/shaney-hansen-banner.jpg"
 }
