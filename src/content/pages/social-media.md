@@ -24,7 +24,7 @@ mosaic:
     alt: Joyful milestone content photography
   - src: /images/studio/studio-010.jpg
     alt: Lifestyle storytelling photography
-  - src: /images/studio/studio-025.jpg
+  - src: /images/studio/studio-017.jpg
     alt: Team and event content photography
   - src: /images/pre-school/pre-school-003.jpg
     alt: Studio content creation by Shaney Hansen
