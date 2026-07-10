@@ -7,7 +7,7 @@ seoDescription: Creative direction, styled photography setups and set design for
 heroHeadline: Creative direction that brings the story to life
 heroSupport: Shaney can help create the full look and feel of a shoot, not just
   photograph what already exists.
-heroImage: /images/Annebelle-122.jpg
+heroImage: /images/Annebelle-125.jpg
 heroImageAlt: Styled photography set built by Shaney Hansen
 proofText: The Styled, Studio and Cake Smash galleries are strong proof of this
   capability — sets, scenes and concepts built by Shaney herself.
