@@ -86,7 +86,7 @@ howSteps:
     text: Beautifully documented from beginning to end. Galleries are delivered
       within 5–10 working days — large events like weddings within one calendar
       month.
-trustHeading: Kind Words
+trustHeading: Client Testimonials and Reviews
 finalCtaHeading: Let's capture your story
 finalCtaText: Whether it is a wedding, a family season, a styled concept, a
   destination trip or a brand that needs to show up beautifully online —
