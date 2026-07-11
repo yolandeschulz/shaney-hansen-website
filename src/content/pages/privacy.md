@@ -15,11 +15,11 @@ Shaney Hansen Photography & Social Media Management offers photography, creative
 
 **Location:** Lichtenburg, South Africa
 
-**Email:** [shaneyhansen@gmail.com](mailto:shaneyhansen@gmail.com)
+**Email:** [hello@shaneyhansen.com](mailto:hello@shaneyhansen.com)
 
 **Phone / WhatsApp:** +27 76 997 8365
 
-**Website:** [https://www.shaneyhansen.com](https://www.shaneyhansen.com)
+**Website:** [https://shaneyhansen.com](https://shaneyhansen.com)
 
 ---
 
