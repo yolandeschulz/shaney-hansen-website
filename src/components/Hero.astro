@@ -13,6 +13,9 @@ interface Props {
   compact?: boolean;
   /** CSS object-position value, e.g. "center 20%" — tune which part of the image survives cropping. */
   focalPoint?: string;
+  /** Phone-only override (below 768px). Landscape heroes lose their sides on portrait screens;
+      use this to pick which part stays visible on phones, e.g. "65% center". Desktop is unaffected. */
+  focalPointMobile?: string;
   /** Optional short, looping video (mp4). The image is used as poster + reduced-motion fallback.
       Autoplays muted (browser policy); a speaker button lets visitors turn sound on. */
   video?: string;
@@ -37,6 +40,7 @@ const {
   secondaryLink = '/portfolio',
   compact = false,
   focalPoint,
+  focalPointMobile,
   video,
   videoWebm,
   primaryTrack,
@@ -45,7 +49,15 @@ const {
   overlayLogoImage = '/images/general/shaney-hansen-logo-white.png',
 } = Astro.props;
 const showOverlayLogo = overlayLogo && !compact;
-const focalStyle = focalPoint ? `object-position: ${focalPoint}` : undefined;
+// Focal points are passed as CSS custom properties; the scoped style below applies
+// --focal at all sizes and lets --focal-m override it on phones only (<768px).
+const focalStyle =
+  [
+    focalPoint ? `--focal: ${focalPoint}` : null,
+    focalPointMobile ? `--focal-m: ${focalPointMobile}` : null,
+  ]
+    .filter(Boolean)
+    .join('; ') || undefined;
 ---
 
 <!-- Layered hero: full-bleed image with an offset, overlapping text panel.
@@ -56,7 +68,7 @@ const focalStyle = focalPoint ? `object-position: ${focalPoint}` : undefined;
       src={image}
       alt={imageAlt}
       class:list={[
-        'w-full object-cover',
+        'hero-media w-full object-cover',
         compact ? 'h-[46vh] min-h-[320px] max-h-[560px]' : 'h-[62vh] min-h-[420px] md:h-[74vh] max-h-[860px]',
       ]}
       style={focalStyle}
@@ -65,7 +77,7 @@ const focalStyle = focalPoint ? `object-position: ${focalPoint}` : undefined;
     {
       video && (
         <video
-          class="absolute inset-0 w-full h-full object-cover motion-reduce:hidden"
+          class="hero-media absolute inset-0 w-full h-full object-cover motion-reduce:hidden"
           style={focalStyle}
           autoplay
           muted
@@ -146,6 +158,19 @@ const focalStyle = focalPoint ? `object-position: ${focalPoint}` : undefined;
     </div>
   </div>
 </section>
+
+<style>
+  /* Desktop/tablet (md and up): exactly the previous behaviour — --focal or browser default. */
+  .hero-media {
+    object-position: var(--focal, 50% 50%);
+  }
+  /* Phones only: prefer the mobile focal point when set, otherwise fall back to --focal. */
+  @media (max-width: 767px) {
+    .hero-media {
+      object-position: var(--focal-m, var(--focal, 50% 50%));
+    }
+  }
+</style>
 
 <script is:inline>
   document.addEventListener('astro:page-load', function () {

@@ -35,6 +35,7 @@ content:
       - { name: heroImage, label: "Big photo/video poster at the top", type: image, description: "Shown full-width at the top of the homepage. Landscape, ±2000px wide, under 800 KB. If a hero video is set, this photo shows while the video loads and for visitors with motion switched off." }
       - { name: heroImageAlt, label: "Top photo — description (alt text)", type: string, description: "Describe the photo in a short sentence — helps Google and visually impaired visitors." }
       - { name: heroFocal, label: "Top photo — crop focus (optional)", type: string, required: false, description: "Which part of the photo to keep when cropped, e.g. 'center 20%'. Leave empty for centre." }
+      - { name: heroFocalMobile, label: "Top photo/video — crop focus on phones (optional)", type: string, required: false, description: "Phones crop the sides off landscape photos/videos. E.g. '65% center' — higher first number shows more of the right side. Leave empty to use the normal crop focus." }
       - { name: heroVideo, label: "Hero video (optional)", type: string, required: false, description: "Path to a short, muted looping video, e.g. /videos/home-hero.mp4. Clear this field to show the photo instead of the video." }
       - { name: introHeading, label: "Welcome section — heading", type: string }
       - { name: introText, label: "Welcome section — text", type: text }
@@ -148,6 +149,7 @@ content:
       - { name: heroSupport, label: "Sentence under the headline", type: text }
       - { name: heroImage, label: "Photo at the top", type: image }
       - { name: heroImageAlt, label: "Top photo — description (alt text)", type: string }
+      - { name: heroFocalMobile, label: "Top photo — crop focus on phones (optional)", type: string, required: false, description: "Phones crop the sides off landscape photos. E.g. '65% center' — higher first number shows more of the right side. Leave empty for the normal crop." }
       - { name: cta, label: "Main enquiry button text", type: string }
       - { name: internationalCta, label: "International quote button text", type: string }
       - { name: mosaicHeading, label: "Photo grid — heading", type: string }
@@ -202,6 +204,7 @@ content:
       - { name: heroSupport, label: "Sentence under the headline", type: text }
       - { name: heroImage, label: "Photo at the top", type: image }
       - { name: heroImageAlt, label: "Top photo — description (alt text)", type: string }
+      - { name: heroFocalMobile, label: "Top photo — crop focus on phones (optional)", type: string, required: false, description: "Phones crop the sides off landscape photos. E.g. '65% center' — higher first number shows more of the right side. Leave empty for the normal crop." }
       - { name: proofText, label: "Portfolio proof — text", type: text, description: "The Styled, Studio and Cake Smash gallery cards below it come from '🖼️ Portfolio galleries'." }
       - { name: cta, label: "Enquiry button text", type: string }
       - { name: ctaSectionHeading, label: "Bottom enquiry block — heading", type: string, required: false }
@@ -230,6 +233,7 @@ content:
       - { name: heroSupport, label: "Sentence under the headline", type: text }
       - { name: heroImage, label: "Photo at the top", type: image }
       - { name: heroImageAlt, label: "Top photo — description (alt text)", type: string }
+      - { name: heroFocalMobile, label: "Top photo — crop focus on phones (optional)", type: string, required: false, description: "Phones crop the sides off landscape photos. E.g. '70% center' — higher first number shows more of the right side. Leave empty for the normal crop." }
       - { name: cta, label: "Quote button text", type: string }
       - { name: ctaSectionHeading, label: "Bottom enquiry block — heading", type: string, required: false }
       - { name: ctaSectionText, label: "Bottom enquiry block — text", type: text, required: false }
