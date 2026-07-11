@@ -50,6 +50,14 @@ Open **Page: Home** in the menu. Every heading, paragraph and button label on th
 
 Open the gallery, click the **Cover image** field, upload/choose the new image, update the **Cover image alt text**, and save. Choose covers with strong emotion, good light and a clear subject.
 
+## Editing the FAQs
+
+Open **FAQs** in the Pages CMS menu. Each question has an answer, a category (which decides which page it appears on) and a **Show on website?** switch. Important: several questions are pre-written but hidden because their answers still contain [square-bracket placeholders] — pricing, deposit, gallery delivery time, RAW file policy. Once you confirm those details, replace the placeholder text with the real answer and switch the question on. A question can never appear while its answer still has a [placeholder], so nothing unconfirmed ever shows.
+
+## The call buttons
+
+Visitors on phones see a "Call Shaney" + WhatsApp bar at the bottom of every page, and desktop visitors see a Call link in the menu. These use the phone number from **Site Settings** — update it there if the number ever changes. Calls and WhatsApp taps are counted in the analytics once tracking is connected, which is exactly what Google Ads will measure as conversions later.
+
 ## Updating contact details
 
 Open **Site Settings**. Phone, WhatsApp number, email, location, footer wording and social links all live here. Note: the WhatsApp number field must be digits only (e.g. `27769978365`).

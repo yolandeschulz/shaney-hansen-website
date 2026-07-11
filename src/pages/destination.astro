@@ -6,6 +6,7 @@ import SectionHeading from '../components/SectionHeading.astro';
 import Button from '../components/Button.astro';
 import CTASection from '../components/CTASection.astro';
 import TestimonialSection from '../components/TestimonialSection.astro';
+import FAQSection from '../components/FAQSection.astro';
 
 const page = await getEntry('pages', 'destination');
 const p = page!.data as any;
@@ -84,6 +85,9 @@ const d = svc!.data as any;
   <TestimonialSection
     serviceTypes={['Destination Lifestyle & Content Photography', 'Wedding Photography', 'Couples Photography']}
   />
+
+  <!-- FAQ: travel and destination questions international clients ask first -->
+  <FAQSection categories={['destination', 'bookings']} limit={4} moreLink />
 
   <CTASection
     heading={p.ctaSectionHeading ?? 'Planning something far from home?'}

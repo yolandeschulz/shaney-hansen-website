@@ -7,6 +7,7 @@ import Button from '../components/Button.astro';
 import CaseStudyCard from '../components/CaseStudyCard.astro';
 import CTASection from '../components/CTASection.astro';
 import TestimonialSection from '../components/TestimonialSection.astro';
+import FAQSection from '../components/FAQSection.astro';
 
 const page = await getEntry('pages', 'social-media');
 const p = page!.data as any;
@@ -163,6 +164,9 @@ const cs = caseStudy?.data as any;
   <TestimonialSection
     serviceTypes={['Social Media Management', 'Social Media Content Creation']}
   />
+
+  <!-- FAQ: what social media support includes, international clients -->
+  <FAQSection categories={['social-media']} limit={4} moreLink />
 
   <!-- 8. CTA -->
   <CTASection

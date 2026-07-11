@@ -1,0 +1,102 @@
+{
+  "heading": "Frequently asked questions",
+  "intro": "The questions people ask most before booking. Anything else — just ask, Shaney is happy to help.",
+  "items": [
+    {
+      "question": "How do I book a session with Shaney?",
+      "answer": "Send an enquiry through the contact form, or WhatsApp or call Shaney directly. She'll confirm availability for your date, talk through what you have in mind, and share everything you need to secure your booking. From first enquiry to final gallery, the process is designed to feel simple, personal and relaxed.",
+      "category": "bookings",
+      "published": true
+    },
+    {
+      "question": "How far in advance should I book?",
+      "answer": "As early as you can. Weekends, school holidays, matric farewell season and wedding dates fill up quickly — especially over spring and December. That said, it's always worth asking about last-minute availability; sometimes a date is open.",
+      "category": "bookings",
+      "published": true
+    },
+    {
+      "question": "What happens after I enquire?",
+      "answer": "Shaney replies personally to plan your session with you — the location, timing, styling and the story you want told. On the day, sessions are calm and unhurried, with gentle direction so you never feel posed. Afterwards your images are carefully selected and edited before your gallery is delivered.",
+      "category": "bookings",
+      "published": true
+    },
+    {
+      "question": "What do your sessions cost?",
+      "answer": "[Package and pricing details to be confirmed — each enquiry receives a personal quote.]",
+      "category": "bookings",
+      "published": false
+    },
+    {
+      "question": "Do you require a deposit?",
+      "answer": "[Deposit and payment terms to be confirmed.]",
+      "category": "bookings",
+      "published": false
+    },
+    {
+      "question": "How long until we receive our photos?",
+      "answer": "[Gallery delivery timeline to be confirmed.]",
+      "category": "bookings",
+      "published": false
+    },
+    {
+      "question": "How will we receive our photos?",
+      "answer": "[Delivery method to be confirmed.]",
+      "category": "bookings",
+      "published": false
+    },
+    {
+      "question": "What should we wear to our session?",
+      "answer": "Soft, neutral and earthy tones photograph beautifully and suit Shaney's warm, natural style — think creams, beiges, muted greens and browns. Coordinate rather than match exactly, avoid large logos and busy prints, and above all wear something you feel comfortable and confident in. Once you book, Shaney can guide you with styling ideas for your specific session.",
+      "category": "photography",
+      "published": true
+    },
+    {
+      "question": "What if it rains, or one of us is sick on the day?",
+      "answer": "Life happens — especially with little ones. Reach out as soon as you can and Shaney will work with you on the best option for your session. Outdoor sessions are always planned with light and weather in mind.",
+      "category": "photography",
+      "published": true
+    },
+    {
+      "question": "Do you provide the RAW or unedited files?",
+      "answer": "[RAW file and editing policy to be confirmed.]",
+      "category": "photography",
+      "published": false
+    },
+    {
+      "question": "Can you help plan the concept and styling of our shoot?",
+      "answer": "Yes — this is one of the things that makes Shaney's work different. She offers creative direction and styled setups: from cake smash scenes and studio concepts to seasonal shoots and brand content, she can help shape the concept, build the set and create visual moments that feel thoughtful, personal and ready to share.",
+      "category": "photography",
+      "published": true
+    },
+    {
+      "question": "Do you photograph schools, sports days and corporate teams?",
+      "answer": "Yes. Alongside weddings, families, maternity, newborn and cake smash sessions, Shaney photographs schools and pre-schools, sports days and teams, corporate portraits and branding content, studio sessions and styled shoots. Group and school bookings are planned directly with the school or organisation.",
+      "category": "photography",
+      "published": true
+    },
+    {
+      "question": "Where is Shaney based, and how far does she travel?",
+      "answer": "Shaney is based in Lichtenburg, North West, South Africa, and is available for selected local, destination and international projects. Travel and destination bookings are quoted individually — tell her where your story is happening and she'll take it from there.",
+      "category": "destination",
+      "published": true
+    },
+    {
+      "question": "Do you photograph destination weddings and trips abroad?",
+      "answer": "Yes. Shaney can travel with couples, families, creators or wedding parties to document the full experience — the quiet in-between moments, the details, the portraits and the main occasion. For international clients paying in dollars, euros or pounds, the South African rand can also make destination photography a more considered investment than many US, UK or European markets.",
+      "category": "destination",
+      "published": true
+    },
+    {
+      "question": "What does social media management include?",
+      "answer": "Story-led support for brands, teams and businesses that want to show up beautifully online: content planning, visual direction, caption writing and consistent storytelling that feels human rather than generic. Because Shaney is also a photographer and set builder, the content itself looks considered and on-brand. Every business is different, so support is shaped around your needs — enquire for details.",
+      "category": "social-media",
+      "published": true
+    },
+    {
+      "question": "Do you work with international social media clients?",
+      "answer": "Yes — Shaney already supports international clients and her creative approach is not limited by location. For businesses paying in dollars, euros or pounds, working with a South African creative offers a strong value advantage while still receiving professional, personal and visually considered support.",
+      "category": "social-media",
+      "published": true
+    }
+  ]
+}

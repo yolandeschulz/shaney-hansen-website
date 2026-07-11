@@ -41,6 +41,7 @@ export const EVENTS = {
   SERVICE_CTA_CLICK: 'service_cta_click',
   GOOGLE_REVIEWS_CLICK: 'google_reviews_click',
   LEAVE_REVIEW_CLICK: 'leave_review_click',
+  FAQ_OPEN: 'faq_open',
 } as const;
 
 export type EventName = (typeof EVENTS)[keyof typeof EVENTS];

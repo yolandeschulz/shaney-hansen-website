@@ -7,6 +7,7 @@ import SectionHeading from '../components/SectionHeading.astro';
 import Button from '../components/Button.astro';
 import CTASection from '../components/CTASection.astro';
 import TestimonialSection from '../components/TestimonialSection.astro';
+import FAQSection from '../components/FAQSection.astro';
 
 // Only photography-related testimonials belong on this page.
 const photographyServiceTypes = [
@@ -89,6 +90,9 @@ const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').repla
 
   <!-- Trust: photography testimonials (hidden until real, approved testimonials exist) -->
   <TestimonialSection serviceTypes={photographyServiceTypes} />
+
+  <!-- FAQ: the most common pre-booking questions for photography sessions -->
+  <FAQSection categories={['photography', 'bookings']} limit={4} moreLink />
 
   <CTASection
     heading={d.ctaSectionHeading ?? 'Ready to plan your session?'}

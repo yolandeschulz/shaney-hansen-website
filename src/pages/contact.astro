@@ -5,6 +5,7 @@ import SectionHeading from '../components/SectionHeading.astro';
 import ContactForm from '../components/ContactForm.astro';
 import TestimonialSection from '../components/TestimonialSection.astro';
 import GoogleReviewsCTA from '../components/GoogleReviewsCTA.astro';
+import FAQSection from '../components/FAQSection.astro';
 
 const page = await getEntry('pages', 'contact');
 const d = page!.data as any;
@@ -28,11 +29,21 @@ const settings = settingsEntry?.data ?? {};
         <ul class="mt-4 space-y-2 text-sm">
           <li>
             <a
+              href={`tel:${String(settings.phone ?? '').replace(/\s+/g, '')}`}
+              class="hover:text-gold transition-colors"
+              aria-label="Call Shaney Hansen"
+              data-track="phone_click"
+              data-track-label="contact_aside"
+              >Call: {settings.phone}</a
+            >
+          </li>
+          <li>
+            <a
               href={`https://wa.me/${settings.whatsapp}`}
               class="hover:text-gold transition-colors"
               data-track="whatsapp_click"
               data-track-label="contact_aside"
-              >Phone / WhatsApp: {settings.phone}</a
+              >WhatsApp: {settings.phone}</a
             >
           </li>
           <li>
@@ -65,6 +76,11 @@ const settings = settingsEntry?.data ?? {};
       <GoogleReviewsCTA class="reveal" />
     </aside>
   </section>
+
+  <!-- FAQ: answers the questions that stop people enquiring (good for visitors AND ad quality) -->
+  <div id="faq">
+    <FAQSection />
+  </div>
 
   <!-- Trust section after the enquiry form (hidden until real, approved testimonials exist) -->
   <TestimonialSection />

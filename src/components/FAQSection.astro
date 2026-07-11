@@ -1,0 +1,114 @@
+---
+/**
+ * FAQ accordion — content lives in src/content/site/faqs.json (editable via Pages CMS).
+ *
+ * Safety rules:
+ * - Only items with published: true render.
+ * - Items whose answer still contains a [placeholder] never render, even if
+ *   accidentally published — no unconfirmed facts ever reach visitors.
+ * - FAQPage JSON-LD is emitted only for the questions actually shown.
+ *
+ * Analytics: opening a question fires `faq_open` with the question as label
+ * (via window.shTrack, installed by Analytics.astro — no-ops when tracking is off).
+ */
+import { getEntry } from 'astro:content';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props {
+  /** Limit to these categories (e.g. ['photography', 'bookings']). Omit for all. */
+  categories?: string[];
+  /** Show at most this many questions. */
+  limit?: number;
+  /** Override the heading from faqs.json. */
+  heading?: string;
+  /** Override the intro text from faqs.json. */
+  text?: string;
+  /** Show a "View all questions" link to the contact page. */
+  moreLink?: boolean;
+}
+const { categories, limit, heading, text, moreLink = false } = Astro.props;
+
+const faqEntry = await getEntry('site', 'faqs');
+const data = (faqEntry?.data ?? {}) as any;
+
+const hasPlaceholder = (s: unknown) => typeof s !== 'string' || s.includes('[');
+
+let items = ((data.items ?? []) as any[]).filter(
+  (i) => i.published === true && !hasPlaceholder(i.answer) && !hasPlaceholder(i.question)
+);
+if (categories?.length) {
+  items = items.filter((i) => categories.includes(i.category));
+  // Page-specific questions first (order of the categories array), stable within a category.
+  items = items
+    .map((item, idx) => ({ item, idx }))
+    .sort((a, b) => categories.indexOf(a.item.category) - categories.indexOf(b.item.category) || a.idx - b.idx)
+    .map(({ item }) => item);
+}
+if (limit) items = items.slice(0, limit);
+
+const schema =
+  items.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: items.map((i) => ({
+          '@type': 'Question',
+          name: i.question,
+          acceptedAnswer: { '@type': 'Answer', text: i.answer },
+        })),
+      }
+    : null;
+---
+
+{
+  items.length > 0 && (
+    <section class="max-w-content mx-auto px-5 md:px-8 py-16 md:py-20">
+      <SectionHeading eyebrow="Good to know" title={heading ?? data.heading ?? 'Frequently asked questions'} text={text ?? data.intro} />
+      <div class="mt-10 max-w-3xl space-y-3">
+        {items.map((i) => (
+          <details class="faq-item reveal group bg-white rounded-2xl shadow-soft overflow-hidden" data-question={i.question}>
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 md:px-7 font-display text-lg md:text-xl leading-snug hover:text-gold transition-colors [&::-webkit-details-marker]:hidden">
+              <span>{i.question}</span>
+              <svg
+                class="shrink-0 transition-transform duration-300 group-open:rotate-45 text-taupe"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </summary>
+            <p class="px-6 pb-6 md:px-7 text-taupe leading-relaxed text-sm md:text-base">{i.answer}</p>
+          </details>
+        ))}
+      </div>
+      {moreLink && (
+        <p class="reveal mt-8 max-w-3xl">
+          <a href="/contact#faq" class="text-sm tracking-wide text-charcoal underline underline-offset-4 decoration-sand hover:text-gold transition-colors">
+            More questions? See the full FAQ &rarr;
+          </a>
+        </p>
+      )}
+      {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+    </section>
+  )
+}
+
+<script is:inline>
+  document.addEventListener('astro:page-load', function () {
+    document.querySelectorAll('.faq-item').forEach(function (el) {
+      if (el.dataset.faqBound) return;
+      el.dataset.faqBound = '1';
+      el.addEventListener('toggle', function () {
+        if (el.open && typeof window.shTrack === 'function') {
+          window.shTrack('faq_open', el.getAttribute('data-question') || undefined);
+        }
+      });
+    });
+  });
+</script>

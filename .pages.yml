@@ -381,6 +381,31 @@ content:
       - { name: published, label: "Show on website?", type: boolean }
       - { name: body, label: "Internal notes (not shown on the site)", type: rich-text }
 
+  - name: faqs
+    label: "❓ FAQs (frequently asked questions)"
+    type: file
+    path: src/content/site/faqs.json
+    fields:
+      - { name: heading, label: "Section heading", type: string }
+      - { name: intro, label: "Intro line under the heading", type: text }
+      - name: items
+        label: "Questions"
+        type: object
+        list: true
+        fields:
+          - { name: question, label: "Question", type: string }
+          - { name: answer, label: "Answer", type: text, description: "Plain, warm and honest. If a detail isn't confirmed yet (price, timeline), leave the [square-bracket placeholder] in — the question stays hidden until the placeholder is replaced with real information." }
+          - name: category
+            label: "Where it appears"
+            type: select
+            options:
+              values:
+                - { value: "bookings", label: "Bookings (photography + contact pages)" }
+                - { value: "photography", label: "Photography page" }
+                - { value: "destination", label: "Destination page" }
+                - { value: "social-media", label: "Social media page" }
+          - { name: published, label: "Show on website?", type: boolean, description: "Even when ticked, a question stays hidden while its answer still contains a [placeholder]." }
+
   # ============================================================
   # SETTINGS — contact details, links, tracking (edit with care)
   # ============================================================
