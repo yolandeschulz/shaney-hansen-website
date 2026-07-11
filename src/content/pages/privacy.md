@@ -3,7 +3,7 @@ title: Privacy Policy
 seoTitle: Privacy Policy | Shaney Hansen Photography & Social Media Management
 seoDescription: Privacy policy for Shaney Hansen Photography & Social Media Management.
 ---
-Last updated: 2026
+Last updated: 11 July 2026
 
 This Privacy Policy explains how Shaney Hansen Photography & Social Media Management collects, uses and protects your personal information when you use this website, send an enquiry, request a quote or book a service. It follows the general principles of South Africa's Protection of Personal Information Act, 2013 (POPIA).
 
@@ -15,7 +15,7 @@ Shaney Hansen Photography & Social Media Management offers photography, creative
 
 **Location:** Lichtenburg, South Africa
 
-**Email:** [shaneyhansen@gmail.com](mailto:shaneyhansen@gmail.com)
+**Email:** [hello@shaneyhansen.com](mailto:shaneyhansen@gmail.com)
 
 **Phone / WhatsApp:** +27 76 997 8365
 
