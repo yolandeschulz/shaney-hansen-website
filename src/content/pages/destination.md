@@ -8,7 +8,7 @@ heroHeadline: Destination photography with heart
 heroSupport: For destination weddings, family trips, influencer content, brand
   stories and once-in-a-lifetime occasions — documented with warmth, detail and
   intention.
-heroImage: /images/V&M-312.jpg
+heroImage: /images/VM-312.jpg
 heroImageAlt: Destination lifestyle photography session
 heroFocalMobile: 70% center
 cta: Request an International Quote
