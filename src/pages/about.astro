@@ -11,8 +11,10 @@ const d = page!.data as any;
 
 <BaseLayout title={d.seoTitle} description={d.seoDescription} ogImage={d.heroImage}>
   <!-- Editorial overlapping-image intro -->
-  <section class="max-w-content mx-auto px-5 md:px-8 pt-14 md:pt-20 grid gap-12 md:grid-cols-2 md:items-center">
-    <div class="reveal relative">
+  <section class="max-w-content mx-auto px-5 md:px-8 pt-14 md:pt-20 grid gap-12 md:grid-cols-2 md:items-start">
+    <!-- Sticky on md+: the photos stay in view while the longer bio text scrolls,
+         so the columns always feel balanced no matter how long the text is. -->
+    <div class="reveal relative md:sticky md:top-28">
       <div class="img-zoom rounded-2xl overflow-hidden shadow-soft aspect-[4/5]">
         <img src={d.heroImage} alt={d.heroImageAlt} class="w-full h-full object-cover" />
       </div>
