@@ -50,14 +50,18 @@ jobs:
           # Set SITE_URL as a repo variable or replace here once the domain is confirmed
           SITE_URL: ${{ vars.SITE_URL }}
 
-      - name: Deploy dist/ to Xneelo via FTPS/SFTP
+      - name: Deploy dist/ to Xneelo
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.XNEELO_HOST }}
           username: ${{ secrets.XNEELO_USERNAME }}
           password: ${{ secrets.XNEELO_PASSWORD }}
           port: ${{ secrets.XNEELO_PORT }}
-          protocol: ftps # change to "sftp" if Xneelo SFTP access is enabled
+          # Xneelo shared hosting does not support explicit FTPS (server answers
+          # "500 AUTH not understood"). Plain FTP works on port 21.
+          # TODO: once Xneelo support has activated SSH for the account (free,
+          # Basic package and up), change protocol to "sftp" and XNEELO_PORT to 22.
+          protocol: ftp
           local-dir: dist/
           server-dir: ${{ secrets.XNEELO_REMOTE_PATH }}
           # Safety: only syncs changed files; does not delete anything
