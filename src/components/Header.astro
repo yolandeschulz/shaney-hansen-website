@@ -101,23 +101,8 @@ const isActive = (href: string) => (href === '/' ? current === '/' : current.sta
         ))
       }
     </ul>
-    <div class="mt-4 flex flex-wrap gap-3">
-      <a
-        href={`tel:${String(settings.phone ?? '').replace(/\s+/g, '')}`}
-        class="inline-block rounded-full bg-charcoal text-cream px-6 py-2.5 text-sm tracking-wide"
-        aria-label="Call Shaney Hansen"
-        data-track="phone_click"
-        data-track-label="header"
-        >Call Shaney</a
-      >
-      <a
-        href={`https://wa.me/${settings.whatsapp}`}
-        class="inline-block rounded-full border border-charcoal text-charcoal px-6 py-2.5 text-sm tracking-wide"
-        data-track="whatsapp_click"
-        data-track-label="header"
-        >WhatsApp Shaney</a
-      >
-    </div>
+    <!-- No Call/WhatsApp buttons here: the sticky bar at the bottom of the
+         screen already provides both on phones — avoids a wall of buttons. -->
   </nav>
 </header>
 
