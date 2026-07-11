@@ -169,6 +169,14 @@ const focalStyle =
     .hero-media {
       object-position: var(--focal-m, var(--focal, 50% 50%));
     }
+    /* The .reveal animation overrides the -translate-x-1/2 that centres the
+       overlay logo, so its left edge sits at 50% and it runs off-screen on
+       narrow viewports. Phones only: anchor it inside the screen instead.
+       Desktop keeps its current position exactly. */
+    .hero-logo {
+      left: auto;
+      right: 4%;
+    }
   }
 </style>
 

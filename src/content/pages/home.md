@@ -18,7 +18,6 @@ heroSecondaryCta: Enquire Now
 heroSecondaryLink: /contact
 heroImage: /images/front-page/hero-poster.jpg
 heroImageAlt: Photography by Shaney Hansen — warm, natural, story-led
-heroFocalMobile: 65% center
 heroVideo: /videos/home-hero.mp4
 introHeading: Warm, story-led visual storytelling
 introText: Shaney Hansen Photography & Social Media Management is a South
