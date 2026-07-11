@@ -42,7 +42,7 @@ bio: >
 
   When I'm not behind the camera, I spend time in the kitchen experimenting and
   cooking with my three children. I graduated with a post graduate degree in
-  Consumer Scienes from the University of Pretoria before getting married to a
+  Consumer Sciences from the University of Pretoria before getting married to a
   farmer and starting a family based life on our 2500 acre homestead in South
   Africa.
 
