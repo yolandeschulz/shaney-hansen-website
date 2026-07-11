@@ -32,7 +32,7 @@ Work through **PRE_LAUNCH_CHECKLIST.md** before the first deployment.
 | Web root path | [to be confirmed — usually /public_html/] |
 | Email addresses | hello@shaneyhansen.com ✅ (bookings@/shaney@ optional later) |
 | Mail settings | IMAP mail.shaneyhansen.com :993 · SMTP smtp.shaneyhansen.com :465 (SSL) · Webmail: mail.shaneyhansen.com |
-| SSL setup | [to be enabled — free Let's Encrypt via konsoleH] |
+| SSL setup | Let's Encrypt active ✅ (auto-issued; Force-HTTPS + www redirect enabled in .htaccess) |
 | Google Search Console verification | [to be added — Site Settings] |
 | GA4 Measurement ID | [to be added — Site Settings] |
 | GTM Container ID | [to be added — Site Settings] |

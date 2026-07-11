@@ -25,11 +25,11 @@ The GitHub repository is the website's source of truth and Pages CMS stays conne
 - [ ] Send a test email to and from hello@shaneyhansen.com
 - [ ] Set up the mailbox on Shaney's phone/computer (IMAP mail.shaneyhansen.com :993, SMTP smtp.shaneyhansen.com :465 SSL, or webmail at mail.shaneyhansen.com)
 
-## 4. SSL
+## 4. SSL ✅ DONE
 
-- [ ] Enable free Let's Encrypt SSL in konsoleH
-- [ ] Verify `https://` works
-- [ ] Uncomment the "Force HTTPS" block in `public/.htaccess` and redeploy
+- [x] Let's Encrypt SSL active (auto-issued by Xneelo; verified https://shaneyhansen.com serves a valid certificate)
+- [x] "Force HTTPS" block enabled in `public/.htaccess`, plus www → non-www canonical redirect
+- [ ] After first deploy: confirm http:// and www. both redirect to https://shaneyhansen.com
 
 ## 5. Contact form endpoint
 

@@ -3,10 +3,14 @@
 # Custom 404 page
 ErrorDocument 404 /404/index.html
 
-# Force HTTPS (uncomment once SSL is confirmed on Xneelo)
-# RewriteEngine On
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Force HTTPS (SSL confirmed active on Xneelo — Let's Encrypt, July 2026)
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Canonical host: redirect www to non-www (matches astro.config.mjs / sitemap)
+RewriteCond %{HTTP_HOST} ^www\.shaneyhansen\.com$ [NC]
+RewriteRule ^(.*)$ https://shaneyhansen.com/$1 [L,R=301]
 
 # Sensible caching for static assets
 <IfModule mod_expires.c>
