@@ -7,8 +7,6 @@ Last updated: 2026
 
 This Privacy Policy explains how Shaney Hansen Photography & Social Media Management collects, uses and protects your personal information when you use this website, send an enquiry, request a quote or book a service. It follows the general principles of South Africa's Protection of Personal Information Act, 2013 (POPIA).
 
-This is a practical draft and should be reviewed and approved before final launch.
-
 ---
 
 ## 1. Who we are
