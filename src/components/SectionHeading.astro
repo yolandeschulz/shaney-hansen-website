@@ -5,12 +5,15 @@ interface Props {
   text?: string;
   align?: 'left' | 'center';
   class?: string;
+  /** Heading level for the title. Defaults to h2; use h1 for a page's main heading. */
+  as?: 'h1' | 'h2';
 }
-const { eyebrow, title, text, align = 'left', class: className = '' } = Astro.props;
+const { eyebrow, title, text, align = 'left', class: className = '', as = 'h2' } = Astro.props;
+const Heading = as;
 ---
 
 <div class:list={['reveal max-w-2xl', align === 'center' && 'mx-auto text-center', className]}>
   {eyebrow && <p class="text-xs uppercase tracking-[0.28em] text-gold mb-3">{eyebrow}</p>}
-  <h2 class="font-display text-3xl md:text-4xl leading-snug">{title}</h2>
+  <Heading class="font-display text-3xl md:text-4xl leading-snug">{title}</Heading>
   {text && <p class="mt-4 text-taupe leading-relaxed">{text}</p>}
 </div>

@@ -18,7 +18,7 @@ interface Props {
 }
 
 const settingsEntry = await getEntry('site', 'settings');
-const settings = settingsEntry?.data ?? {};
+const settings = (settingsEntry?.data ?? {}) as any;
 
 const {
   title = settings.defaultSeoTitle,

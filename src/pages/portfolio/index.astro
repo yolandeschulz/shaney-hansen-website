@@ -14,6 +14,7 @@ const galleries = (await getCollection('galleries')).sort((a, b) => a.data.order
 >
   <section class="max-w-content mx-auto px-5 md:px-8 pt-14 md:pt-20">
     <SectionHeading
+      as="h1"
       eyebrow="Portfolio"
       title="Natural photographs, real connection and stories worth keeping"
       text="From weddings and family seasons to styled concepts and corporate branding — explore each gallery to see Shaney's warm, natural, story-led style."
@@ -30,7 +31,7 @@ const galleries = (await getCollection('galleries')).sort((a, b) => a.data.order
             description={g.data.description}
             coverImage={g.data.coverImage}
             coverAlt={g.data.coverAlt}
-              coverFocal={g.data.coverFocal}
+              coverFocal={(g.data as any).coverFocal}
             slug={g.id.replace('.json', '')}
             delay={(i % 3) * 100}
           />

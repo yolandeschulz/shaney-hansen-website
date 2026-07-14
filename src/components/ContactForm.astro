@@ -7,7 +7,7 @@ interface Props {
 const { consentText = 'I consent to my details being used to respond to this enquiry.' } = Astro.props;
 
 const settingsEntry = await getEntry('site', 'settings');
-const settings = settingsEntry?.data ?? {};
+const settings = (settingsEntry?.data ?? {}) as any;
 
 // FORM ENDPOINT:
 // Set "formEndpoint" in src/content/site/settings.json (editable in Pages CMS)

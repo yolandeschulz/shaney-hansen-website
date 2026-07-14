@@ -1,7 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 const settingsEntry = await getEntry('site', 'settings');
-const settings = settingsEntry?.data ?? {};
+const settings = (settingsEntry?.data ?? {}) as any;
 
 const nav = [
   { label: 'Home', href: '/' },

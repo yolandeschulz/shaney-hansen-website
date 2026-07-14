@@ -90,7 +90,7 @@ const proof = galleries.filter((g) => ['styled', 'studio', 'cake-smash'].include
               description={g.data.description}
               coverImage={g.data.coverImage}
               coverAlt={g.data.coverAlt}
-              coverFocal={g.data.coverFocal}
+              coverFocal={(g.data as any).coverFocal}
               slug={g.id.replace('.json', '')}
               delay={i * 120}
             />

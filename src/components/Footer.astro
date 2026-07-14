@@ -2,7 +2,7 @@
 import { getEntry } from 'astro:content';
 import GoogleReviewsCTA from './GoogleReviewsCTA.astro';
 const settingsEntry = await getEntry('site', 'settings');
-const settings = settingsEntry?.data ?? {};
+const settings = (settingsEntry?.data ?? {}) as any;
 const year = new Date().getFullYear();
 const hasFacebook = settings.facebook && !String(settings.facebook).startsWith('[');
 const hasInstagram = settings.instagram && !String(settings.instagram).startsWith('[');

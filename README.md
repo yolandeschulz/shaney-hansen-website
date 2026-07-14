@@ -1,6 +1,6 @@
-# Shaney Hansen Photography & Social Media Management — Website
+# Shaney Hansen Photography — Website
 
-A warm, premium, mobile-first static website for **Shaney Hansen Photography & Social Media Management** (Lichtenburg, South Africa), positioning three connected service pillars — Photography, Creative Direction & Styled Setups, and Social Media Management — for local and international clients.
+A warm, premium, mobile-first static website for **Shaney Hansen Photography** (Lichtenburg, South Africa), positioning three connected service pillars — Photography, Creative Direction & Styled Setups, and Social Media Management — for local and international clients.
 
 Built with **Astro + Tailwind CSS**, fully static output, editable through **Pages CMS**, to be hosted on **Xneelo**.
 
