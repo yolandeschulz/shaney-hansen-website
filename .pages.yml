@@ -80,6 +80,76 @@ content:
       - { name: finalCtaHeading, label: "Bottom enquiry block — heading", type: string }
       - { name: finalCtaText, label: "Bottom enquiry block — text", type: text }
       - { name: finalCtaButton, label: "Bottom enquiry block — button text", type: string }
+      - name: priority
+        label: "Priority services — the three highlighted cards"
+        type: object
+        list: true
+        fields:
+          - { name: title, label: "Card title", type: string }
+          - { name: text, label: "Card text", type: text }
+          - { name: href, label: "Card link (page address)", type: string }
+          - { name: image, label: "Card photo", type: image }
+          - { name: imageAlt, label: "Card photo — description (alt text)", type: string }
+      - { name: priorityHeading, label: "Priority services — heading", type: string, required: false }
+      - { name: priorityText, label: "Priority services — intro", type: text, required: false }
+      - { name: proofHeading, label: "'Why choose Shaney' strip — heading", type: string, required: false }
+      - { name: proofItems, label: "'Why choose Shaney' strip — points", type: string, list: true, required: false }
+      - { name: heroWhatsappText, label: "Hero WhatsApp — prefilled message", type: text, required: false, description: "The message pre-typed when someone taps the WhatsApp button in the hero." }
+
+  # ── Dedicated, SEO-targeted service pages ─────────────────────────────
+  - name: wedding-photographer
+    label: "💍 Wedding photographer page"
+    type: file
+    path: src/content/pages/wedding-photographer.md
+    fields: &servicePageFields
+      - { name: title, label: "Page name (internal)", type: string, description: "Internal name only — visitors never see this." }
+      - { name: seoTitle, label: "Google search title", type: string }
+      - { name: seoDescription, label: "Google search description", type: text }
+      - { name: h1, label: "Big headline (H1)", type: text }
+      - { name: heroSupport, label: "Sentence under the headline", type: text }
+      - { name: heroImage, label: "Top photo", type: image }
+      - { name: heroImageAlt, label: "Top photo — description (alt text)", type: string }
+      - { name: heroFocalMobile, label: "Top photo — crop focus on phones (optional)", type: string, required: false }
+      - { name: whatsappText, label: "WhatsApp — prefilled message", type: text, description: "The message pre-typed when someone taps the WhatsApp button." }
+      - { name: primaryCta, label: "Main button text (opens WhatsApp)", type: string }
+      - { name: whatsappTrack, label: "Tracking event name", type: string, required: false, description: "Analytics event for the WhatsApp button. Don't change unless sure." }
+      - { name: secondaryCta, label: "Second button text", type: string, required: false }
+      - { name: secondaryLink, label: "Second button — where it goes", type: string, required: false }
+      - { name: faqCategory, label: "FAQ category shown on this page", type: string, required: false, description: "Which FAQ group to show, e.g. weddings. FAQs are edited under '❓ FAQs'." }
+      - { name: serviceName, label: "Service name (for Google structured data)", type: string, required: false }
+      - { name: serviceDescription, label: "Service description (for Google structured data)", type: text, required: false }
+      - { name: serviceArea, label: "Areas served (for Google structured data)", type: string, list: true, required: false }
+      - name: sections
+        label: "Content sections"
+        type: object
+        list: true
+        fields:
+          - { name: heading, label: "Section heading", type: string }
+          - { name: text, label: "Section text", type: text, required: false }
+          - { name: list, label: "Bullet points (optional)", type: string, list: true, required: false }
+          - { name: ordered, label: "Numbered steps (optional)", type: string, list: true, required: false }
+      - name: related
+        label: "'Explore more' links"
+        type: object
+        list: true
+        fields:
+          - { name: label, label: "Link text", type: string }
+          - { name: href, label: "Link address", type: string }
+      - { name: ctaHeading, label: "Bottom enquiry block — heading", type: string, required: false }
+      - { name: ctaText, label: "Bottom enquiry block — text", type: text, required: false }
+      - { name: ctaButton, label: "Bottom enquiry block — button text", type: string, required: false }
+
+  - name: corporate-photographer
+    label: "🏢 Corporate photographer page"
+    type: file
+    path: src/content/pages/corporate-photographer.md
+    fields: *servicePageFields
+
+  - name: school-photographer
+    label: "🎓 School photographer page"
+    type: file
+    path: src/content/pages/school-photographer.md
+    fields: *servicePageFields
 
   - name: about
     label: "👋 About page"
@@ -119,6 +189,7 @@ content:
       - { name: heroImage, label: "Photo at the top of the page", type: image, description: "Landscape, ±2000px wide, under 800 KB.", required: false }
       - { name: heroImageAlt, label: "Top photo — description (alt text)", type: string, required: false }
       - { name: heroPrimaryCta, label: "First button — text", type: string, required: false }
+      - { name: heroWhatsappText, label: "Hero WhatsApp — prefilled message", type: text, required: false, description: "The message pre-typed when someone taps the WhatsApp button in the hero." }
       - { name: heroSecondaryCta, label: "Second button — text", type: string, required: false }
       - name: services
         label: "The photography services (one card each)"
@@ -129,6 +200,8 @@ content:
           - { name: whoFor, label: "Who it is for", type: text }
           - { name: expect, label: "What clients can expect", type: text }
           - { name: packageDetails, label: "Package / pricing details", type: text, description: "Replace '[Package details to be confirmed]' once pricing is final." }
+          - { name: link, label: "Link to a dedicated service page (optional)", type: string, required: false, description: "E.g. /wedding-photographer. Adds a 'learn more' link on the card." }
+          - { name: linkLabel, label: "Link text (optional)", type: string, required: false }
           - { name: image, label: "Photo", type: image, description: "±1600px, under 500 KB." }
           - { name: imageAlt, label: "Photo description (alt text)", type: string }
       - { name: pricingHeading, label: "Pricing heading", type: string, required: false }
@@ -150,6 +223,7 @@ content:
       - { name: heroImage, label: "Photo at the top", type: image }
       - { name: heroImageAlt, label: "Top photo — description (alt text)", type: string }
       - { name: heroFocalMobile, label: "Top photo — crop focus on phones (optional)", type: string, required: false, description: "Phones crop the sides off landscape photos. E.g. '65% center' — higher first number shows more of the right side. Leave empty for the normal crop." }
+      - { name: whatsappText, label: "Hero WhatsApp — prefilled message", type: text, required: false, description: "The message pre-typed when someone taps the WhatsApp button in the hero." }
       - { name: cta, label: "Main enquiry button text", type: string }
       - { name: internationalCta, label: "International quote button text", type: string }
       - { name: mosaicHeading, label: "Photo grid — heading", type: string }
@@ -206,6 +280,8 @@ content:
       - { name: heroImageAlt, label: "Top photo — description (alt text)", type: string }
       - { name: heroFocalMobile, label: "Top photo — crop focus on phones (optional)", type: string, required: false, description: "Phones crop the sides off landscape photos. E.g. '65% center' — higher first number shows more of the right side. Leave empty for the normal crop." }
       - { name: proofText, label: "Portfolio proof — text", type: text, description: "The Styled, Studio and Cake Smash gallery cards below it come from '🖼️ Portfolio galleries'." }
+      - { name: priorityUses, label: "'Ideal for' — list items", type: string, list: true, required: false }
+      - { name: areasServed, label: "Areas served — list items", type: string, list: true, required: false }
       - { name: cta, label: "Enquiry button text", type: string }
       - { name: ctaSectionHeading, label: "Bottom enquiry block — heading", type: string, required: false }
       - { name: ctaSectionText, label: "Bottom enquiry block — text", type: text, required: false }
@@ -219,6 +295,7 @@ content:
       - { name: intro, label: "Intro line", type: text }
       - { name: body, label: "Main copy", type: text }
       - { name: capabilities, label: "Capabilities — list items", type: string, list: true }
+      - { name: note, label: "How it works note (props/décor, separately paid)", type: text, required: false }
       - { name: cta, label: "Button text", type: string }
 
   - name: destination-page
@@ -234,6 +311,7 @@ content:
       - { name: heroImage, label: "Photo at the top", type: image }
       - { name: heroImageAlt, label: "Top photo — description (alt text)", type: string }
       - { name: heroFocalMobile, label: "Top photo — crop focus on phones (optional)", type: string, required: false, description: "Phones crop the sides off landscape photos. E.g. '70% center' — higher first number shows more of the right side. Leave empty for the normal crop." }
+      - { name: whatsappText, label: "Hero WhatsApp — prefilled message", type: text, required: false, description: "The message pre-typed when someone taps the WhatsApp button in the hero." }
       - { name: cta, label: "Quote button text", type: string }
       - { name: ctaSectionHeading, label: "Bottom enquiry block — heading", type: string, required: false }
       - { name: ctaSectionText, label: "Bottom enquiry block — text", type: text, required: false }
@@ -296,6 +374,9 @@ content:
       - { name: coverFocal, label: "Cover crop focus (optional)", type: string, required: false, description: "Which part of the photo to keep when cropped, e.g. 'center 20%'. Leave empty for centre." }
       - { name: seoTitle, label: "Google search title", type: string }
       - { name: seoDescription, label: "Google search description", type: text }
+      - { name: h1, label: "Page heading (optional)", type: string, required: false, description: "Overrides the big heading on the gallery page. Leave empty to use the gallery title." }
+      - { name: serviceLink, label: "Link to a service page (optional)", type: string, required: false, description: "E.g. /wedding-photographer. Adds a 'learn more' link under the intro." }
+      - { name: serviceLinkLabel, label: "Service link text (optional)", type: string, required: false }
       - { name: featuredOnHomepage, label: "Show on homepage?", type: boolean, description: "Featured galleries appear in the homepage 'Featured photography' section." }
       - { name: order, label: "Display order (1 = first)", type: number }
       - name: images

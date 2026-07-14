@@ -3,7 +3,7 @@
   "description": "Professional headshots, team photos and brand imagery for websites, LinkedIn and social media.",
   "coverImage": "/images/EdelSenz-3.jpg",
   "coverAlt": "Corporate photography by Shaney Hansen Photography",
-  "seoTitle": "Corporate Photographer South Africa | Shaney Hansen Photography",
+  "seoTitle": "Corporate Photography Portfolio | Shaney Hansen",
   "seoDescription": "Corporate headshots, branding and business photography in South Africa by Shaney Hansen Photography.",
   "featuredOnHomepage": true,
   "order": 10,
@@ -48,5 +48,8 @@
       "src": "/images/corporate/corporate-007.jpg",
       "alt": "Corporate photography by Shaney Hansen Photography"
     }
-  ]
+  ],
+  "h1": "Corporate photography portfolio",
+  "serviceLink": "/corporate-photographer",
+  "serviceLinkLabel": "Learn about corporate photography"
 }

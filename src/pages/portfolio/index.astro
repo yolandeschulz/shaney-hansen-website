@@ -9,13 +9,13 @@ const galleries = (await getCollection('galleries')).sort((a, b) => a.data.order
 ---
 
 <BaseLayout
-  title="Portfolio | Shaney Hansen Photography"
-  description="Explore the full photography portfolio — weddings, couples, family, maternity, newborn, cake smash, school, pre-school, sport, corporate, studio and styled sessions."
+  title="Photography Portfolio | Shaney Hansen Photography"
+  description="View natural, story-led wedding, family, newborn, school, corporate, studio and destination photography by Shaney Hansen."
 >
   <section class="max-w-content mx-auto px-5 md:px-8 pt-14 md:pt-20">
     <SectionHeading
       eyebrow="Portfolio"
-      title="Every story, beautifully documented"
+      title="Natural photographs, real connection and stories worth keeping"
       text="From weddings and family seasons to styled concepts and corporate branding — explore each gallery to see Shaney's warm, natural, story-led style."
       align="center"
     />
@@ -37,6 +37,12 @@ const galleries = (await getCollection('galleries')).sort((a, b) => a.data.order
         ))
       }
     </div>
+    <p class="reveal mt-10 text-sm text-taupe">
+      Ready to book? Read more about
+      <a href="/wedding-photographer" class="text-charcoal underline underline-offset-4 decoration-sand hover:text-gold transition-colors">wedding photography</a>,
+      <a href="/corporate-photographer" class="text-charcoal underline underline-offset-4 decoration-sand hover:text-gold transition-colors">corporate photography</a> and
+      <a href="/school-photographer" class="text-charcoal underline underline-offset-4 decoration-sand hover:text-gold transition-colors">school photography</a>.
+    </p>
   </section>
 
   <CTASection

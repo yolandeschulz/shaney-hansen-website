@@ -55,8 +55,15 @@ const settings = settingsEntry?.data ?? {};
               >{settings.email}</a
             >
           </li>
-          <li class="text-taupe">{settings.location}</li>
         </ul>
+        <address class="mt-4 not-italic text-sm text-taupe leading-relaxed">
+          {settings.siteName}<br />
+          {settings.streetAddress}<br />
+          {settings.addressLocality} {settings.postalCode}<br />
+          {settings.addressRegion}, South Africa
+        </address>
+        <p class="mt-4 text-sm text-taupe">{settings.enquiryHours}.</p>
+        <p class="mt-1 text-sm text-taupe">Response time: {settings.responseTime}.</p>
       </div>
       <div class="reveal bg-sand/70 rounded-2xl p-7 text-sm text-taupe leading-relaxed" style="transition-delay: 120ms">
         <p>{settings.travelNote}</p>
