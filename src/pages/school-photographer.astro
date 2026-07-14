@@ -1,0 +1,9 @@
+---
+import { getEntry } from 'astro:content';
+import ServiceLanding from '../components/ServiceLanding.astro';
+
+const page = await getEntry('pages', 'school-photographer');
+const d = page!.data as any;
+---
+
+<ServiceLanding data={d} />

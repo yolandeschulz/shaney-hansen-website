@@ -1,0 +1,150 @@
+---
+/**
+ * ServiceLanding — shared template for the dedicated, SEO-targeted service pages
+ * (wedding / corporate / school photography). Content comes from a page content
+ * file in src/content/pages (editable via Pages CMS). Visual language matches the
+ * rest of the site (Hero, SectionHeading, Button, FAQSection, CTASection).
+ *
+ * Emits page-level Service + BreadcrumbList JSON-LD via BaseLayout's `schemas`.
+ * The primary CTA is WhatsApp (the primary conversion action) with a
+ * page-specific prefilled message and tracking event.
+ */
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from './Hero.astro';
+import Button from './Button.astro';
+import FAQSection from './FAQSection.astro';
+import CTASection from './CTASection.astro';
+
+interface Props {
+  data: Record<string, any>;
+}
+const { data: d } = Astro.props;
+
+const settingsEntry = await getEntry('site', 'settings');
+const settings = (settingsEntry?.data ?? {}) as any;
+
+const wa = (msg?: string) =>
+  `https://wa.me/${settings.whatsapp}${msg ? `?text=${encodeURIComponent(msg)}` : ''}`;
+const waLink = wa(d.whatsappText);
+const track = d.whatsappTrack ?? 'whatsapp_click';
+
+const siteUrl = Astro.site?.href?.replace(/\/$/, '') ?? 'https://shaneyhansen.com';
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: d.serviceName ?? d.title,
+  description: d.serviceDescription ?? d.seoDescription,
+  serviceType: d.serviceName ?? d.title,
+  url: pageUrl,
+  provider: { '@id': `${siteUrl}/#business` },
+  ...(d.serviceArea?.length ? { areaServed: d.serviceArea } : {}),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+    { '@type': 'ListItem', position: 2, name: 'Photography', item: `${siteUrl}/photography` },
+    { '@type': 'ListItem', position: 3, name: d.serviceName ?? d.title, item: pageUrl },
+  ],
+};
+---
+
+<BaseLayout
+  title={d.seoTitle}
+  description={d.seoDescription}
+  ogImage={d.heroImage}
+  schemas={[serviceSchema, breadcrumbSchema]}
+>
+  <!-- Breadcrumbs -->
+  <nav class="max-w-content mx-auto px-5 md:px-8 pt-8 text-xs text-taupe" aria-label="Breadcrumb">
+    <ol class="flex flex-wrap gap-2">
+      <li><a href="/" class="hover:text-gold transition-colors">Home</a> /</li>
+      <li><a href="/photography" class="hover:text-gold transition-colors">Photography</a> /</li>
+      <li aria-current="page" class="text-charcoal">{d.serviceName ?? d.title}</li>
+    </ol>
+  </nav>
+
+  <Hero
+    headline={d.h1}
+    support={d.heroSupport}
+    image={d.heroImage}
+    imageAlt={d.heroImageAlt}
+    focalPointMobile={d.heroFocalMobile}
+    primaryCta={d.primaryCta}
+    primaryLink={waLink}
+    primaryTrack={track}
+    secondaryCta={d.secondaryCta}
+    secondaryLink={d.secondaryLink}
+    compact
+  />
+
+  <!-- Content sections -->
+  <div class="max-w-content mx-auto px-5 md:px-8 space-y-16 md:space-y-24 mt-4">
+    {
+      (d.sections ?? []).map((s: any) => (
+        <section class="reveal max-w-3xl">
+          <h2 class="font-display text-2xl md:text-3xl leading-snug">{s.heading}</h2>
+          {s.text && <p class="mt-4 text-taupe leading-relaxed">{s.text}</p>}
+          {s.list?.length > 0 && (
+            <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+              {s.list.map((item: string) => (
+                <li class="flex items-start gap-3 bg-white rounded-xl shadow-soft px-5 py-4 text-sm">
+                  <span class="text-gold mt-0.5">&#10022;</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
+          {s.ordered?.length > 0 && (
+            <ol class="mt-6 space-y-3">
+              {s.ordered.map((item: string, i: number) => (
+                <li class="flex items-start gap-4 bg-white rounded-xl shadow-soft px-5 py-4 text-sm">
+                  <span class="font-display text-xl text-blush leading-none">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="leading-relaxed pt-0.5">{item}</span>
+                </li>
+              ))}
+            </ol>
+          )}
+        </section>
+      ))
+    }
+  </div>
+
+  <!-- Related links -->
+  {
+    d.related?.length > 0 && (
+      <section class="max-w-content mx-auto px-5 md:px-8 mt-16 md:mt-24">
+        <div class="reveal max-w-3xl">
+          <h2 class="font-display text-xl">Explore more</h2>
+          <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            {d.related.map((r: any) => (
+              <li>
+                <a href={r.href} class="text-charcoal underline underline-offset-4 decoration-sand hover:text-gold transition-colors">
+                  {r.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- FAQ: only visible, published, placeholder-free questions for this service -->
+  {d.faqCategory && <FAQSection categories={[d.faqCategory]} limit={6} moreLink />}
+
+  <!-- Final CTA — WhatsApp is the primary conversion action -->
+  <CTASection
+    heading={d.ctaHeading ?? "Let's plan it together"}
+    text={d.ctaText}
+    buttonLabel={d.ctaButton ?? d.primaryCta}
+    buttonLink={waLink}
+    buttonTrack={track}
+    showWhatsApp={false}
+  />
+</BaseLayout>

@@ -10,8 +10,13 @@ interface Props {
   imageAlt?: string;
   reverse?: boolean;
   id?: string;
+  /** Optional link to a dedicated service page. */
+  link?: string;
+  /** Descriptive anchor text for the dedicated-page link (SEO-friendly). */
+  linkLabel?: string;
 }
-const { name, whoFor, expect, packageDetails, image, imageAlt, reverse = false, id } = Astro.props;
+const { name, whoFor, expect, packageDetails, image, imageAlt, reverse = false, id, link, linkLabel } =
+  Astro.props;
 ---
 
 <article
@@ -39,10 +44,20 @@ const { name, whoFor, expect, packageDetails, image, imageAlt, reverse = false, 
         </p>
       )
     }
-    <div class="mt-6">
+    <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
       <Button href="/contact" variant="outline" track="service_cta_click" trackLabel={name}>
         Enquire About Availability
       </Button>
+      {
+        link && (
+          <a
+            href={link}
+            class="text-sm tracking-wide text-charcoal underline underline-offset-4 decoration-sand hover:text-gold transition-colors"
+          >
+            {linkLabel ?? `More about ${name.toLowerCase()}`} &rarr;
+          </a>
+        )
+      }
     </div>
   </div>
 </article>

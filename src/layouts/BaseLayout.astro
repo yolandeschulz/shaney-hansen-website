@@ -11,6 +11,10 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  /** When true, emit <meta name="robots" content="noindex, follow"> (e.g. the 404 page). */
+  noindex?: boolean;
+  /** Extra JSON-LD objects (e.g. Service, BreadcrumbList) rendered on this page. */
+  schemas?: Record<string, unknown>[];
 }
 
 const settingsEntry = await getEntry('site', 'settings');
@@ -20,27 +24,49 @@ const {
   title = settings.defaultSeoTitle,
   description = settings.defaultSeoDescription,
   ogImage = settings.defaultOgImage,
+  noindex = false,
+  schemas = [],
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImageUrl = new URL(ogImage, Astro.site).href;
 
-// LocalBusiness / ProfessionalService schema.
+// Only real (non-placeholder) social links belong in sameAs.
+const sameAs = [settings.facebook, settings.instagram].filter(
+  (u: unknown) => typeof u === 'string' && u.length > 0 && !u.startsWith('[')
+);
+
+// LocalBusiness / ProfessionalService schema — the global business identity.
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
+  '@id': 'https://shaneyhansen.com/#business',
   name: settings.siteName,
   description: settings.defaultSeoDescription,
+  url: Astro.site?.href,
+  logo: new URL(settings.logo ?? '/favicon.png', Astro.site).href,
+  image: new URL(settings.defaultOgImage ?? '/images/og-image.jpg', Astro.site).href,
   telephone: settings.phone,
   email: settings.email,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Lichtenburg',
-    addressRegion: 'North West',
-    addressCountry: 'ZA',
+    streetAddress: settings.streetAddress,
+    addressLocality: settings.addressLocality ?? 'Lichtenburg',
+    postalCode: settings.postalCode,
+    addressRegion: settings.addressRegion ?? 'North West',
+    addressCountry: settings.addressCountry ?? 'ZA',
   },
-  url: Astro.site?.href,
-  areaServed: ['South Africa', 'International (selected projects)'],
+  areaServed: [
+    'Lichtenburg',
+    'Mahikeng',
+    'Klerksdorp',
+    'North West',
+    'Pretoria',
+    'South Africa',
+    'United States',
+    'International (selected destinations)',
+  ],
+  ...(sameAs.length ? { sameAs } : {}),
 };
 ---
 
@@ -51,6 +77,7 @@ const schema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -69,7 +96,7 @@ const schema = {
         <meta property="og:image:height" content="630" />
       </>
     )}
-    <meta property="og:image:alt" content="Shaney Hansen Photography & Social Media Management" />
+    <meta property="og:image:alt" content="Shaney Hansen Photography — Lichtenburg & destination photographer" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Fonts -->
@@ -81,6 +108,7 @@ const schema = {
     />
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 
     <!-- Analytics & tracking: inert until real IDs are added in Site Settings.
          See ANALYTICS_MONTHLY_REPORTING_GUIDE.md. -->

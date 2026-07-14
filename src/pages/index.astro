@@ -13,6 +13,23 @@ import CTASection from '../components/CTASection.astro';
 const page = await getEntry('pages', 'home');
 const d = page!.data as any;
 
+const settingsEntry = await getEntry('site', 'settings');
+const settings = (settingsEntry?.data ?? {}) as any;
+const wa = (msg?: string) =>
+  `https://wa.me/${settings.whatsapp}${msg ? `?text=${encodeURIComponent(msg)}` : ''}`;
+// Homepage primary CTA is WhatsApp (the primary conversion action).
+const heroPrimaryLink = d.heroWhatsappText ? wa(d.heroWhatsappText) : d.heroPrimaryLink;
+
+// Priority services: editable in Pages CMS ("Home page"). Each links to its own
+// dedicated, SEO-targeted service page.
+const priority = (d.priority ?? []).map((p: any) => ({
+  title: p.title,
+  text: p.text,
+  href: p.href,
+  image: p.image,
+  imageAlt: p.imageAlt,
+}));
+
 const galleries = await getCollection('galleries');
 const featured = galleries
   .filter((g) => g.data.featuredOnHomepage)
@@ -37,11 +54,11 @@ const pillars = [
     text: d.pillar2Text ?? 'Shaney can help create the full look and feel of a shoot — concepts, styling, prop work and sets built by her own hands.',
     href: '/creative-direction',
     image: d.pillar2Image ?? '/images/creative-direction/cover.jpg',
-    imageAlt: d.pillar2ImageAlt ?? 'Styled photography set built by Shaney Hansen',
+    imageAlt: d.pillar2ImageAlt ?? 'Styled photography session by Shaney Hansen',
   },
   {
-    title: d.pillar3Title ?? 'Social Media Management',
-    text: d.pillar3Text ?? 'Creative, story-led social media management and content creation for brands, teams and businesses that need to show up beautifully online.',
+    title: d.pillar3Title ?? 'Social Media Content Creation',
+    text: d.pillar3Text ?? 'Photography-led social media content and management for brands, teams and businesses that need to show up consistently and beautifully online.',
     href: '/social-media',
     image: d.pillar3Image ?? '/images/social-media/cover.jpg',
     imageAlt: d.pillar3ImageAlt ?? 'Social media content creation by Shaney Hansen',
@@ -62,7 +79,8 @@ const pillars = [
     image={d.heroImage}
     imageAlt={d.heroImageAlt}
     primaryCta={d.heroPrimaryCta}
-    primaryLink={d.heroPrimaryLink}
+    primaryLink={heroPrimaryLink}
+    primaryTrack="whatsapp_click"
     secondaryCta={d.heroSecondaryCta}
     secondaryLink={d.heroSecondaryLink}
   />
@@ -71,6 +89,55 @@ const pillars = [
   <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
     <SectionHeading eyebrow="Shaney Hansen" title={d.introHeading} text={d.introText} align="center" />
   </section>
+
+  <!-- 2b. Priority services — the highest-value work, each linking to its own page -->
+  {
+    priority.length > 0 && (
+      <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">
+        <SectionHeading eyebrow="Photography" title={d.priorityHeading} text={d.priorityText} />
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          {priority.map((p: any, i: number) => (
+            <ServicePillarCard {...p} delay={i * 120} />
+          ))}
+        </div>
+        {d.priorityMore?.length > 0 && (
+          <p class="reveal mt-8 text-sm text-taupe">
+            {d.priorityMoreLabel ?? 'Also available:'}{' '}
+            {d.priorityMore.map((m: any, i: number) => (
+              <>
+                {i > 0 && <span class="text-sand"> · </span>}
+                <a href={m.href} class="text-charcoal underline underline-offset-4 decoration-sand hover:text-gold transition-colors">
+                  {m.label}
+                </a>
+              </>
+            ))}
+          </p>
+        )}
+      </section>
+    )
+  }
+
+  <!-- 2c. Proof strip — concise, factual reasons to choose Shaney -->
+  {
+    d.proofItems?.length > 0 && (
+      <section class="bg-sand/50 py-12 md:py-16 my-16 md:my-24">
+        <div class="max-w-content mx-auto px-5 md:px-8">
+          <h2 class="reveal font-display text-2xl md:text-3xl text-center">{d.proofHeading ?? 'Why clients choose Shaney'}</h2>
+          <ul class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
+            {d.proofItems.map((item: string, i: number) => (
+              <li
+                class="reveal flex items-start gap-3 bg-white rounded-xl shadow-soft px-5 py-4 text-sm"
+                style={`transition-delay: ${(i % 3) * 80}ms`}
+              >
+                <span class="text-gold mt-0.5">&#10022;</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
 
   <!-- 3. Three service pillars -->
   <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24">

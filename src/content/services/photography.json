@@ -1,19 +1,40 @@
 {
-  "title": "Photography Services",
+  "title": "Photography services for people, businesses and meaningful moments",
   "intro": "Warm, natural, story-led photography for meaningful people, places and moments. Every session is planned with care and documented with intention — from the big occasion to the real moments in between.",
-  "seoTitle": "Photography Services | Shaney Hansen Photography",
-  "seoDescription": "Warm, story-led photography services in South Africa — weddings, couples, families, maternity, newborns, cake smash, schools, sport, corporate, studio, styled and destination sessions.",
+  "seoTitle": "Photography Services in Lichtenburg | Shaney Hansen",
+  "seoDescription": "Explore wedding, family, maternity, newborn, school, corporate, studio and destination photography by Shaney Hansen in Lichtenburg and beyond.",
   "heroImage": "/images/VM-210.jpg",
   "heroImageAlt": "Wedding photography by Shaney Hansen",
-  "heroPrimaryCta": "Enquire Now",
+  "heroPrimaryCta": "Enquire on WhatsApp",
+  "heroWhatsappText": "Hello Shaney, I'd like to enquire about photography.",
   "heroSecondaryCta": "View Portfolio",
   "services": [
     {
       "name": "Wedding Photography",
       "whoFor": "For couples planning their wedding day, locally or as a destination celebration.",
-      "expect": "A calm, professional presence and warm, emotional documentation of your full day — the moments you felt and the details you never want to forget.",
+      "expect": "A calm, professional presence and warm, story-led documentation of your full day — the moments you felt and the details you never want to forget.",
+      "link": "/wedding-photographer",
+      "linkLabel": "Wedding photography, areas served & how booking works",
       "image": "/images/weddings/cover.jpg",
-      "imageAlt": "Bride and groom wedding portrait by Shaney Hansen Photography"
+      "imageAlt": "Bride and groom in soft natural light on their wedding day"
+    },
+    {
+      "name": "Corporate Photography",
+      "whoFor": "For business portraits, team photos, conferences, branding and professional content.",
+      "expect": "Professional images for websites, LinkedIn, social media and brand content — polished and consistent, but still natural and human.",
+      "link": "/corporate-photographer",
+      "linkLabel": "Corporate headshots, teams, conferences & equipment",
+      "image": "/images/y7yjfjdf.png",
+      "imageAlt": "Professional corporate headshot in natural light"
+    },
+    {
+      "name": "School Photography",
+      "whoFor": "For schools and pre-schools needing portraits, class photos, photo booths and sport headshots.",
+      "expect": "A calm, organised, child-friendly approach that keeps the day running smoothly, planned directly with the school or organisation.",
+      "link": "/school-photographer",
+      "linkLabel": "School & pre-school services, schools worked with & areas",
+      "image": "/images/school/cover.jpg",
+      "imageAlt": "Child-friendly school portrait session"
     },
     {
       "name": "Couples Photography",
@@ -41,62 +62,50 @@
       "whoFor": "For gentle newborn sessions in those first precious weeks.",
       "expect": "A calm, patient, baby-led session — no rushing, no pressure, just softness and care.",
       "image": "/images/newborn/newborn-059.jpg",
-      "imageAlt": "Newborn photography session by Shaney Hansen Photography"
+      "imageAlt": "Newborn photography session by Shaney Hansen"
     },
     {
       "name": "Cake Smash Photography",
       "whoFor": "For first birthdays and milestone celebrations.",
-      "expect": "A joyful, styled session with a custom-built setup created around your little one.",
+      "expect": "A joyful, styled session with a setup planned around your little one — colourful, playful and full of personality.",
       "image": "/images/hirkpcnr.png",
       "imageAlt": "Cake smash birthday photography session"
-    },
-    {
-      "name": "School & Pre-school Photography",
-      "whoFor": "For schools and pre-schools needing portraits, class photos and event coverage.",
-      "expect": "A calm, organised, child-friendly approach that keeps the day running smoothly.",
-      "image": "/images/school/cover.jpg",
-      "imageAlt": "School photography session in South Africa"
-    },
-    {
-      "name": "Sport Photography",
-      "whoFor": "For sports days, teams, action photos and school sport events.",
-      "expect": "Energetic, action-led coverage that captures effort, teamwork and the big moments.",
-      "image": "/images/nc2yk7qv.png",
-      "imageAlt": "School sport photography session in South Africa"
-    },
-    {
-      "name": "Corporate Photography",
-      "whoFor": "For business portraits, team photos, branding and professional content.",
-      "expect": "Professional images for websites, LinkedIn, social media and brand content — polished but human.",
-      "image": "/images/y7yjfjdf.png",
-      "imageAlt": "Corporate headshot photography by Shaney Hansen Photography"
     },
     {
       "name": "Studio Sessions",
       "whoFor": "For controlled indoor shoots — portraits, creative concepts and beautifully lit scenes.",
       "expect": "A considered studio experience with thoughtful lighting and creative direction.",
       "image": "/images/studio/studio-028.jpg",
-      "imageAlt": "Studio photography session by Shaney Hansen Photography"
+      "imageAlt": "Studio photography session by Shaney Hansen"
     },
     {
       "name": "Styled Sessions",
       "whoFor": "For themed, creative, seasonal or concept shoots — personal, family or brand.",
-      "expect": "Creative shoots for campaigns, seasonal content, personal brands or social media storytelling, with sets and styling built by Shaney herself.",
+      "expect": "Creative shoots for campaigns, seasonal content, personal brands or social media storytelling, with creative direction and styling shaped around your concept.",
       "image": "/images/candtf8x.png",
-      "imageAlt": "Styled photography session with creative set design"
+      "imageAlt": "Styled photography session with creative direction"
+    },
+    {
+      "name": "Sport Headshots & School Sport",
+      "whoFor": "For sports days, teams, action photos and school sport events.",
+      "expect": "Energetic, action-led coverage and clean sport headshots that capture effort, teamwork and the big moments.",
+      "image": "/images/nc2yk7qv.png",
+      "imageAlt": "School sport photography session"
     },
     {
       "name": "Destination Lifestyle & Content Photography",
       "whoFor": "For destination weddings, creators, brands, teams and families who want the full experience documented for both memories and online storytelling.",
       "expect": "Shaney travels with you and documents the full journey — the quiet in-between moments, the details, the portraits, the lifestyle content and the main occasion.",
-      "packageDetails": "Travel fees, accommodation, duration, deliverables and quote to be confirmed individually",
+      "packageDetails": "Travel fees, accommodation, duration, deliverables and quote confirmed individually.",
+      "link": "/destination",
+      "linkLabel": "Destination & travel photography",
       "image": "/images/weddings/weddings-003.jpg",
       "imageAlt": "Destination lifestyle photography session"
     }
   ],
   "pricingHeading": "Every session is quoted personally",
   "pricingText": "No two stories are the same — a sunrise maternity session, a full wedding day and a styled cake smash each ask for different planning, travel, styling and editing time. Rather than fitting your moment into a standard package, Shaney prepares a quote around exactly what you need, so you only ever pay for what your session truly involves. Share a few details about what you're dreaming of, and you'll receive a personal quote — usually within a day or two.",
-  "pricingNote": "From time to time, Shaney runs seasonal mini sessions and special offers. These are announced on Facebook and Instagram first — follow along so you don't miss them.",
+  "pricingNote": "Travel beyond 30 kilometres is quoted separately. From time to time, Shaney also runs seasonal mini sessions and special offers — announced on Facebook and Instagram first, so follow along so you don't miss them.",
   "ctaSectionHeading": "Ready to plan your session?",
   "ctaSectionText": "Share what you have in mind and Shaney will help shape it into a session that feels like you."
 }
