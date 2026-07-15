@@ -2,7 +2,7 @@
 import { getEntry } from 'astro:content';
 import GoogleReviewsCTA from './GoogleReviewsCTA.astro';
 const settingsEntry = await getEntry('site', 'settings');
-const settings = settingsEntry?.data ?? {};
+const settings = (settingsEntry?.data ?? {}) as any;
 const year = new Date().getFullYear();
 const hasFacebook = settings.facebook && !String(settings.facebook).startsWith('[');
 const hasInstagram = settings.instagram && !String(settings.instagram).startsWith('[');
@@ -13,12 +13,12 @@ const hasInstagram = settings.instagram && !String(settings.instagram).startsWit
     <div>
       <img
         src="/images/general/shaney-hansen-logo-large.png"
-        alt="Shaney Hansen Photography — since 2016"
+        alt="Shaney Hansen Photography"
         class="h-16 w-auto"
         loading="lazy"
       />
       <p class="text-xs uppercase tracking-[0.22em] text-taupe mt-2">
-        &amp; Social Media Management
+        Lichtenburg &amp; Destination Photographer
       </p>
       <p class="mt-4 text-sm text-taupe leading-relaxed max-w-xs">{settings.footerLine}</p>
     </div>

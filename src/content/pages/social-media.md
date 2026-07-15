@@ -1,15 +1,17 @@
 ---
-title: Social Media Management
-seoTitle: Social Media Management South Africa | Shaney Hansen
-seoDescription: Creative social media management and content storytelling for
-  small businesses, teams, brands and international clients looking for
-  professional support with South African value.
-heroHeadline: Creative social media management for brands that need to show up beautifully.
-heroSupport: Shaney helps businesses, teams and personal brands build a warmer,
-  more consistent online presence through visual storytelling, content planning
-  and thoughtful social media management.
+title: Social Media Content Creation
+seoTitle: Social Media Content Creation | Shaney Hansen
+seoDescription: Photography-led social media content creation and management for
+  businesses, teams and brands in South Africa, the USA and internationally.
+heroHeadline: Photography-led social media content that helps brands show up consistently
+heroSupport: Because Shaney is a photographer first, her social media support is
+  not only about posting. It is about creating content that looks considered,
+  feels on-brand and gives people a reason to stop scrolling — with visual
+  storytelling, content planning and thoughtful management.
 heroImage: /images/social-media/cover.jpg
 heroImageAlt: Social media content creation by Shaney Hansen
+whatsappText: Hello Shaney, I'd like to enquire about social media content and
+  management support.
 cta: Enquire About Social Media Support
 internationalCta: Request an International Social Media Quote
 mosaicHeading: Visuals made to stop the scroll

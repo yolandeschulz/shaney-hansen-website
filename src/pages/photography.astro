@@ -21,12 +21,18 @@ const entry = await getEntry('services', 'photography');
 const d = entry!.data as any;
 const services = d.services ?? [];
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+const settingsEntry = await getEntry('site', 'settings');
+const settings = (settingsEntry?.data ?? {}) as any;
+const waLink = `https://wa.me/${settings.whatsapp}${
+  d.heroWhatsappText ? `?text=${encodeURIComponent(d.heroWhatsappText)}` : ''
+}`;
 ---
 
 <BaseLayout
-  title={d.seoTitle ?? 'Photography Services | Shaney Hansen Photography'}
+  title={d.seoTitle ?? 'Photography Services in Lichtenburg | Shaney Hansen'}
   description={d.seoDescription ??
-    'Warm, story-led photography services in South Africa — weddings, couples, families, maternity, newborns, cake smash, schools, sport, corporate, studio, styled and destination sessions.'}
+    'Explore wedding, family, maternity, newborn, school, corporate, studio and destination photography by Shaney Hansen in Lichtenburg and beyond.'}
   ogImage={d.heroImage ?? '/images/weddings/cover.jpg'}
 >
   <Hero
@@ -34,9 +40,9 @@ const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').repla
     support={d.intro}
     image={d.heroImage ?? '/images/weddings/cover.jpg'}
     imageAlt={d.heroImageAlt ?? 'Wedding photography by Shaney Hansen'}
-    primaryCta={d.heroPrimaryCta ?? 'Enquire Now'}
-    primaryLink="/contact"
-    primaryTrack="quote_click"
+    primaryCta={d.heroPrimaryCta ?? 'Enquire on WhatsApp'}
+    primaryLink={waLink}
+    primaryTrack="whatsapp_click"
     secondaryCta={d.heroSecondaryCta ?? 'View Portfolio'}
     secondaryLink="/portfolio"
     compact
@@ -71,6 +77,8 @@ const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').repla
           packageDetails={s.packageDetails}
           image={s.image}
           imageAlt={s.imageAlt}
+          link={s.link}
+          linkLabel={s.linkLabel}
           reverse={i % 2 === 1}
         />
       ))

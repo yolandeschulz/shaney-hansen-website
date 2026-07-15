@@ -50,10 +50,38 @@ const proof = galleries.filter((g) => ['styled', 'studio', 'cake-smash'].include
     </ul>
   </section>
 
+  <!-- Priority uses & areas served -->
+  {
+    (p.priorityUses?.length || p.areasServed?.length) && (
+      <section class="max-w-content mx-auto px-5 md:px-8 my-16 md:my-24 grid gap-10 md:grid-cols-2">
+        {p.priorityUses?.length > 0 && (
+          <div class="reveal">
+            <h2 class="font-display text-xl">Ideal for</h2>
+            <ul class="mt-4 flex flex-wrap gap-2.5">
+              {p.priorityUses.map((u: string) => (
+                <li class="rounded-full bg-white shadow-soft px-4 py-2 text-sm text-taupe">{u}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {p.areasServed?.length > 0 && (
+          <div class="reveal" style="transition-delay: 120ms">
+            <h2 class="font-display text-xl">Areas served</h2>
+            <ul class="mt-4 flex flex-wrap gap-2.5">
+              {p.areasServed.map((a: string) => (
+                <li class="rounded-full bg-white shadow-soft px-4 py-2 text-sm text-taupe">{a}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </section>
+    )
+  }
+
   <!-- Collage-style proof galleries -->
   <section class="bg-sand/60 py-16 md:py-24 my-16 md:my-24">
     <div class="max-w-content mx-auto px-5 md:px-8">
-      <SectionHeading eyebrow="Proof in the portfolio" title="Sets, scenes and concepts built by Shaney" text={p.proofText} />
+      <SectionHeading eyebrow="Proof in the portfolio" title="Concepts, styling and scenes shaped by Shaney" text={p.proofText} />
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
           proof.map((g, i) => (
@@ -62,7 +90,7 @@ const proof = galleries.filter((g) => ['styled', 'studio', 'cake-smash'].include
               description={g.data.description}
               coverImage={g.data.coverImage}
               coverAlt={g.data.coverAlt}
-              coverFocal={g.data.coverFocal}
+              coverFocal={(g.data as any).coverFocal}
               slug={g.id.replace('.json', '')}
               delay={i * 120}
             />

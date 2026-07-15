@@ -1,7 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 const settingsEntry = await getEntry('site', 'settings');
-const settings = settingsEntry?.data ?? {};
+const settings = (settingsEntry?.data ?? {}) as any;
 
 const nav = [
   { label: 'Home', href: '/' },
@@ -30,7 +30,7 @@ const isActive = (href: string) => (href === '/' ? current === '/' : current.sta
       />
       <span
         class="block whitespace-nowrap text-[0.5rem] md:text-[0.6rem] uppercase tracking-[0.26em] text-taupe mt-0.5 pl-0.5"
-        >&amp; Social Media Management</span
+        >Lichtenburg &amp; Destination Photographer</span
       >
     </a>
 

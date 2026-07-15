@@ -3,6 +3,96 @@
   "intro": "The questions people ask most before booking. Anything else — just ask, Shaney is happy to help.",
   "items": [
     {
+      "question": "How far in advance should we book our wedding?",
+      "answer": "As early as you can — wedding enquiries are ideally made six to twelve months ahead, especially for spring and December dates. If your date is sooner, it is always worth asking; sometimes a date is still open.",
+      "category": "weddings",
+      "published": true
+    },
+    {
+      "question": "Do you travel for weddings?",
+      "answer": "Yes. Shaney photographs weddings in Lichtenburg, across the North West, in Pretoria and wider South Africa, as well as selected international destinations. Travel beyond 30 kilometres, destination weddings and international bookings are quoted individually.",
+      "category": "weddings",
+      "published": true
+    },
+    {
+      "question": "Are travel and accommodation included in the price?",
+      "answer": "For local weddings, travel beyond 30 kilometres is quoted separately. For destination and international weddings, travel and accommodation are arranged with you and covered by the client — everything is confirmed clearly in your proposal before you book.",
+      "category": "weddings",
+      "published": true
+    },
+    {
+      "question": "How do you help couples who feel awkward in front of the camera?",
+      "answer": "Most couples say exactly this. Shaney works calmly and gently, with relaxed guidance and prompts rather than stiff posing, so the day feels natural and you can simply be present together. The result is genuine emotion and real connection rather than posed photographs.",
+      "category": "weddings",
+      "published": true
+    },
+    {
+      "question": "When will we receive our wedding photographs?",
+      "answer": "A preview is usually shared within two to three days of the wedding. The delivery timing for your full gallery is confirmed in your proposal — standard sessions are generally delivered within five to ten working days, while larger events such as weddings may require longer.",
+      "category": "weddings",
+      "published": true
+    },
+    {
+      "question": "Do you photograph at our offices or on location?",
+      "answer": "Yes. Shaney photographs corporate headshots, teams, conferences and business content on location at your offices or venue, and can also arrange a controlled setup with backdrops and lighting where that suits the brief.",
+      "category": "corporate",
+      "published": true
+    },
+    {
+      "question": "Can you photograph large teams?",
+      "answer": "Yes. Team photographs and individual staff headshots are planned in advance so the session runs efficiently and keeps disruption to your workday to a minimum. Tell Shaney your team size and she'll plan the timing with you.",
+      "category": "corporate",
+      "published": true
+    },
+    {
+      "question": "Do you cover conferences and corporate events?",
+      "answer": "Yes — conference and corporate event photography is one of Shaney's corporate services, capturing speakers, sessions, delegates and the moments in between for your reports, website and social media.",
+      "category": "corporate",
+      "published": true
+    },
+    {
+      "question": "Can you create headshots for LinkedIn and our company website?",
+      "answer": "Yes. Consistent, professional headshots for LinkedIn, company websites and brand content are a core part of the corporate service — polished and on-brand, but still natural and human.",
+      "category": "corporate",
+      "published": true
+    },
+    {
+      "question": "Do you provide backdrops and lighting for corporate shoots?",
+      "answer": "Yes. Shaney works with a full-frame mirrorless camera, multiple lenses, on-camera and off-camera flash, studio lighting, a backdrop stand and multiple backdrops, so sessions can be run on location or as a controlled setup.",
+      "category": "corporate",
+      "published": true
+    },
+    {
+      "question": "Which school photography services are available?",
+      "answer": "Individual learner portraits, class photographs, pre-school photography, photo booth setups and sport headshots. School and pre-school bookings are planned directly with the school or organisation.",
+      "category": "school",
+      "published": true
+    },
+    {
+      "question": "Do you photograph pre-schools?",
+      "answer": "Yes. Pre-school photography is planned with a calm, patient, child-friendly approach suited to younger children, keeping the day running smoothly for staff and little ones alike.",
+      "category": "school",
+      "published": true
+    },
+    {
+      "question": "Can you photograph full classes and sport headshots?",
+      "answer": "Yes — class photographs and individual sport headshots are both offered, planned in advance with the school so the day stays organised and disruption is kept to a minimum.",
+      "category": "school",
+      "published": true
+    },
+    {
+      "question": "Which areas do you serve for school photography?",
+      "answer": "Lichtenburg, Mahikeng, Klerksdorp and the wider North West, with other areas considered for suitable school and pre-school contracts. Travel beyond 30 kilometres is quoted individually.",
+      "category": "school",
+      "published": true
+    },
+    {
+      "question": "How does a school request a proposal?",
+      "answer": "Send an enquiry or WhatsApp Shaney with your school, the services you need and your preferred dates, and she'll put together a proposal for your school.",
+      "category": "school",
+      "published": true
+    },
+    {
       "question": "How do I book a session with Shaney?",
       "answer": "Send an enquiry through the contact form, or WhatsApp or call Shaney directly. She'll confirm availability for your date, talk through what you have in mind, and share everything you need to secure your booking. From first enquiry to final gallery, the process is designed to feel simple, personal and relaxed.",
       "category": "bookings",

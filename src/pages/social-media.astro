@@ -15,9 +15,41 @@ const svc = await getEntry('services', 'social-media');
 const d = svc!.data as any;
 const caseStudy = await getEntry('case-studies', 'team-up-athletics');
 const cs = caseStudy?.data as any;
+
+const settingsEntry = await getEntry('site', 'settings');
+const settings = (settingsEntry?.data ?? {}) as any;
+const waLink = `https://wa.me/${settings.whatsapp}${
+  p.whatsappText ? `?text=${encodeURIComponent(p.whatsappText)}` : ''
+}`;
+
+const siteUrl = Astro.site?.href?.replace(/\/$/, '') ?? 'https://shaneyhansen.com';
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Social Media Content Creation & Management',
+  description: p.seoDescription,
+  serviceType: 'Social Media Management',
+  url: pageUrl,
+  provider: { '@id': `${siteUrl}/#business` },
+  areaServed: ['South Africa', 'United States', 'International'],
+};
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+    { '@type': 'ListItem', position: 2, name: 'Social Media', item: pageUrl },
+  ],
+};
 ---
 
-<BaseLayout title={p.seoTitle} description={p.seoDescription} ogImage={p.heroImage}>
+<BaseLayout
+  title={p.seoTitle}
+  description={p.seoDescription}
+  ogImage={p.heroImage}
+  schemas={[serviceSchema, breadcrumbSchema]}
+>
   <Hero
     focalPoint={p.heroFocal}
     focalPointMobile={p.heroFocalMobile}
@@ -26,8 +58,8 @@ const cs = caseStudy?.data as any;
     image={p.heroImage}
     imageAlt={p.heroImageAlt}
     primaryCta={p.cta}
-    primaryLink="/contact"
-    primaryTrack="social_media_enquiry_click"
+    primaryLink={waLink}
+    primaryTrack="social_media_whatsapp_click"
     compact
   />
 

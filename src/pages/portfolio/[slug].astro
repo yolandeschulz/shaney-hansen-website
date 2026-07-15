@@ -14,12 +14,29 @@ export async function getStaticPaths() {
 }
 
 const { gallery } = Astro.props;
-const d = gallery.data;
+const d = gallery.data as any;
 const all = (await getCollection('galleries')).sort((a, b) => a.data.order - b.data.order);
 const others = all.filter((g) => g.id !== gallery.id).slice(0, 4);
+
+const siteUrl = Astro.site?.href?.replace(/\/$/, '') ?? 'https://shaneyhansen.com';
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+    { '@type': 'ListItem', position: 2, name: 'Portfolio', item: `${siteUrl}/portfolio` },
+    { '@type': 'ListItem', position: 3, name: d.title, item: pageUrl },
+  ],
+};
 ---
 
-<BaseLayout title={d.seoTitle ?? `${d.title} | Shaney Hansen Photography`} description={d.seoDescription ?? d.description} ogImage={d.coverImage}>
+<BaseLayout
+  title={d.seoTitle ?? `${d.title} | Shaney Hansen Photography`}
+  description={d.seoDescription ?? d.description}
+  ogImage={d.coverImage}
+  schemas={[breadcrumbSchema]}
+>
   <!-- Breadcrumbs -->
   <nav class="max-w-content mx-auto px-5 md:px-8 pt-8 text-xs text-taupe" aria-label="Breadcrumb">
     <ol class="flex gap-2">
@@ -31,8 +48,20 @@ const others = all.filter((g) => g.id !== gallery.id).slice(0, 4);
 
   <section class="max-w-content mx-auto px-5 md:px-8 pt-8 md:pt-12">
     <div class="reveal max-w-2xl">
-      <h1 class="font-display text-4xl md:text-5xl">{d.title}</h1>
+      <h1 class="font-display text-4xl md:text-5xl">{d.h1 ?? d.title}</h1>
       <p class="mt-4 text-taupe leading-relaxed">{d.description}</p>
+      {
+        d.serviceLink && (
+          <p class="mt-5">
+            <a
+              href={d.serviceLink}
+              class="text-sm tracking-wide text-charcoal underline underline-offset-4 decoration-sand hover:text-gold transition-colors"
+            >
+              {d.serviceLinkLabel ?? 'Learn more about this service'} &rarr;
+            </a>
+          </p>
+        )
+      }
     </div>
   </section>
 

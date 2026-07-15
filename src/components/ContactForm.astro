@@ -7,7 +7,7 @@ interface Props {
 const { consentText = 'I consent to my details being used to respond to this enquiry.' } = Astro.props;
 
 const settingsEntry = await getEntry('site', 'settings');
-const settings = settingsEntry?.data ?? {};
+const settings = (settingsEntry?.data ?? {}) as any;
 
 // FORM ENDPOINT:
 // Set "formEndpoint" in src/content/site/settings.json (editable in Pages CMS)
@@ -97,6 +97,10 @@ const labelClass = 'block text-xs uppercase tracking-widest text-taupe mb-1.5';
         <option value="">Please choose…</option>
         {locations.map((l) => <option value={l}>{l}</option>)}
       </select>
+    </div>
+    <div>
+      <label class={labelClass} for="headcount">Number of people / attendees (if relevant)</label>
+      <input class={inputClass} type="text" id="headcount" name="headcount" placeholder="e.g. family of 5, team of 20" />
     </div>
     <div>
       <label class={labelClass} for="platforms">Platforms needing support (if social media)</label>

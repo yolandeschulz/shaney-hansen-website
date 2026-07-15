@@ -15,7 +15,7 @@ const settings = settingsEntry?.data ?? {};
 
 <BaseLayout title={d.seoTitle} description={d.seoDescription}>
   <section class="max-w-content mx-auto px-5 md:px-8 pt-14 md:pt-20">
-    <SectionHeading eyebrow="Contact" title={d.heroHeadline} text={d.heroSupport} align="center" />
+    <SectionHeading as="h1" eyebrow="Contact" title={d.heroHeadline} text={d.heroSupport} align="center" />
   </section>
 
   <section class="max-w-content mx-auto px-5 md:px-8 mt-12 md:mt-16 grid gap-10 lg:grid-cols-3">
@@ -55,8 +55,15 @@ const settings = settingsEntry?.data ?? {};
               >{settings.email}</a
             >
           </li>
-          <li class="text-taupe">{settings.location}</li>
         </ul>
+        <address class="mt-4 not-italic text-sm text-taupe leading-relaxed">
+          {settings.siteName}<br />
+          {settings.streetAddress}<br />
+          {settings.addressLocality} {settings.postalCode}<br />
+          {settings.addressRegion}, South Africa
+        </address>
+        <p class="mt-4 text-sm text-taupe">{settings.enquiryHours}.</p>
+        <p class="mt-1 text-sm text-taupe">Response time: {settings.responseTime}.</p>
       </div>
       <div class="reveal bg-sand/70 rounded-2xl p-7 text-sm text-taupe leading-relaxed" style="transition-delay: 120ms">
         <p>{settings.travelNote}</p>

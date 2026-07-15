@@ -1,5 +1,5 @@
 /**
- * Analytics helpers — Shaney Hansen Photography & Social Media Management.
+ * Analytics helpers — Shaney Hansen Photography.
  *
  * The site is built "tracking ready": nothing loads or fires until real IDs
  * are added in Site Settings (src/content/site/settings.json, editable via
@@ -29,6 +29,11 @@ export const EVENTS = {
   PAGE_VIEW: 'page_view',
   CONTACT_FORM_SUBMIT: 'contact_form_submit',
   WHATSAPP_CLICK: 'whatsapp_click',
+  WEDDING_WHATSAPP_CLICK: 'wedding_whatsapp_click',
+  CORPORATE_WHATSAPP_CLICK: 'corporate_whatsapp_click',
+  SCHOOL_WHATSAPP_CLICK: 'school_whatsapp_click',
+  DESTINATION_WHATSAPP_CLICK: 'destination_whatsapp_click',
+  SOCIAL_MEDIA_WHATSAPP_CLICK: 'social_media_whatsapp_click',
   EMAIL_CLICK: 'email_click',
   PHONE_CLICK: 'phone_click',
   QUOTE_CLICK: 'quote_click',
